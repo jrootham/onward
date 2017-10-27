@@ -45,6 +45,11 @@ p {
 
 .bg-primary {
   background-color: $theme-primary !important;
+  p {
+    > a {
+      color: white;
+    }
+  }
 }
 
 .bg-dark {
