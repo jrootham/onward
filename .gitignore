@@ -50,3 +50,6 @@ bower.json
 
 # System files
 .DS_Store
+
+#node_modules
+/landing_page/node_modules
