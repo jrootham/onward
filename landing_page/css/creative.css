@@ -42,6 +42,8 @@ p {
 
 .bg-primary {
   background-color: #F05F40 !important; }
+  .bg-primary p > a {
+    color: white; }
 
 .bg-dark {
   color: white;
