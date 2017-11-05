@@ -53,3 +53,7 @@ bower.json
 
 #node_modules
 /landing_page/node_modules
+
+# Python stuff
+__pycache__
+db_secrets.py
