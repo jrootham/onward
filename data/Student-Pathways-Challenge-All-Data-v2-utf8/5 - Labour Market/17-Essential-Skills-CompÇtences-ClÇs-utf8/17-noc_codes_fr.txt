@@ -1,0 +1,147 @@
+631		Directeurs/directrices de la restauration et des services alimentaires
+0632a	Directeurs/directrices des services d'hébergement
+712		Gestionnaires en construction et rénovation domiciliaire
+1111	Vérificateurs/vérificatrices et comptables
+1114	Autres agents financiers/agentes financières
+1121	Professionnels/professionnelles en ressources humaines
+1223	Agents/agentes des ressources humaines et de recrutement
+1224	Agents/agentes de gestion immobilière
+1226	Planificateurs/planificatrices de congrès et d'événements
+1228	Agents/agentes d'assurance-emploi, d'immigration, de services frontaliers et du revenu
+1422	Commis à la saisie de données
+1423	Opérateurs/opératrices d'équipement d'éditique et personnel assimilé
+1431	Commis à la comptabilité et personnel assimilé
+1432	Administrateurs/administratrices de la paye
+1434	Commis de banque, d'assurance et d'autres services financiers
+1435	Agents/agentes de recouvrement
+2122	Professionnels/professionnelles des sciences forestières
+2123	Agronomes, conseillers/conseillères et spécialistes en agriculture
+2131	Ingénieurs civils/ingénieures civiles
+2132	Ingénieurs mécaniciens/ingénieures mécaniciennes
+2133	Ingénieurs électriciens et électroniciens/ingénieures électriciennes et électroniciennes
+2134	Ingénieurs chimistes/ingénieures chimistes
+2141	Ingénieurs/ingénieures d'industrie et de fabrication
+2142	Ingénieurs/ingénieures métallurgistes et des matériaux
+2152	Architectes paysagistes
+2153	Urbanistes et planificateurs/planificatrices de l'utilisation des sols
+2154	Arpenteurs-géomètres/arpenteuses-géomètres
+2171	Analystes et consultants/consultantes en informatique
+2172	Analystes de bases de données et administrateurs/administratrices de données
+2174	Programmeurs/programmeuses et développeurs/développeuses en médias interactifs
+2175	Concepteurs/conceptrices et développeurs/développeuses Web
+2211	Technologues et techniciens/techniciennes en chimie
+2221	Technologues et techniciens/techniciennes en biologie
+2222	Inspecteurs/inspectrices des produits agricoles et de la pêche
+2223	Technologues et techniciens/techniciennes en sciences forestières
+2225	Techniciens/techniciennes et spécialistes de l'aménagement paysager et de l'horticulture
+2231	Technologues et techniciens/techniciennes en génie civil
+2232	Technologues et techniciens/techniciennes en génie mécanique
+2233c	Technologues et techniciens/techniciennes en génie industriel et en génie de fabrication
+2234	Estimateurs/estimatrices en construction
+2242	Électroniciens/électroniciennes d'entretien (biens domestiques et commerciaux)
+2243	Techniciens/techniciennes et mécaniciens/mécaniciennes d'instruments industriels
+2244	Mécaniciens/mécaniciennes, techniciens/techniciennes et contrôleurs/contrôleuses d'avionique et d'instruments et d'appareillages électriques d'aéronefs
+2251	Technologues et techniciens/techniciennes en architecture
+2253	Technologues et techniciens/techniciennes en dessin
+2254	Technologues et techniciens/techniciennes en arpentage
+2261	Vérificateurs/vérificatrices et essayeurs/essayeuses des essais non destructifs
+2262	Inspecteurs/inspectrices d'ingénierie et officiers/officières de réglementation
+2264	Inspecteurs/inspectrices en construction
+2271	Pilotes, navigateurs/navigatrices et instructeurs/instructrices de pilotage du transport aérien
+2272	Contrôleurs aériens/contrôleuses aériennes et personnel assimilé
+2274	Officiers mécaniciens/officières mécaniciennes du transport par voies navigables
+2281	Techniciens/techniciennes de réseau informatique
+2282	Agents/agentes de soutien aux utilisateurs
+2283	Évaluateurs/évaluatrices de systèmes informatiques
+3113	Dentistes
+3114	Vétérinaires
+3121	Optométristes
+3132	Diététistes et nutritionnistes
+3141	Audiologistes et orthophonistes
+3142	Physiothérapeutes
+3143	Ergothérapeutes
+3213	Technologues en santé animale et techniciens/techniciennes vétérinaires
+3215	Technologues en radiation médicale
+3221	Denturologistes
+3222	Hygiénistes et thérapeutes dentaires
+3223	Technologues et techniciens/techniciennes dentaires et auxiliaires dans les laboratoires dentaires
+3231	Opticiens/opticiennes d'ordonnances
+3233	Infirmiers auxiliaires/infirmières auxiliaires
+3411	Assistants/assistantes dentaires
+4151	Psychologues
+4152	Travailleurs sociaux/travailleuses sociales
+4153	Thérapeutes conjugaux/thérapeutes conjugales, thérapeutes familiaux/thérapeutes familiales et autres conseillers assimilés/conseillères assimilées
+4155	Agents/agentes de probation et de libération conditionnelle et personnel assimilé
+4212	Travailleurs/travailleuses des services sociaux et communautaires
+4214	Éducateurs/éducatrices et aides-éducateurs/aides-éducatrices de la petite enfance
+4215	Instructeurs/instructrices pour personnes ayant une déficience
+4216	Autres instructeurs/instructrices
+5111	Bibliothécaires
+5113	Archivistes
+5121	Auteurs/auteures, rédacteurs/rédactrices et écrivains/écrivaines
+5122	Réviseurs/réviseures, rédacteurs-réviseurs/rédactrices-réviseures et chefs du service des nouvelles
+5123	Journalistes
+5125	Traducteurs/traductrices, terminologues et interprètes
+5131	Producteurs/productrices, réalisateurs/réalisatrices, chorégraphes et personnel assimilé
+5212	Personnel technique des musées et des galeries d'art
+5223	Techniciens/techniciennes en graphisme
+6231	Agents/agentes et courtiers/courtières d'assurance
+6232	Agents/agentes et vendeurs/vendeuses en immobilier
+6411	Représentants/représentantes des ventes et des comptes - commerce de gros (non-technique)
+6611	Caissiers/caissières
+6622	Garnisseurs/garnisseuses de tablettes, commis et préposés/préposées aux commandes dans les magasins
+7231	Machinistes et vérificateurs/vérificatrices d'usinage et d'outillage
+7232	Outilleurs-ajusteurs/outilleuses-ajusteuses
+7241	Électriciens/électriciennes (sauf électriciens industriels/électriciennes industrielles et de réseaux électriques)
+7242	Électriciens industriels/électriciennes industrielles
+7244	Monteurs/monteuses de lignes électriques et de câbles
+7246	Installateurs/installatrices et réparateurs/réparatrices de matériel de télécommunications
+7251	Plombiers/plombières
+7252b	Tuyauteurs/tuyauteuses, monteurs/monteuses d'appareils de chauffage et poseurs/poseuses de gicleurs
+7253	Monteurs/monteuses d'installations au gaz
+7271	Charpentiers-menuisiers/charpentières-menuisières
+7272	Ébénistes
+7281	Briqueteurs-maçons/briqueteuses-maçonnes
+7284	Plâtriers/plâtrières, poseurs/poseuses et finisseurs/finisseuses de systèmes intérieurs et latteurs/latteuses
+7291	Couvreurs/couvreuses et poseurs/poseuses de bardeaux
+7294	Peintres et décorateurs/décoratrices (sauf décorateurs/décoratrices d'intérieur)
+7312	Mécaniciens/mécaniciennes d'équipement lourd
+7313	Mécaniciens/mécaniciennes en chauffage, réfrigération et climatisation
+7315	Mécaniciens/mécaniciennes et contrôleurs/contrôleuses d'aéronefs
+7321a	Mécaniciens/mécaniciennes et réparateurs/réparatrices de véhicules automobiles, de camions et d'autobus
+7322	Débosseleurs/débosseleuses et réparateurs/réparatrices de carrosserie
+7331	Installateurs/installatrices de brûleurs à l'huile et à combustibles solides
+7332	Réparateurs/réparatrices et préposés/préposées à l'entretien d'appareils
+7371	Grutiers/grutières
+7381	Opérateurs/opératrices de presses à imprimer
+7441a	Personnel d'installation, d'entretien et de réparation d'équipement résidentiel et commercial
+7442	Personnel d'entretien des canalisations d'eau et de gaz
+7444	Fumigateurs/fumigatrices et préposés/préposées au contrôle de la vermine
+7445	Autres réparateurs/réparatrices et préposés/préposées à l'entretien
+7611	Aides de soutien des métiers et manoeuvres en construction
+7621	Manoeuvres à l'entretien des travaux publics
+8211	Surveillants/surveillantes de l'exploitation forestière
+8221	Surveillants/surveillantes de l'exploitation des mines et des carrières
+8411	Personnel d'entretien et de soutien des mines souterraines
+8422	Ouvriers/ouvrières en sylviculture et en exploitation forestière
+8431	Ouvriers/ouvrières agricoles
+8432	Ouvriers/ouvrières de pépinières et de serres
+8612	Manoeuvres en aménagement paysager et en entretien des terrains
+8613	Manoeuvres de l'aquaculture et de la mariculture
+9211	Surveillants/surveillantes dans la transformation des métaux et des minerais
+9213	Surveillants/surveillantes dans la transformation des aliments et des boissons
+9411	Opérateurs/opératrices de machines dans le traitement des métaux et des minerais
+9414	Opérateurs/opératrices de machines dans le façonnage et la finition des produits en béton, en argile ou en pierre
+9415	Contrôleurs/contrôleuses et essayeurs/essayeuses dans la transformation des métaux et des minerais
+9421	Opérateurs/opératrices d'installations de traitement des produits chimiques
+9422	Opérateurs/opératrices de machines de traitement des matières plastiques
+9423	Opérateurs/opératrices de machines de transformation du caoutchouc et personnel assimilé
+9465	Échantillonneurs/échantillonneuses et trieurs/trieuses dans la transformation des aliments et des boissons
+9471	Opérateurs/opératrices d'équipement d'impression sans plaque
+9472	Photograveurs-clicheurs/photograveuses-clicheuses, photograveurs-reporteurs/photograveuses-reporteuses et autre personnel de prépresse
+9473	Opérateurs/opératrices de machines à relier et de finition
+9474	Développeurs/développeuses de films et de photographies
+9611	Manoeuvres dans le traitement des métaux et des minerais
+9612	Manoeuvres en métallurgie
+9617	Manoeuvres dans la transformation des aliments et des boissons
+9619	Autres manoeuvres des services de transformation, de fabrication et d'utilité publique

@@ -1,0 +1,157 @@
+"Trade Name" "Trade Code" Sector Classification "CofQ Exam?"
+"Aboriginal Child Development Practitioner" 620B Service Voluntary No
+"Agricultural - Dairy Herdsperson" 640D Service Voluntary No
+"Agricultural - Fruit Grower" 640F Service Voluntary No
+"Agricultural - Swine Herdsperson" 640S Service Voluntary No
+"Agricultural Equipment Technician" 425A "Motive Power" Voluntary Yes
+"Alignment and Brakes Technician" 310E "Motive Power" Compulsory Yes
+"Appliance Service Technician" 445A Service Voluntary Yes
+Arborist 444A Service Voluntary Yes
+"Architectural Glass and Metal Technician" 424A Construction Voluntary Yes
+"Assistant Cook" 415B Service Voluntary No
+"Auto Body and Collision Damage Repairer" 310B "Motive Power" Compulsory Yes
+"Auto Body Repairer" 310Q "Motive Power" Compulsory Yes
+"Automotive Electronic Accessory Technician" 310K "Motive Power" Compulsory Yes
+"Automotive Glass Technician" 274L "Motive Power" Voluntary No
+"Automotive Painter" 410N "Motive Power" Voluntary Yes
+"Automotive Service Technician" 310S "Motive Power" Compulsory Yes
+Baker 423A Service Voluntary No
+"Baker-Patissier" 423C Service Voluntary Yes
+"Bearings Mechanic" 615A Industrial Voluntary No
+Blacksmith 600P Industrial Voluntary No
+"Brick and Stone Mason" 401A Construction Voluntary Yes
+Cabinetmaker 438A Industrial Voluntary Yes
+"Cement (Concrete) Finisher" 244G Construction Voluntary No
+Chef 415C Service Voluntary No
+"Child and Youth Worker" 620A Service Voluntary No
+"Child Development Practitioner" 620C Service Voluntary No
+"Composite Structures Technician" 267G Industrial Voluntary No
+"Computer Numerical Control (CNC) Programmer" 670C Industrial Voluntary No
+"Concrete Pump Operator" 637C Construction Voluntary Yes
+"Construction Boilermaker" 428A Construction Voluntary Yes
+"Construction Craft Worker" 450A Construction Voluntary Yes
+"Construction Millwright" 426A Construction Voluntary Yes
+Cook 415A Service Voluntary Yes
+"Developmental Services Worker" 620D Service Voluntary No
+"Die Designer" 670D Industrial Voluntary No
+"Draftsperson - Mechanical" 614A Industrial Voluntary No
+"Draftsperson  Plastic Mould Design" 614B Industrial Voluntary No
+"Draftsperson - Tool and Die Design" 614C Industrial Voluntary No
+"Drywall Finisher and Plasterer" 453A Construction Voluntary Yes
+"Drywall, Acoustic and Lathing Applicator" 451A Construction Voluntary Yes
+"Educational Assistant" 620E Service Voluntary No
+"Electric Motor System Technician" 446A Industrial Voluntary Yes
+"Electrical Control (Machine) Builder" 617A Industrial Voluntary No
+"Electrician  Construction and Maintenance" 309A Construction Compulsory Yes
+"Electrician - Domestic and Rural" 309C Construction Compulsory Yes
+"Electrician (Signal Maintenance)" 289F Industrial Voluntary No
+"Electronic Service Technician" 416E Service Voluntary No
+"Elevating Devices Mechanic" 636E Industrial Voluntary Yes
+"Entertainment Industry Power Technician" 269E Industrial Voluntary Yes
+"Exterior Insulated Finish Systems Mechanic" 455A Construction Voluntary No
+"Facilities Mechanic" 255W Industrial Voluntary Yes
+"Facilities Technician" 255B Industrial Voluntary Yes
+"Fitter  Assembler (Motor Assembly)" 661H Industrial Voluntary No
+"Floor Covering Installer" 448A Construction Voluntary Yes
+"Fuel and Electrical Systems Technician" 310C "Motive Power" Compulsory No
+"Gemsetter/Goldsmith" 606G Service Voluntary No
+"General Carpenter" 403A Construction Voluntary Yes
+"General Machinist" 429A Industrial Voluntary Yes
+Hairstylist 332A Service Compulsory Yes
+"Hardware, Lumber and Building Materials Retailer" 606W Service Voluntary No
+"Hazardous Materials Worker" 253H Construction Voluntary Yes
+"Heat and Frost Insulator" 253A Construction Voluntary Yes
+"Heavy Duty Equipment Technician" 421A "Motive Power" Voluntary Yes
+"Heavy Equipment Operator - Dozer" 636C Construction Voluntary Yes
+"Heavy Equipment Operator - Excavator" 636B Construction Voluntary Yes
+"Heavy Equipment Operator - Tractor Loader Backhoe" 636A Construction Voluntary Yes
+"Hoisting Engineer - Mobile Crane Operator 1" 339A Construction Compulsory Yes
+"Hoisting Engineer - Mobile Crane Operator 2" 339C Construction Compulsory Yes
+"Hoisting Engineer - Tower Crane Operator" 339B Construction Compulsory Yes
+"Horse Groom" 600H Service Voluntary No
+"Horse Harness Maker" 219D Service Voluntary No
+"Horticultural Technician" 441C Service Voluntary Yes
+"Hydraulic/Pneumatic Mechanic" 277Z Industrial Voluntary No
+"Industrial Electrician" 442A Industrial Voluntary Yes
+"Industrial Mechanic Millwright" 433A Industrial Voluntary Yes
+"Institutional Cook" 415D Service Voluntary Yes
+"Instrumentation and Control Technician" 447A Industrial Voluntary Yes
+"Ironworker - Generalist" 420B Construction Voluntary Yes
+"Ironworker - Structural and Ornamental" 420A Construction Voluntary Yes
+"IT  Contact Centre  Sales Agent" 634D Service Voluntary No
+"IT  Contact Centre Customer Service Agent" 634E Service Voluntary No
+"IT  Contact Centre Technical Support Agent" 634A Service Voluntary No
+"IT  Hardware Technician" 634B Service Voluntary No
+"IT  Network Technician" 634C Service Voluntary No
+"Light Rail Overhead Contact Systems Linesperson" 207S Industrial Voluntary No
+Locksmith 259L Industrial Voluntary No
+"Machine Tool Builder and Integrator" 430M Industrial Voluntary Yes
+"Marine Engine Technician" 435B "Motive Power" Voluntary Yes
+"Metal Fabricator (Fitter)" 437A Industrial Voluntary Yes
+"Micro Electronics Manufacturer" 630A Service Voluntary No
+"Motive Power Machinist" 410K "Motive Power" Voluntary Yes
+"Motorcycle Technician" 310G "Motive Power" Compulsory Yes
+"Mould Designer" 670E Industrial Voluntary No
+"Mould Maker" 431A Industrial Voluntary Yes
+"Mould or Die Finisher" 277M Industrial Voluntary No
+"Native Clothing and Crafts Artisan" 296B Service Voluntary No
+"Native Residential Construction Worker" 296A Construction Voluntary No
+"Network Cabling Specialist" 631A Service Voluntary Yes
+"Optics Technician (Lens and Prism Maker)" 225A Industrial Voluntary No
+"Packaging Machine Mechanic" 609C Industrial Voluntary No
+"Painter and Decorator - Commercial and Residential" 404C Construction Voluntary Yes
+"Painter and Decorator - Industrial" 404D Construction Voluntary Yes
+"Parts Technician" 240P Service Voluntary Yes
+"Pattern Maker" 443A Industrial Voluntary Yes
+Plumber 306A Construction Compulsory Yes
+"Pool, Hot Tub and Spa - Installer" 237T Service Voluntary No
+"Pool, Hot Tub and Spa - Service Technician" 237S Service Voluntary No
+"Powered Lift Truck Technician" 282E "Motive Power" Voluntary Yes
+"Powerline Technician" 434A Construction Voluntary Yes
+"Precast Concrete Erector" 244K Construction Voluntary No
+"Precast Concrete Finisher" 244L Construction Voluntary No
+"Precision Metal Fabricator" 200G Industrial Voluntary No
+"Pressure Systems Welder" 456P Industrial Voluntary Yes
+"Process Operator  Food Manufacturing" 246T Industrial Voluntary No
+"Process Operator - Power" 246R Industrial Voluntary No
+"Process Operator - Refinery, Chemical and Liquid Processes" 246F Industrial Voluntary No
+"Process Operator - Wood Products" 246W Industrial Voluntary No
+"Pump Systems Installer" 263F Industrial Voluntary No
+"Railway Car Technician" 268R Industrial Voluntary Yes
+"Recreation Vehicle Technician" 690H "Motive Power" Voluntary Yes
+"Refractory Mason" 401R Construction Voluntary No
+"Refrigeration and Air Conditioning Systems Mechanic" 313A Construction Compulsory Yes
+"Reinforcing Rodworker" 452A Construction Voluntary Yes
+"Relay and Instrumentation Technician" 288R Industrial Voluntary No
+"Residential (Low Rise) Sheet Metal Installer" 308R Construction Compulsory Yes
+"Residential Air Conditioning Systems Mechanic" 313D Construction Compulsory Yes
+"Restoration Mason" 244H Construction Voluntary No
+"Retail Meat Cutter" 245R Service Voluntary No
+"Roll Grinder/Turner" 602H Industrial Voluntary No
+Roofer 449A Construction Voluntary Yes
+Saddlery 219C Service Voluntary No
+"Saw Filer/Fitter" 611B Industrial Voluntary No
+"Sheet Metal Worker" 308A Construction Compulsory Yes
+"Ski Lift Mechanic" 297A Industrial Voluntary Yes
+"Small Engine Technician" 435A "Motive Power" Voluntary Yes
+"Special Events Coordinator" 297B Service Voluntary No
+"Sprinkler and Fire Protection Installer" 427A Construction Compulsory Yes
+Steamfitter 307A Construction Compulsory Yes
+"Surface Blaster" 278B Industrial Voluntary Yes
+"Surface Mount Assembler" 630B Industrial Voluntary No
+"Terrazzo, Tile and Marble Setter" 241A Construction Voluntary Yes
+"Thin Film Technician" 225F Industrial Voluntary No
+"Tire, Wheel and Rim Mechanic" 295A "Motive Power" Voluntary No
+"Tool and Cutter Grinder" 602C Industrial Voluntary No
+"Tool and Die Maker" 430A Industrial Voluntary Yes
+"Tool and Gauge Inspector" 239B Industrial Voluntary No
+"Tool/Tooling Maker" 630T Industrial Voluntary Yes
+"Tractor-Trailer Commercial Driver" 638A Industrial Voluntary No
+"Transmission Technician" 310D "Motive Power" Compulsory Yes
+"Truck and Coach Technician" 310T "Motive Power" Compulsory Yes
+"Truck-Trailer Service Technician" 310J "Motive Power" Compulsory Yes
+"Turf Equipment Technician" 421C "Motive Power" Voluntary No
+"Utility Arborist" 444B Service Voluntary Yes
+"Water Well Driller" 605B Industrial Voluntary No
+Welder 456A Industrial Voluntary Yes
+"Wooden Boat Rebuilder" 211W Service Voluntary No

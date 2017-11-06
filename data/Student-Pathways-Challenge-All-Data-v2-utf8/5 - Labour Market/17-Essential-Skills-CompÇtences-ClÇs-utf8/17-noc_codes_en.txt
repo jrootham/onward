@@ -1,0 +1,147 @@
+631		Restaurant and Food Service Managers (Small Business Owner-Operators)
+0632a	Accommodation Service Managers (Small Business Owner-Operators)
+712		Residential Home Builders and Renovators (Small Business Owner-Operators)
+1111	Financial Auditors and Accountants
+1114	Other Financial Officers
+1121	Specialists in Human Resources
+1223	Personnel and Recruitment Officers
+1224	Property Administrators
+1226	Special Events Co-ordinators and Special Events Managers
+1228	Immigration, Employment Insurance and Revenue Officers
+1422	Data Entry Clerks
+1423	Desktop Publishing Operators and Related Occupations
+1431	Accounting and Related Clerks
+1432	Payroll Clerks
+1434	Banking, Insurance and Other Financial Clerks
+1435	Collectors
+2122	Forestry Professionals
+2123	Agricultural Representatives, Consultants and Specialists
+2131	Civil Engineers
+2132	Mechanical Engineers
+2133	Electrical and Electronics Engineers
+2134	Chemical Engineers
+2141	Industrial and Manufacturing Engineers
+2142	Metallurgical and Materials Engineers
+2152	Landscape Architects
+2153	Urban and Land Use Planners
+2154	Land Surveyors
+2171	Information Systems Analysts and Consultants
+2172	Database Analysts and Data Administrators
+2174	Computer Programmers
+2175	Web Designers and Developers
+2211	Chemical Technologists and Technicians
+2221	Biological Technologists and Technicians
+2222	Agricultural and Fish Products Inspectors
+2223	Forestry Technologists and Technicians
+2225	Landscape and Horticultural Technicians and Specialists
+2231	Civil Engineering Technologists and Technicians
+2232	Mechanical Engineering Technologists and Technicians
+2233c	Industrial Engineering and Manufacturing Technologists and Technicians
+2234	Construction Estimators
+2242	Electronic Service Technicians
+2243	Industrial Instrument Mechanics
+2244	Aircraft Instrument, Electrical and Avionics Mechanics, Technicians and Inspectors
+2251	Architectural Technologists and Technicians
+2253	Drafting Technologists and Technicians
+2254	Land Survey Technicians and Technologists
+2261	Non-Destructive Testers and Inspectors
+2262	Engineering Inspectors and Regulatory Officers
+2264	Construction Inspectors
+2271	Air Pilots, Flight Engineers and Flying Instructors
+2272	Air Traffic Controllers and Related Occupations
+2274	Engineer Officers, Water Transport
+2281	Computer Network Technicians
+2282	User Support Technicians
+2283	Systems Testing Technicians
+3113	Dentists
+3114	Veterinarians
+3121	Optometrists
+3132	Dietitians and Nutritionists
+3141	Audiologists and Speech-Language Pathologists
+3142	Physiotherapists
+3143	Occupational Therapists
+3213	Veterinary and Animal Health Technologists and Technicians
+3215	Medical Radiation Technologists
+3221	Denturists
+3222	Dental Hygienists
+3223	Dental Technologists, Technicians and Laboratory Bench Workers
+3231	Opticians
+3233	Licensed Practical Nurses
+3411	Dental Assistants
+4151	Psychologists
+4152	Social Workers
+4153	Family, Marriage and Other Related Counsellors
+4155	Parole and Probation Officers and Related Occupations
+4212	Community and Social Service Workers
+4214	Early Childhood Educator Assistants
+4215	Instructors and teachers of persons with disabilities
+4216	Other Instructors
+5111	Librarians
+5113	Archivists
+5121	Authors and Writers
+5122	Editors
+5123	Journalists
+5125	Translators, Terminologists and Interpreters
+5131	Producers, Directors, Choreographers and Related Occupations
+5212	Heritage Interpreters
+5223	Sign Pre-production Technicians
+6231	Insurance Agents and Brokers
+6232	Real Estate Agents and Salespersons
+6411	Sales Representatives	Wholesale Trade (Non-Technical)
+6611	Cashiers
+6622	Grocery Clerks and Store Shelf Stockers
+7231	Machinists
+7232	Tool and Die Makers
+7241	Construction Electricians
+7242	Industrial Electricians
+7244	Powerline Technicians
+7246	Telecommunications Installation and Repair Workers
+7251	Plumbers
+7252b	Steamfitter-Pipefitter
+7253	Gas Fitter
+7271	Carpenters
+7272	Cabinet Makers
+7281	Bricklayers
+7284	Lathers (Interior Systems Mechanic)
+7291	Roofers
+7294	Painters and Decorators
+7312	Farm Equipment Mechanics
+7313	Refrigeration and Air Conditioning Mechanics
+7315	Aircraft Mechanics and Aircraft Inspectors
+7321a	Truck and Transport Mechanics
+7322	Automotive Painters
+7331	Oil Burner Mechanics
+7332	Appliance Servicers and Repairers
+7371	Mobile Crane Operators
+7381	Printing Press Operators
+7441a	Residential and Commercial Installers and Servicers
+7442	Waterworks and Gas Maintenance Workers
+7444	Pest Controllers and Fumigators
+7445	Other Repairers and Servicers
+7611	Construction Trades Helpers and Labourers
+7621	Public Works and Maintenance Labourers
+8211	Supervisors, Logging and Forestry
+8221	Supervisors, Mining and Quarrying
+8411	Underground Mine Service and Support Workers
+8422	Silviculture and Forestry Workers
+8431	General Farm Workers
+8432	Nursery and Greenhouse Workers
+8612	Landscaping and Grounds Maintenance Labourers
+8613	Aquaculture and Marine Harvest Labourers
+9211	Supervisors, Mineral and Metal Processing
+9213	First-line supervisors in the seafood industry
+9411	Machine Operators, Mineral and Metal Processing
+9414	Concrete, Clay and Stone Forming Operators
+9415	Inspectors and Testers, Mineral and Metal Processing
+9421	Chemical Plant Machine Operators
+9422	Plastics Processing Machine Operators
+9423	Rubber Processing Machine Operators and Related Workers
+9465	Testers and Graders, Food and Beverage Processing
+9471	Printing Machine Operators
+9472	Camera, Platemaking and Other Pre-Press Occupations
+9473	Binding and Finishing Machine Operators
+9474	Photographic and Film Processors
+9611	Labourers in Mineral and Metal Processing
+9612	Labourers in Metal Fabrication
+9617	Labourers in Food, Beverage and Tobacco Processing
+9619	Other Labourers in Processing, Manufacturing and Utilities
