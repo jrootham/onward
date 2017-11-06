@@ -57,3 +57,5 @@ bower.json
 # Python stuff
 __pycache__
 db_secrets.py
+ignore_folder
+env
