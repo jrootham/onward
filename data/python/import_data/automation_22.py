@@ -17,13 +17,27 @@ def update_noc_codes_from_dict(noc_code_list,
         for _ in range(3):
             next(f)
         for line in f:
-            noc_code = line[:5].strip()
+            # Stuff is tab delimited - don't know exactly where tab is
+            noc_len = 4
+            while True:
+                noc_code = line[:noc_len].strip()
+                if '\t' in noc_code:
+                    noc_len -= 1
+                else:
+                    break
+
             if noc_code == '':
                 return
             # pad non-4-digit NOC codes
             noc_code = pad_front_with_zeros(noc_code, 4)
-            description_en = line[5:120].strip()
-            description_fr = line[120:].strip()
+            en_len = 124 - noc_len
+            while True:
+                description_en = line[noc_len:en_len].strip()
+                if '\t' in description_en:
+                    en_len -= 1
+                else:
+                    break
+            description_fr = line[en_len:].strip()
             if noc_code not in noc_code_list:
                 noc_code_list[noc_code] = {
                     'noc_code': noc_code,

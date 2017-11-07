@@ -40,6 +40,7 @@ def update_noc_codes_from_dict(noc_code_list,
             if not noc_code_list[noc_code]['base_description_fr']:
                 noc_code_list[noc_code]['base_description_fr'] = description_fr
 
+
 def load_noc_wages(file_name=WAGES, encoding='utf-8'):
     file_path = os.path.join(BASE_PATH, file_name)
     wages_data = []
@@ -48,5 +49,4 @@ def load_noc_wages(file_name=WAGES, encoding='utf-8'):
         for line in reader:
             line['NOC'] = pad_front_with_zeros(line['NOC'], 4)
             wages_data.append(line)
-    pprint.pprint(wages_data)
     return wages_data

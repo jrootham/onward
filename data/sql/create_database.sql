@@ -5,19 +5,19 @@ USE rootham;
 -- list of unique NOC codes with primary job title
 CREATE TABLE IF NOT EXISTS noc_uniques (
   noc_code CHAR(4) PRIMARY KEY,
-  base_description_en VARCHAR(255),
-  base_description_fr VARCHAR(255)
+  base_description_en VARCHAR(500),
+  base_description_fr VARCHAR(500)
 );
 
 -- Basic info for job coding in Canada
 CREATE TABLE IF NOT EXISTS noc_codes (
   id INT PRIMARY KEY AUTO_INCREMENT,
   noc_code CHAR(4),
-  description_en VARCHAR(255),
-  description_fr VARCHAR(255),
+  description_en VARCHAR(500),
+  description_fr VARCHAR(500),
   element_type CHAR(4),
-  element_type_label_en VARCHAR(255),
-  element_type_label_fr VARCHAR(255),
+  element_type_label_en VARCHAR(500),
+  element_type_label_fr VARCHAR(500),
   FOREIGN KEY (noc_code)
     REFERENCES noc_uniques (noc_code)
     ON DELETE CASCADE
@@ -26,23 +26,23 @@ CREATE TABLE IF NOT EXISTS noc_codes (
 -- Task descriptions from dataset 17
 CREATE TABLE IF NOT EXISTS noc_tasks(
   task_code CHAR(5) PRIMARY KEY,
-  description_en VARCHAR(255),
-  description_fr VARCHAR(255)
+  description_en VARCHAR(500),
+  description_fr VARCHAR(500)
 );
 
 -- Skill descriptions from dataset 17
 CREATE TABLE IF NOT EXISTS noc_skills(
   skill_code CHAR(3) PRIMARY KEY,
-  description_en VARCHAR(255),
-  description_fr VARCHAR(255)
+  description_en VARCHAR(500),
+  description_fr VARCHAR(500)
 );
 
 -- Skill levels from dataset 17
 CREATE TABLE IF NOT EXISTS noc_skills_levels(
   skill_code CHAR(3),
   level_code CHAR(2),
-  description_en VARCHAR(255),
-  description_fr VARCHAR(255),
+  description_en VARCHAR(500),
+  description_fr VARCHAR(500),
   FOREIGN KEY (skill_code)
     REFERENCES noc_skills(skill_code)
     ON DELETE CASCADE,
@@ -52,8 +52,8 @@ CREATE TABLE IF NOT EXISTS noc_skills_levels(
 -- Education Codes from dataset 17
 CREATE TABLE IF NOT EXISTS noc_skills_education(
   education_training_code CHAR(3) PRIMARY KEY,
-  description_en VARCHAR(255),
-  description_fr VARCHAR(255)
+  description_en VARCHAR(500),
+  description_fr VARCHAR(500)
 );
 
 -- Table linking skills & tasks to NOC codes from dataset 17
@@ -82,8 +82,8 @@ CREATE TABLE IF NOT EXISTS noc_skills_tasks(
 -- Lookup of program codes & descriptions
 CREATE TABLE IF NOT EXISTS univ_programs(
   program_code CHAR(3) PRIMARY KEY,
-  description_en VARCHAR(255),
-  description_fr VARCHAR(255)
+  description_en VARCHAR(500),
+  description_fr VARCHAR(500)
 );
 
 -- Table linking program areas, NOC and employment levels per year
@@ -101,8 +101,8 @@ CREATE TABLE IF NOT EXISTS univ_noc_employment(
 -- Lookup table with meanings of creditial codes found throughout files
 CREATE TABLE IF NOT EXISTS credentials (
   credential_code CHAR(3) PRIMARY KEY,
-  description_en VARCHAR(255),
-  description_fr VARCHAR(255)
+  description_en VARCHAR(500),
+  description_fr VARCHAR(500)
 );
 
 -- Table 21 has details on specific programs (very detailed).
@@ -110,8 +110,8 @@ CREATE TABLE IF NOT EXISTS credentials (
 CREATE TABLE IF NOT EXISTS univ_programs_specific(
   specific_program_code CHAR(5) PRIMARY KEY,
   program_code CHAR(3),
-  description_en VARCHAR(255),
-  description_fr VARCHAR(255),
+  description_en VARCHAR(500),
+  description_fr VARCHAR(500),
   FOREIGN KEY (program_code)
     REFERENCES univ_programs (program_code)
     ON DELETE SET NULL

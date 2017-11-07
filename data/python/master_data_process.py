@@ -1,6 +1,8 @@
 from import_data import noc_data_17, university_program_noc_18
 from import_data import automation_22, apprentice_wages_23
+from export_to_mysql import export_all_noc_data
 import pprint  # for printing pretty result while testing
+
 
 def process_noc_codes():
     # Import base noc data
@@ -10,7 +12,10 @@ def process_noc_codes():
     university_program_noc_18.update_noc_codes_from_dict(noc_codes, noc_jobs)
     automation_22.update_noc_codes_from_dict(noc_codes, noc_jobs)
     apprentice_wages_23.update_noc_codes_from_dict(noc_codes, noc_jobs)
+
     # write to database
+    noc_codes = list(noc_codes.values())
+    export_all_noc_data.write_noc_codes(noc_codes)
 
 
 def process_noc_skills_tasks():
@@ -34,7 +39,7 @@ def process_misc_noc_data():
     apprentice_wages_data = apprentice_wages_23.load_noc_wages()
 
 def main():
-    # process_noc_codes()
+    process_noc_codes()
     # process_noc_skills_tasks()
     # process_university_noc_data()
     process_misc_noc_data()

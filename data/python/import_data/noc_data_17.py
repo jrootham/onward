@@ -163,7 +163,7 @@ def update_noc_codes_from_skill_tasks(noc_code_list,
                 noc_code_list[noc_code] = {
                     'noc_code': noc_code,
                     'base_description_en': description_en,
-                    'base_descrription_fr': None
+                    'base_description_fr': None
                 }
                 new_nocs[noc_code] = {
                     'noc_code': noc_code,
@@ -183,7 +183,7 @@ def update_noc_codes_from_skill_tasks(noc_code_list,
                 noc_code_list[noc_code] = {
                     'noc_code': noc_code,
                     'base_description_en': None,
-                    'base_descrription_fr': description_fr
+                    'base_description_fr': description_fr
                 }
                 new_nocs[noc_code] = {
                     'noc_code': noc_code,
