@@ -1,0 +1,10 @@
+echo " "
+echo " "
+echo " "
+echo " "
+echo " "
+echo " "
+
+./build-number.sh
+elm-i18n-gen locale gen/Translations.elm
+elm-make src/Main.elm --output public_html/main.js

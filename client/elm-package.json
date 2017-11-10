@@ -1,7 +1,10 @@
 {
     "version": "1.0.0",
+    "summary": "Client code for student pathways challenge",
+    "license": "GPL 3",
+    "repository":  "https://github.com/foo/foo.git",
     "source-directories": [
-        "src/client,src/common,src/submit,src/review,gen"
+        "src","gen"
     ],
     "exposed-modules": [],
     "dependencies": {
