@@ -48,5 +48,9 @@ def load_noc_wages(file_name=WAGES, encoding='utf-8'):
         reader = csv.DictReader(f)
         for line in reader:
             line['NOC'] = pad_front_with_zeros(line['NOC'], 4)
+            if line['Vacancies'] == '':
+                line['Vacancies'] = None
+            else:
+                print(line['Vacancies'])
             wages_data.append(line)
     return wages_data

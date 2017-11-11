@@ -1,7 +1,7 @@
 import csv
 import os
 
-import pprint  # Used for testing -> printing results prettily - can remove
+from pprint import pprint  # Used for testing -> printing results prettily - can remove
 
 from data_manipulation_basics import *
 

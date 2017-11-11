@@ -74,7 +74,7 @@ def load_noc_tasks(file_name_en=TASKS_EN, file_name_fr=TASKS_FR, encoding='utf-8
             if len(line['task_code']) > 5:
                 print(line['task_code'])
     for key in task_dict:
-        task_list.append({**{'skill_code': key},
+        task_list.append({**{'task_code': key},
                           **task_dict[key],
                           **{'task_fr': None}})
     return task_list
