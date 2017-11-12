@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112191351) do
+ActiveRecord::Schema.define(version: 20171112230304) do
 
   create_table "apprentice_noc_wages_openings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "noc_code",        limit: 4
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20171112191351) do
     t.string "task_code",          limit: 5
     t.string "noc_code",           limit: 4
     t.string "skill_code",         limit: 3
-    t.string "skill_level",        limit: 3
+    t.string "level_code",         limit: 3
     t.string "education_training", limit: 3
     t.index ["education_training"], name: "education_training", using: :btree
     t.index ["noc_code"], name: "noc_code", using: :btree
