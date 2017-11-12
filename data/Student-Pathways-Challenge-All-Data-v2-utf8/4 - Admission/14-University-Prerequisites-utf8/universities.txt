@@ -1,0 +1,35 @@
+ALG	Algoma University
+BRO	Brock University
+CAR	Carleton University
+GHU	University of Guelph-Humber
+GUE	University of Guelph
+LAU	Laurentian University
+LOR	Lakehead University - Orillia
+LTB	Lakehead University - Thunder Bay
+MCM	McMaster University
+NIP	Nipissing University
+OCA	OCAD University
+OIT	University of Ontario Institute of Technology (UOIT)
+OSP	University of Ottawa - Saint Paul University
+OTT	University of Ottawa
+QUE	Queen's University
+RMC	Royal Military College of Canada
+RYE	Ryerson University
+TDG	Trent University Durham-GTA
+TMI	University of Toronto - Mississauga
+TRE	Trent University
+TSC	University of Toronto - Scarborough
+TSG	University of Toronto - St. George Campus
+UDH	Université de Hearst - affiliée à l'Université Laurentienne
+WAT	University of Waterloo
+WBC	Western University - Brescia University College
+WES	Western University
+WHC	Western University - Huron University College
+WIN	University of Windsor
+WKC	Western University - King's University College
+WLB	Wilfrid Laurier University - Brantford Campus
+WLW	Wilfrid Laurier University - Waterloo Campus
+WRC	University of Waterloo - Renison University College
+WSJ	University of Waterloo - St. Jerome's University
+YGC	York University - Glendon Campus
+YOR	York University

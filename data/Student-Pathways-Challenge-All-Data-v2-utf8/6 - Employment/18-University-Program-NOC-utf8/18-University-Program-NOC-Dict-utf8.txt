@@ -17,7 +17,7 @@ JOU	Journalism                                          	Journalisme
 KRP	Kinesiology / Recreation / Physical Education       	Kinésiologie, récréologie et éducation physique
 LAW	Law                                                 	Droit
 MAT	Mathematics                                         	Mathématiques
-MED	Medicine                                            	Médecine 
+MED	Medicine                                            	Médecine
 NRE	Not reported                                        	Non reporté
 NUR	Nursing                                             	Sciences infirmières
 OAS	Other Arts & Science                                	Autres programmes en arts et en sciences
