@@ -103,15 +103,17 @@ def process_hs_path():
     course_list, course_grade_map, course_prereq_list = \
             high_school_courses.process_hs_course_tree()
     export_hs.write_hs_courses(course_list)
-    # export_hs.write_hs_grade_map(course_grade_map)
+    export_hs.write_hs_grade_map(course_grade_map)
     export_hs.write_hs_course_prereqs(course_prereq_list)
+
+    print('HS path processesed\n\n')
 
 
 def main():
-    # process_noc_codes()
-    # process_noc_skills_tasks()
-    # process_university_noc_data()
-    # process_misc_noc_data()
+    process_noc_codes()
+    process_noc_skills_tasks()
+    process_university_noc_data()
+    process_misc_noc_data()
     process_hs_path()
 
 
