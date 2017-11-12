@@ -1,12 +1,13 @@
-module ClientTypes exposing (..)
+module Types exposing (..)
 
 import Translations 
 
 type alias Model = 
     { lang : Translations.Lang
-
+    , debounce : Bool
     }
 
-type Msg = 
-    Save
+type Msg 
+    = Language Translations.Lang
+    | Save
     

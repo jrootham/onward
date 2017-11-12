@@ -1,10 +1,11 @@
-body
+.outer-light
 {
 	background-color: 	lightblue;
 }
 
 h1 
 {
+	margin: 0;
     text-align: center;
 }
 
@@ -19,3 +20,46 @@ h1
 	padding: 20px;
 	width: 80vw;
 }
+
+.bevel-button
+{
+	display: inline-block;
+	padding: 2px;
+	margin: 2px;
+}
+
+.bevel-button-light
+{
+	background-color: blue
+}
+
+.normal
+{
+	width: 4em;
+}
+
+.wide
+{
+	width: 8em;
+}
+
+.wider
+{
+	width: 12em;
+}
+
+.thin
+{
+	width: 1em;
+}
+
+.flat-enabled-light
+{
+	color: white;
+}
+
+.flat-disabled-light
+{
+	color: grey;
+}
+

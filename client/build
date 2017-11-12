@@ -7,4 +7,4 @@ echo " "
 
 ./build-number.sh
 elm-i18n-gen locale gen/Translations.elm
-elm-make src/Main.elm --output public_html/main.js
+elm-make src/client/Main.elm --output public_html/main.js

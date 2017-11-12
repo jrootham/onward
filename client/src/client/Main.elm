@@ -1,15 +1,18 @@
 module Main exposing (main)
 
-import Html exposing (Html, div, text)
+import Html exposing (Html, h1, div, text)
+import Html.Attributes exposing (class)
+
+import Button exposing(wideSelectButton)
 import Translations as T
-import ClientTypes exposing (Model, Msg)
+import Types exposing (..)
 
 main =
     Html.program { init = init, view = view, update = update, subscriptions = subscriptions }
 
 
 init : ( Model, Cmd Msg )
-init = (Model T.En, Cmd.none)
+init = (Model T.En True, Cmd.none)
 
 -- Subscriptions
 
@@ -20,8 +23,30 @@ subscriptions model =
 
 update: Msg -> Model -> (Model, Cmd Msg)
 update msg model =
-    (model, Cmd.none)
+    case msg of
+        Language language ->
+            ({model | lang = language}, Cmd.none)
+        Save ->
+            (model, Cmd.none)
+
 
 view: Model -> Html Msg
 view model = 
-    div [] [text (T.title model.lang)]
+    div (outerClasses model) [h1 [] 
+        [
+            text (T.title model.lang)]
+            , displayPanel model
+        ]
+
+
+outerClasses: Model -> List (Html.Attribute msg)
+outerClasses model =
+    [class "outer-light"]
+
+displayPanel: Model -> Html Msg
+displayPanel model =
+    div [] [languagePanel model]
+
+languagePanel: Model -> Html Msg
+languagePanel model =
+    div [] [wideSelectButton True (Language T.En) "English" (model.lang == T.En) model.debounce]

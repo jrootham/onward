@@ -4,7 +4,7 @@
     "license": "GPL 3",
     "repository":  "https://github.com/foo/foo.git",
     "source-directories": [
-        "src","gen"
+        "src/client", "src/common", "src/review", "src/submit", "gen"
     ],
     "exposed-modules": [],
     "dependencies": {
