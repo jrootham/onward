@@ -1,6 +1,7 @@
 from import_data import noc_data_17, university_program_noc_18, noc_wages
 from import_data import automation_22, apprentice_wages_23
-from export_to_mysql import export_all_noc_data, export_univ_data
+from import_data import high_school_courses
+from export_to_mysql import export_all_noc_data, export_univ_data, export_hs
 from pprint import pprint  # for printing pretty result while testing
 
 
@@ -98,11 +99,20 @@ def process_misc_noc_data():
     print('Misc NOC data processed\n\n')
 
 
+def process_hs_path():
+    course_list, course_grade_map, course_prereq_list = \
+            high_school_courses.process_hs_course_tree()
+    export_hs.write_hs_courses(course_list)
+    # export_hs.write_hs_grade_map(course_grade_map)
+    export_hs.write_hs_course_prereqs(course_prereq_list)
+
+
 def main():
-    process_noc_codes()
-    process_noc_skills_tasks()
-    process_university_noc_data()
-    process_misc_noc_data()
+    # process_noc_codes()
+    # process_noc_skills_tasks()
+    # process_university_noc_data()
+    # process_misc_noc_data()
+    process_hs_path()
 
 
 if __name__ == '__main__':

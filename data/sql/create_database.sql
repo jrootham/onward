@@ -168,6 +168,39 @@ CREATE TABLE IF NOT EXISTS apprentice_noc_wages_openings(
     ON DELETE CASCADE
 );
 
+-- ------------------------
+-- Tables related to High School pathways
+-- ------------------------
+
+-- Table 14 - Listing of High School Courses
+CREATE TABLE IF NOT EXISTS hs_courses(
+  course_code CHAR(13) PRIMARY KEY,
+  course_name_en VARCHAR(255),
+  course_name_fr VARCHAR(255),
+  has_prereq TINYINT
+);
+
+CREATE TABLE IF NOT EXISTS hs_course_grade_link(
+  course_code CHAR(13),
+  grade INT,
+  PRIMARY KEY (course_code, grade),
+  FOREIGN KEY (course_code)
+    REFERENCES hs_courses (course_code)
+    ON DELETE CASCADE
+);
+
+-- Note that there are multiple prereqs for some courses.
+-- Only one of them is required (OR join)
+CREATE TABLE IF NOT EXISTS hs_course_prereq(
+  course_code CHAR(13),
+  prereq_code CHAR(13),
+  PRIMARY KEY (course_code, prereq_code),
+  FOREIGN KEY (course_code)
+    REFERENCES hs_courses (course_code),
+  FOREIGN KEY (prereq_code)
+    REFERENCES hs_courses(course_code)
+);
+
 
 -- Trades have different classification codes from NOC; need to detail & link
 -- table needs to be created from OCTAA data subset
