@@ -114,7 +114,9 @@ def process_hs_path():
 ####################
 
 def process_colleges():
+    """ Sharon does not have this """
     # college_main.process_college_univ_list(encoding='mac_roman')
+    # college_main.process_campus_list(encoding='windows-1252')
     college_main.process_college_program_list()
 
 

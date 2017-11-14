@@ -208,9 +208,19 @@ CREATE TABLE IF NOT EXISTS institutions (
   institution_type CHAR(1),
   institution_code CHAR(5) PRIMARY KEY,
   institution_name VARCHAR(255),
-  postal_code CHAR(7),
-  city VARCHAR(255),
   url VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS campuses (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  institution_code CHAR(5),
+  institution_type_code CHAR(8),  -- NOT AVAILABLE FOR ALL RECORDS
+  campus_name VARCHAR(255),
+  campus_postal_code CHAR(7),
+  main_campus TINYINT,
+  FOREIGN KEY (institution_code)
+    REFERENCES institutions (institution_code)
+    ON DELETE CASCADE
 );
 
 -- College programs

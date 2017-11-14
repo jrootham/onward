@@ -1355,9 +1355,3 @@ code	description_en                                                             
 89805	Bachelor of Environmental Public Health                                                          	Baccalauréat en études de santé publique environnementale
 99998	Nutrition, Dietetics and Food Science                                                            	Nutrition, dietetique et sciences des aliments
 99999	Agricultural Technology                                                                          	Technologie Agricole
-
-
-
-Source: Ministry of Advanced Education and Skills Development (MAESD)
-
-The Ministry of Advanced Education and Skills Development has endeavored to keep the information provided up to date and correct, but makes no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the information for any purpose.
