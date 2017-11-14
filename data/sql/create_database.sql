@@ -201,18 +201,36 @@ CREATE TABLE IF NOT EXISTS hs_course_prereq(
     REFERENCES hs_courses(course_code)
 );
 
+-- ------------------
+-- College and University Base Data
+-- ------------------
+CREATE TABLE IF NOT EXISTS institutions (
+  institution_type CHAR(1),
+  institution_code CHAR(5) PRIMARY KEY,
+  institution_name VARCHAR(255),
+  postal_code CHAR(7),
+  city VARCHAR(255),
+  url VARCHAR(255)
+);
+
+-- College programs
+CREATE TABLE IF NOT EXISTS college_programs (
+  college_program_code CHAR(5) PRIMARY KEY,
+  description_en VARCHAR(1000),
+  description_fr VARCHAR(1000)
+);
 
 -- Trades have different classification codes from NOC; need to detail & link
 -- table needs to be created from OCTAA data subset
-CREATE TABLE IF NOT EXISTS trades_primary (
-  trade_code CHAR(4) PRIMARY KEY,
-  noc_code CHAR(4),
-  trade_name_en CHAR(100),
-  trade_name_fr CHAR(100),
-  sector CHAR(25),
-  classification CHAR(1),
-  exam_reqd TINYINT
-);
+-- CREATE TABLE IF NOT EXISTS trades_primary (
+--   trade_code CHAR(4) PRIMARY KEY,
+--   noc_code CHAR(4),
+--   trade_name_en CHAR(100),
+--   trade_name_fr CHAR(100),
+--   sector CHAR(25),
+--   classification CHAR(1),
+--   exam_reqd TINYINT
+-- );
 
 -- One of the provided tables; in group 7
 -- CREATE TABLE octaa (

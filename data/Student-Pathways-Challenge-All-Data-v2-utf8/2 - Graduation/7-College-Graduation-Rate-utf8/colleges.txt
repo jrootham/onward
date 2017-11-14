@@ -1,0 +1,24 @@
+ALGO	Algonquin College of Applied Arts and Technology
+BORE	Collège Boréal
+CAMB	Cambrian College of Applied Arts and Technology
+CANA	Canadore College of Applied Arts and Technology
+CENT	Centennial College
+CONF	Confederation College of Applied Arts and Technology
+CONS	Conestoga College Institute of Technology and Advanced Learning
+DURH	Durham College of Applied Arts and Technology
+FANS	Fanshawe College of Applied Arts and Technology
+GEOR	Georgian College of Applied Arts and Technology
+GRBR	George Brown College of Applied Arts and Technology
+HUMB	Humber College Institute of Technology and Advanced Learning
+LACI	La Cité collégiale
+LAMB	Lambton College of Applied Arts and Technology
+LOYT	Loyalist College of Applied Arts and Technology
+MOHA	Mohawk College of Applied Arts and Technology
+NIAG	Niagara College of Applied Arts and Technology
+NORT	Northern College of Applied Arts and Technology
+SAUL	Sault College of Applied Arts and Technology
+SENE	Seneca College of Applied Arts and Technology
+SHER	Sheridan College Institute of Technology and Advanced Learning
+SLAW	St. Lawrence College of Applied Arts and Technology
+SSFL	Fleming College of Applied Arts and Technology
+STCL	St. Clair College of Applied Arts and Technology
