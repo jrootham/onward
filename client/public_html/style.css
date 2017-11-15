@@ -1,6 +1,13 @@
+@media  min-resolution: 100dpcm {
+    body
+    {
+        font-size:          40pt;
+    }
+}
+
+
 .outer-light
 {
-	background-color: 	lightblue;
 }
 
 h1 
