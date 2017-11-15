@@ -12,12 +12,13 @@
 
 	app.ports.getSize.subscribe(function(name) {
         var size = getSize(name);
-        app.ports.gotSize.send(size);
+        app.ports.setSize.send(size);
     });
 
     function getSize(name) {
     	var element = document.getElementById(name);
-        return {"width" : element.width, "height" : element.height};
+        console.log(element);
+        return {"width" : element.clientWidth, "height" : element.clientHeight};
     }
 </script>
 

@@ -19,6 +19,7 @@ type alias Size = {width: Int, height: Int}
 type alias Model =
     { down: Bool
     , startMouse: MousePosition
+    , start: Position
     , position: Position
     , holderSize: Size
     }
@@ -30,7 +31,13 @@ type Msg
     | SetSize Size
 
 init : ( Model, Cmd Msg )
-init = (Model False (MousePosition 0 0) (Position 500 500) (Size 0 0), Cmd.none)
+init =
+    let 
+        start = Position 500 100
+        mouse = MousePosition 0 0
+        size = Size 0 0
+    in 
+        (Model False mouse start start size, Cmd.none)
 
 -- ports
 
@@ -48,7 +55,7 @@ update: Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     case msg of
         MouseDown mousePosition ->
-            ({model | startMouse = mousePosition}, getSize "holder")
+            ({model | startMouse = mousePosition, start = model.position}, getSize "holder")
 
         MouseUp mousePosition ->
             ({model | position = changePosition model mousePosition, down = False}, Cmd.none)
@@ -64,7 +71,7 @@ update msg model =
 
 changePosition: Model -> MousePosition -> Position
 changePosition model currentMouse =
-    add model.position (scale model (subtract currentMouse model.startMouse))
+    add model.start (scale model (subtract currentMouse model.startMouse))
 
 add: Position -> Position -> Position
 add left right = 
@@ -72,16 +79,22 @@ add left right =
             
 subtract: MousePosition -> MousePosition -> MousePosition
 subtract left right = 
-    Position (left.x - right.x) (left.y - right.y)
+    MousePosition (left.x - right.x) (left.y - right.y)
             
 scale: Model -> MousePosition -> Position
 scale model mousePosition =
     let
-        xRatio = 1000.0 / toFloat(model.holderSize.width)
-        yRatio = 1000.0 / toFloat(model.holderSize.height)
+        xRatio = 1000.0 / toFloat(Debug.log "width" model.holderSize.width)
+        yRatio = 1000.0 / toFloat(Debug.log "height" model.holderSize.height)
+        x = xRatio * (toFloat mousePosition.x)
+        y = yRatio * (toFloat mousePosition.y)
     in
             
-    Position (xRatio * (toFloat mousePosition.x)) (yRatio * (toFloat mousePosition.y))
+    Position (Debug.log "deltaX" x) (Debug.log "deltaY" y)
+
+
+
+-----------------------View ------------------------
 
 view: Model -> Html Msg
 view model = 
@@ -95,7 +108,7 @@ svgObject model =
             circle
                 [ cx (toString model.position.x)
                 , cy (toString model.position.y)
-                , r "100"
+                , r "50"
                 , on "mousedown" mouseDownDecoder
                 , on "mouseup" mouseUpDecoder
                 , on "mousemove" mouseMoveDecoder
