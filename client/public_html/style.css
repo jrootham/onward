@@ -1,9 +1,33 @@
-@media  min-resolution: 100dpcm {
-    body
-    {
-        font-size:          40pt;
-    }
+
+body
+{
+    font-size:          160px;
 }
+
+@media (min-width: 768px) and (max-width: 991px) 
+{
+	body
+	{
+	    font-size:          80px;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199px) 
+{
+	body
+	{
+	    font-size:          20px;
+	}
+}
+
+@media (min-width: 1200px) 
+{
+	body
+	{
+	    font-size:          10px;
+	}
+}
+
 
 
 .outer-light
