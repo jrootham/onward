@@ -82,11 +82,52 @@ CREATE TABLE IF NOT EXISTS noc_skills_tasks(
 
 -- University programs and faculty to allow us to link NOC codes & University
 -- Lookup of program codes & descriptions
+-- THIS IS THE MAESD CATEGORY TABLE
 CREATE TABLE IF NOT EXISTS univ_programs(
   program_code CHAR(3) PRIMARY KEY,
   description_en VARCHAR(750),
   description_fr VARCHAR(750)
 );
+
+CREATE TABLE IF NOT EXISTS ouac_top_category(
+  ouac_top_code INT PRIMARY KEY,
+  description_en VARCHAR(750),
+  description_fr VARCHAR(750)
+);
+
+CREATE TABLE IF NOT EXISTS ouac_sub_categories(
+  ouac_cat_code INT PRIMARY KEY,
+  ouac_top_code INT,
+  description_en VARCHAR(750),
+  description_fr VARCHAR(750),
+  FOREIGN KEY (ouac_top_code)
+    REFERENCES ouac_top_category (ouac_top_code)
+    ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS ouac_programs (
+  ouac_program_code CHAR(3) PRIMARY KEY,
+  description_en VARCHAR(750),
+  description_fr VARCHAR(750)
+);
+
+CREATE TABLE IF NOT EXISTS ouac_program_cat_map(
+  ouac_program_code CHAR(3),
+  ouac_cat_code INT,
+  FOREIGN KEY (ouac_cat_code)
+    REFERENCES ouac_sub_categories (ouac_cat_code)
+    ON DELETE CASCADE,
+  FOREIGN KEY (ouac_program_code)
+    REFERENCES ouac_programs (ouac_program_code),
+  PRIMARY KEY (ouac_program_code, ouac_cat_code)
+);
+
+-- NEED TO DO THIS
+CREATE TABLE IF NOT EXISTS program_cip_link(
+  program_code CHAR(3),
+  cip_code CHAR(5)
+);
+
 
 -- Table linking program areas, NOC and employment levels per year
 CREATE TABLE IF NOT EXISTS univ_noc_employment(
@@ -109,15 +150,20 @@ CREATE TABLE IF NOT EXISTS credentials (
 
 -- Table 21 has details on specific programs (very detailed).
 -- These ARE NOT currently linked to univ_programs (though they should be)
-CREATE TABLE IF NOT EXISTS univ_program_code_links(
-  specific_program_code CHAR(5),
-  program_code CHAR(3),
-  ouad_code CHAR(3),
+CREATE TABLE IF NOT EXISTS cip_top_level(
+  cip_top_code CHAR(2) PRIMARY KEY,
+  description_en VARCHAR(255),
+  description_fr VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS cip_codes(
+  cip_top_code CHAR(2),
+  cip_program_code CHAR(5) PRIMARY KEY,
   description_en VARCHAR(750),
   description_fr VARCHAR(750),
-  FOREIGN KEY (program_code)
-    REFERENCES univ_programs (program_code)
-    ON DELETE SET NULL
+  FOREIGN KEY (cip_top_code)
+    REFERENCES cip_top_level (cip_top_code)
+    ON DELETE CASCADE
 );
 
 -- Table with details on area of study, credential level, job category & # of job
@@ -125,7 +171,7 @@ CREATE TABLE IF NOT EXISTS noc_specific_program(
   id INT PRIMARY KEY AUTO_INCREMENT,
   noc_code CHAR(4),
   credential_code CHAR(3),
-  specific_program_code CHAR(5),
+  cip_program_code CHAR(5),
   job_count INT,
   FOREIGN KEY (noc_code)
     REFERENCES noc_uniques (noc_code)
@@ -133,8 +179,8 @@ CREATE TABLE IF NOT EXISTS noc_specific_program(
   FOREIGN KEY (credential_code)
     REFERENCES credentials (credential_code)
     ON DELETE CASCADE,
-  FOREIGN KEY (specific_program_code)
-    REFERENCES univ_programs_specific (specific_program_code)
+  FOREIGN KEY (cip_program_code)
+    REFERENCES cip_codes (cip_program_code)
     ON DELETE CASCADE
 );
 
@@ -249,7 +295,7 @@ CREATE TABLE IF NOT EXISTS college_grad_rates (
 -- ---------------------
 -- University data
 -- ---------------------
-CREATE TABLE IF NOT EXISTS university_programs
+-- CREATE TABLE IF NOT EXISTS university_programs
 
 
 

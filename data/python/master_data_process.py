@@ -2,7 +2,9 @@ from import_data import noc_data_17, university_program_noc_18, noc_wages
 from import_data import automation_22, apprentice_wages_23
 from import_data import high_school_courses
 from import_data.colleges import college_main
-from import_data.univ import univ_main
+from import_data.univ import univ_main, process_program_codes
+
+
 from export_to_mysql import export_all_noc_data, export_univ_data, export_hs
 from pprint import pprint  # for printing pretty result while testing
 
@@ -68,12 +70,14 @@ def process_university_noc_data():
     noc_specific_program maps to sql table noc_specific_program
     """
     # import relevant data
+    cip_top_level = university_program_noc_18.import_cip_top_level()
     univ_programs = university_program_noc_18.import_univ_programs()
     univ_program_noc_employment = university_program_noc_18.import_univ_noc_employment()
     credentials = university_program_noc_18.credentials
     univ_programs_specific = university_program_noc_18.import_univ_program_specific()
     noc_specific_program = university_program_noc_18.import_noc_specific_program()
     # write to database
+    export_univ_data.write_cip_top_level(cip_top_level)
     export_univ_data.write_univ_programs(univ_programs)
     export_univ_data.write_univ_noc_employement(univ_program_noc_employment)
     export_univ_data.write_credentials(credentials)
@@ -116,24 +120,32 @@ def process_hs_path():
 
 def process_colleges():
     """ Sharon does not have this """
-    # college_main.process_college_univ_list(encoding='mac_roman')
-    # college_main.process_campus_list(encoding='windows-1252')
-    # college_main.process_college_program_list()
+    college_main.process_college_univ_list(encoding='mac_roman')
+    college_main.process_campus_list(encoding='windows-1252')
+    college_main.process_college_program_list()
+    print('\nCollege data complete')
 
 
 def process_university_data():
     """ Sharon does not have this """
-    univ_main.load_program_codes()
+    # THIS IS NOT DONE YET!!
+    # univ_main.load_program_codes()
+
+    process_program_codes.process_all_web_pages()
+
+    print('\nUniversity data complete')
 
 
 def main():
-    # process_noc_codes()
-    # process_noc_skills_tasks()
-    # process_university_noc_data()
-    # process_misc_noc_data()
-    # process_hs_path()
-    # process_colleges()
+    process_noc_codes()
+    process_noc_skills_tasks()
+    process_university_noc_data()
+    process_misc_noc_data()
+    process_hs_path()
+    process_colleges()
     process_university_data()
+
+    print('終')
 
 
 if __name__ == '__main__':

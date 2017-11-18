@@ -17,6 +17,18 @@ connection = mysql.connect(host=HOST,
                            user=USER,
                            db=DB)
 
+def write_cip_top_level(cip_data):
+    sql = 'INSERT INTO cip_top_level ' \
+            '(cip_top_code, description_en, description_fr) ' \
+            'VALUES (%s, %s, %s)'
+    with connection.cursor() as cursor:
+        for item in cip_data:
+            cursor.execute(sql, (item['Code'],
+                                 item['Description_en'],
+                                 item['Description_en']))
+    connection.commit()
+
+
 def write_univ_programs(univ_programs):
     sql = 'INSERT INTO univ_programs ' \
             '(program_code, description_en, description_fr) ' \
@@ -56,12 +68,13 @@ def write_credentials(input_list):
 
 
 def write_univ_programs_specific(input_list):
-    sql = 'INSERT INTO univ_programs_specific '\
-            '(specific_program_code, description_en, description_fr) ' \
-            'VALUES (%s, %s, %s)'
+    sql = 'INSERT INTO cip_codes '\
+            '(cip_top_code, cip_program_code, description_en, description_fr) ' \
+            'VALUES (%s, %s, %s, %s)'
     with connection.cursor() as cursor:
         for item in input_list:
-            cursor.execute(sql, (item['specific_code'],
+            cursor.execute(sql, (item['specific_code'][:2],
+                                 item['specific_code'],
                                  item['description_en'],
                                  item['description_fr']))
     connection.commit()
@@ -69,7 +82,7 @@ def write_univ_programs_specific(input_list):
 
 def write_noc_specific_program(input_list):
     sql = 'INSERT INTO noc_specific_program ' \
-            '(noc_code, credential_code, specific_program_code, job_count) ' \
+            '(noc_code, credential_code, cip_program_code, job_count) ' \
             'VALUES (%s, %s, %s, %s)'
     with connection.cursor() as cursor:
         for item in input_list:

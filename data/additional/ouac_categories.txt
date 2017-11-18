@@ -1,4 +1,4 @@
-ouac_top_code|ouca_cat_code|description_en
+ouac_top_code|ouac_cat_code|description_en
 1|1|Forestry & Arboriculture
 1|2|Others in Veterinary Sciences, Agriculture & Related Subjects
 1|3|Food & Beverage Studies
@@ -14,7 +14,7 @@ ouac_top_code|ouca_cat_code|description_en
 3|13|Zoology
 3|14|Others in Biological Sciences
 3|15|Molecular Biology, Biophysics & Biochemistry
-3|15|Botany
+3|16|Botany
 3|17|Genetics
 3|18|Microbiology
 3|19|Biology

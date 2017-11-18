@@ -238,6 +238,7 @@ ALJ	History
 ALK	English (Concurrent Education – Primary Junior) (Double Degree)
 ALM	History (Concurrent Education – Primary Junior) (Double Degree)
 ALQ	Interdisciplinary Studies with Major Concentration in Environment in Politics and Culture
+ALQ	HBA Political Science and Women's Studies
 ALR	Interdisciplinary Studies with Major Concentration in Environment in Politics and Culture (PJ) (Double Degree)
 ALS	Kinesiology (Honours) (Concurrent Education – Primary Junior) (Double Degree) Accelerated 5-Year Program
 ALT	Kinesiology (Honours) (Concurrent Education – Intermediate Senior) (Double Degree) Accelerated 5-Year Program
@@ -1186,6 +1187,7 @@ RLX	Media Studies – Legal Studies Option
 RLZ	Sociology – Legal Studies Option
 RM	Indigenous Environmental Studies (Dipl.)
 RMA	Mathematics
+RMC	Law (LL.B.) English Literature (B.A.): Trent/ Swansea Dual degree
 RMC	Law (LL.B.) English Literature (B.A.): Trent/ Swansea Dual degree
 RME	Mathematical Economics
 RMP	Mathematical Physics

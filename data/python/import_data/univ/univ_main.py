@@ -38,7 +38,7 @@ def load_program_codes(file_name=UNIV_PROGRAMS, encoding='utf-8'):
                                 delimiter='\t')
         for line in reader:
             line_count += 1
-            print(line)
+            # print(line)
             if len(line['code']) > max_code_length:
                 max_code_length = len(line['code'])
             if len(line['description_en']) > max_desc_len:
