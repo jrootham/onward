@@ -2,13 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ONward</title>
+    <title>ONward🔒</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 	<script src="main.js"></script>
 </head>
 <body>
+🔒🔓
 <script>
-	Elm.Main.fullscreen();
+	var app = Elm.Main.fullscreen();
+
+	app.ports.getSize.subscribe(function() {
+        var size = getSize();
+        app.ports.setSize.send(size);
+    });
+
+    function getSize() {
+        var width =screen.width
+        var height = screen.height
+        return {"width" : width, "height" : height};
+    }
 </script>
 
 </body>
