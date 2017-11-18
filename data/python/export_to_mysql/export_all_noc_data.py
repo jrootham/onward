@@ -118,8 +118,8 @@ def write_skills_tasks_education_map(noc_skills_tasks_list):
                 ))
             except mysql.err.IntegrityError as e:
                 failed_nocs.add(skill['NOC'])
-    print('NOC ERRORS: ', len(failed_nocs))
-    print('All Nocs: ', len(all_nocs))
+    # print('NOC ERRORS: ', len(failed_nocs))
+    # print('All Nocs: ', len(all_nocs))
     connection.commit()
 
 

@@ -10,6 +10,7 @@ UNIV_NOC_JOBS = 'Student-Pathways-Challenge-All-Data-v2-utf8/6 - Employment/18-U
 NOC_LIST = 'Student-Pathways-Challenge-All-Data-v2-utf8/6 - Employment/18-University-Program-NOC-utf8/18-University-Program-NOC-Dict-utf8.txt'
 SPECIFIC_PROGRAM = 'Student-Pathways-Challenge-All-Data-v2-utf8/6 - Employment/21-NOC-Education-utf8/21-NOC-Education-Dict-utf8.txt'
 NOC_SPECIFIC_PROGRAM = 'Student-Pathways-Challenge-All-Data-v2-utf8/6 - Employment/21-NOC-Education-utf8/21-NOC-Education-utf8.csv'
+CIP_TOP = 'additional/cip_top_level.txt'
 
 # Not worth the overhead to import
 credentials = [
@@ -83,6 +84,13 @@ def update_noc_codes_from_dict(noc_code_list,
                 noc_code_list[noc_code]['base_description_en'] = description_en
             if not noc_code_list[noc_code]['base_description_fr']:
                 noc_code_list[noc_code]['base_description_fr'] = description_fr
+
+
+def import_cip_top_level(file_name=CIP_TOP, encoding='utf-8'):
+    file_path = os.path.join(BASE_PATH, file_name)
+    with open (file_path, encoding=encoding) as f:
+        reader = csv.DictReader(f, delimiter='|')
+        return(list(reader))
 
 
 def import_univ_noc_employment(file_name=UNIV_NOC_JOBS, encoding='utf-8'):
