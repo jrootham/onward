@@ -1,6 +1,7 @@
 from import_data import noc_data_17, university_program_noc_18, noc_wages
 from import_data import automation_22, apprentice_wages_23
 from import_data import high_school_courses
+from import_data.colleges import college_main
 from export_to_mysql import export_all_noc_data, export_univ_data, export_hs
 from pprint import pprint  # for printing pretty result while testing
 
@@ -108,13 +109,22 @@ def process_hs_path():
 
     print('HS path processesed\n\n')
 
+####################
+# From this point forward, files will be processed and saved to db in same fn
+####################
+
+def process_colleges():
+    # college_main.process_college_univ_list(encoding='mac_roman')
+    college_main.process_college_program_list()
+
 
 def main():
-    process_noc_codes()
-    process_noc_skills_tasks()
-    process_university_noc_data()
-    process_misc_noc_data()
-    process_hs_path()
+    # process_noc_codes()
+    # process_noc_skills_tasks()
+    # process_university_noc_data()
+    # process_misc_noc_data()
+    # process_hs_path()
+    process_colleges()
 
 
 if __name__ == '__main__':

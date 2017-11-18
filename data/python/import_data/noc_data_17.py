@@ -71,8 +71,6 @@ def load_noc_tasks(file_name_en=TASKS_EN, file_name_fr=TASKS_FR, encoding='utf-8
                                 delimiter='\t')
         for line in reader:
             task_dict[line['task_code']] = {'task_en': line['task_en']}
-            if len(line['task_code']) > 5:
-                print(line['task_code'])
     for key in task_dict:
         task_list.append({**{'task_code': key},
                           **task_dict[key],

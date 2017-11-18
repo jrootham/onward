@@ -1,0 +1,96 @@
+
+body
+{
+    font-size:          160px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) 
+{
+	body
+	{
+	    font-size:          80px;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199px) 
+{
+	body
+	{
+	    font-size:          20px;
+	}
+}
+
+@media (min-width: 1200px) 
+{
+	body
+	{
+	    font-size:          10px;
+	}
+}
+
+
+
+.outer-light
+{
+}
+
+h1 
+{
+	margin: 0;
+    text-align: center;
+}
+
+.label
+{
+	display: inline-block;
+	width: 6em;
+}
+
+.instructions
+{
+	padding: 20px;
+	width: 80vw;
+}
+
+.bevel-button
+{
+	display: inline-block;
+	padding: 2px;
+	margin: 2px;
+}
+
+.bevel-button-light
+{
+	background-color: blue
+}
+
+.normal
+{
+	width: 4em;
+}
+
+.wide
+{
+	width: 8em;
+}
+
+.wider
+{
+	width: 12em;
+}
+
+.thin
+{
+	width: 1em;
+}
+
+.flat-enabled-light
+{
+	color: white;
+}
+
+.flat-disabled-light
+{
+	color: grey;
+}
+
