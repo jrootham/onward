@@ -1,0 +1,179 @@
+INSTITUTION,INSTITUTION_NAME,INSTITUTION_TYPE_CODE,INSTITUTION_TYPE_EN_DESC,POSTAL_CODE,UNIV,MAIN
+ALGO,Algonquin College,35046002,Ottawa Valley - Pembroke Campus,K8A0C8,0,0
+ALGO,Algonquin College,35046003,Heritage Institute - Perth Campus,K7H1X7,0,0
+ALGO,Algonquin College,35046001,Woodroffe Campus,K2G1V8,0,1
+ALGO,Algonquin College,35046005,255 Albert,K1P6A9,0,0
+BORE,Collège Boréal,35043003,New Liskeard,P0J1P0,0,0
+BORE,Collège Boréal,35043008,New Liskeard - Alfred,K0B1A0,0,0
+BORE,Collège Boréal,35043002,Kapuskasing,P5N1J6,0,0
+BORE,Collège Boréal,35043006,Hearst,P0L1N0,0,0
+BORE,Collège Boréal,35043007,Toronto,M5E1E5,0,0
+BORE,Collège Boréal,35043005,Timmins,P4N0A7,0,0
+BORE,Collège Boréal,35043004,Nipissing,P2B1N3,0,0
+BORE,Collège Boréal,35043001,Main Campus,P3A6B1,0,1
+CAMB,Cambrian College,,Manitoulin Campus,P0P1K0,0,0
+CAMB,Cambrian College,,Espanola Campus,P5E1S6,0,0
+CAMB,Cambrian College,35047001,Sudbury,P3A3V8,0,1
+CAMB,Cambrian College,35047005,Hanson - Brampton Campus,L6T4B5,0,0
+CAMB,Cambrian College,35047004,Hanson - York Campus,M2J0A3,0,0
+CANA,Canadore College,35073004,Parry Sound Campus,P2A0A9,0,0
+CANA,Canadore College,,North Bay Campus,P1B8K9,0,0
+CANA,Canadore College,35073002,Aviation Campus,P1B9N8,0,0
+CANA,Canadore College,35073001,College Drive Campus,P1B8K9,0,1
+CANA,Canadore College,35073003,Commerce Court Campus,P1B8G4,0,0
+CANA,Canadore College,35073010,First Nations Technical Institute,K0K1X0,0,0
+CANA,Canadore College,35073007,Fort Francis,P9A3M6,0,0
+CANA,Canadore College,35073009,Kenjgewin Ted Education Institute,P0P1G0,0,0
+CANA,Canadore College,35073006,On-line program Delivery,P1B8K9,0,0
+CENT,Centennial College,,Story Arts Centre,M4K3M2,0,0
+CENT,Centennial College,35048006,Centennial College Residence Conference Centre,M1G3T8,0,0
+CENT,Centennial College,,Pickering Learning Site,L1V3P2,0,0
+CENT,Centennial College,35048010,Ashtonbee Campus,M1L4C9,0,0
+CENT,Centennial College,,Midland Campus,M1P2R7,0,0
+CENT,Centennial College,,Morningside Campus,M1C5J9,0,0
+CENT,Centennial College,35048001,Progress Campus,M1G3T8,0,1
+CENT,Centennial College,35048003,Centennial Science and Technology Centre,M1C5J9,0,0
+CENT,Centennial College,35048002,Centre for Creative Communications,M4K3M2,0,0
+CONS,Conestoga College,35051003,Waterloo,N2J2W2,0,0
+CONS,Conestoga College,35051005,Stratford,N5A1J7,0,0
+CONS,Conestoga College,35051006,Ingersoll,N5C3J7,0,0
+CONS,Conestoga College,35051002,Guelph,N1H0A8,0,0
+CONS,Conestoga College,35051004,Cambridge,N1R6P9,0,0
+CONS,Conestoga College,,Cambridge,N3H0A8,0,0
+CONS,Conestoga College,35051007,Brantford,N3T2K7,0,0
+CONS,Conestoga College,35051001,Doon,N2G4M4,0,1
+CONF,Confederation College,35052001,Thunder Bay,P7C4W1,0,1
+CONF,Confederation College,35052003,Distance Education,P7C4W1,0,0
+CONF,Confederation College,35052005,Dryden,P8N3L4,0,0
+CONF,Confederation College,35052004,Lake of Woods,P9N3X7,0,0
+CONF,Confederation College,35052002,Rainy River District Campus,P9A3T8,0,0
+DURH,Durham College,35053003,Whitby Campus,L1N6A7,0,0
+DURH,Durham College,35053001,Main Campus - Oshawa Campus,L1H7K4,0,1
+DURH,Durham College,35053002,Pickering Learning Site,L1V0C4,0,0
+FANS,Fanshawe College,,Woodstock/Oxford Regional Campus,N4V1A3,0,0
+FANS,Fanshawe College,35054003,St. Thomas / Elgin Campus,N5R6A7,0,0
+FANS,Fanshawe College,,Simcoe/Norfolk Regional Campus,N3Y4K8,0,0
+FANS,Fanshawe College,35054001,London,N5Y5R6,0,1
+FANS,Fanshawe College,35054002,James N. Allan Campus,N3Y4K8,0,0
+FANS,Fanshawe College,35054004,Oxford County Campus,N4V1A3,0,0
+SSFL,Sir Sandford Fleming College,35069003,Haliburton,K0M1S0,0,0
+SSFL,Sir Sandford Fleming College,35069002,Frost,K9V5E6,0,0
+SSFL,Sir Sandford Fleming College,35069004,Cobourg,K9A5J4,0,0
+SSFL,Sir Sandford Fleming College,35069001,Main Campus / Sutherland,K9J7B1,0,1
+GRBR,George Brown College,35055003,Young Centre for the Performing Arts,M5A3C4,0,0
+GRBR,George Brown College,35055011,Waterfront Campus,M5A0B6,0,0
+GRBR,George Brown College,35055002,Casa Loma,M5R1M3,0,0
+GRBR,George Brown College,35055001,Main Campus / St. James,M5A3W8,0,1
+GRBR,George Brown College,35055006,Hospitality and Tourism Centre,M5A1N1,0,0
+GRBR,George Brown College,35055004,Ryerson University,M5B2K8,0,0
+GEOR,Georgian College,35056007,South Georgian Bay Campus,L9Y3Z1,0,0
+GEOR,Georgian College,35056003,Owen Sound Campus,N4K5R4,0,0
+GEOR,Georgian College,35056002,Orillia Campus,L3V6S2,0,0
+GEOR,Georgian College,35056006,Orangeville Campus,L9W1P8,0,0
+GEOR,Georgian College,35056005,Muskoka Campus,P1L1E2,0,0
+GEOR,Georgian College,35056004,Midland Campus,L4R4K6,0,0
+GEOR,Georgian College,35056001,Barrie Campus,L4M3X9,0,1
+HUMB,Humber College,35062003,Orangeville Campus,L9W5A9,0,0
+HUMB,Humber College,35062002,Lakeshore Campus and the Robert A. Gordon Learning Centre,M8V1K8,0,0
+HUMB,Humber College,35062001,North Campus,M9W5L7,0,1
+LACI,La Cité Collégiale,,La Cité à Toronto,M5V3B1,0,0
+LACI,La Cité Collégiale,35045002,Campus Hawksbury,K6A2P3,0,0
+LACI,La Cité Collégiale,35045004,Alfred,K0B1A0,0,0
+LACI,La Cité Collégiale,,Campus Alphonse-Desjardins,K4A0S9,0,0
+LACI,La Cité Collégiale,35045001,Main Campus,K1K4R3,0,1
+LAMB,Lambton College,,Fire & Public Safety Centre of Excellence,N7T7H5,0,0
+LAMB,Lambton College,35061002,Main Campus,N7S6K4,0,0
+LOYT,Loyalist College,35057001,Main Campus,K8N5B9,0,1
+LOYT,Loyalist College,35057002,Bancroft,K0L1C0,0,0
+MOHA,Mohawk College,,Stoney Creek Campus,L8E2L7,0,0
+MOHA,Mohawk College,,Institute for Applied Health Sciences,L8S1C7,0,0
+MOHA,Mohawk College,35058001,Main Campus/Fennell Campus,L9C1E9,0,1
+MOHA,Mohawk College,35058002,Brantford Campus,N3T5V2,0,0
+MOHA,Mohawk College,35058003,Mohawk-McMaster Institute for Applied Health Sciences (IAHS),L8S1C7,0,0
+MOHA,Mohawk College,35058005,Odeon Campus,N3T2Z5,0,0
+MOHA,Mohawk College,35058006,Sheridan/Mississauga,L5B0G5,0,0
+MOHA,Mohawk College,35058004,"Skills Trades and Apprenticeship Research, Resources and Training (STARRT) Institute",L8E2L7,0,0
+NIAG,Niagara College,35059002,Niagara-on-the-Lake Campus,L0S1J0,0,0
+NIAG,Niagara College,35059003,Niagara Falls Campus,L2G2N9,0,0
+NIAG,Niagara College,35059001,Welland Campus,L3C7L3,0,1
+NORT,Northern College,,Moosonee Campus,P0L1Y0,0,0
+NORT,Northern College,35063005,Kirkland Lake Campus,P2N3L8,0,0
+NORT,Northern College,35063002,Haileybury Campus,P0J1K0,0,0
+NORT,Northern College,,Timmins Campus,P4N8R6,0,0
+NORT,Northern College,35063001,Porcupine Site,P4N8R6,0,1
+NORT,Northern College,35063008,Open Learning,P4N8R6,0,0
+NORT,Northern College,35063003,James Bay Education Centre Campus,P0L1Y0,0,0
+NORT,Northern College,35063006,Contact North,P4N8R6,0,0
+NORT,Northern College,35063009,Contact North Haileybury,P0J1K0,0,0
+NORT,Northern College,35063007,Contact South,P4N8R6,0,0
+SAUL,Sault College,35066001,Main Campus,P6A5L3,0,1
+SENE,Seneca College,35067007,Yorkgate Campus,M3N3A1,0,0
+SENE,Seneca College,,Vaughan Campus,L6A4H6,0,0
+SENE,Seneca College,,Scarborough Campus,M1V0B8,0,0
+SENE,Seneca College,,Peterborough Aviation Campus,K9J0E7,0,0
+SENE,Seneca College,35067004,Newmarket Campus,L3X1V6,0,0
+SENE,Seneca College,35067002,Markham Campus,L3R5Y1,0,0
+SENE,Seneca College,35067005,King Campus,L7B1B3,0,0
+SENE,Seneca College,35067008,Jane Campus,M3L1A2,0,0
+SENE,Seneca College,35067001,Newnham Campus,M2J2X5,0,1
+SENE,Seneca College,35067006,Seneca @ York Campus,M3J3M6,0,0
+SHER,Sheridan College,35068003,Skills Training Centre,L6H1M3,0,0
+SHER,Sheridan College,35068004,Hazel McCallion Campus,L5B0G5,0,0
+SHER,Sheridan College,35068002,Davis Campus,L6Y5H9,0,0
+SHER,Sheridan College,35068001,Main Campus / Trafalgar Road Campus,L6H2L1,0,1
+STCL,St. Clair College,35064002,Thames Campus,N7M5W4,0,0
+STCL,St. Clair College,35064004,Mediaplex,N9A6Z8,0,0
+STCL,St. Clair College,35064003,Centre for the Arts,N9A5K4,0,0
+STCL,St. Clair College,35064001,South Campus,N9A6S4,0,1
+STCL,St. Clair College,35064005,Acumen,M3B3M1,0,0
+SLAW,St. Lawrence College,,Kingston Campus,K7L5A6,0,0
+SLAW,St. Lawrence College,35065002,Cornwall Campus,K6H4Z1,0,0
+SLAW,St. Lawrence College,35065003,Brockville Campus,K6V5X3,0,0
+ALGM,Algoma University,35024001,Algoma University,P6A2G4,1,1
+BRCK,Brock University,35001001,Brock University,L2S3A1,1,1
+CARL,Carleton University,35002001,Carleton University,K1S5B6,1,1
+CARL,Carleton University,35002002,Carleton  University  - Dominican University College,K1R7G3,1,0
+GUEL,University of Guelph,35004001,University of Guelph,N1G2W1,1,1
+GUEL,University of Guelph,35004002,Kemptville College,K0G1J0,1,0
+GUEL,University of Guelph,35004003,Ridgetown College,N0P2C0,1,0
+GUEL,University of Guelph,35004005,University of Guelph - Humber Campus,M9W5L7,1,0
+HRST,Universite de Hearst,,Kapuskasing Campus,P5N1J6,1,0
+HRST,Universite de Hearst,,Timmins Campus,P4N0A8,1,0
+HRST,Universite de Hearst,35006003,Le collège universitaire de Hearst,P0L1N0,1,0
+LAKE,Lakehead University,35005001,Lakehead University,L3V7X5,1,1
+LAKE,Lakehead University,,Thunder Bay Campus,P7B5E1,1,0
+LAKE,Lakehead University,35005003,Lakehead University - Orillia Campus,L3V0B9,1,0
+LAUR,Laurentian University,35006008,Laurentian BARRIE,L4M3X9,1,0
+LAUR,Laurentian University,35006001,Laurentian University,P3E2C6,1,1
+LAUR,Laurentian University,35006007,Laurentian University - Off Campus Centres,P7E2C6,1,0
+MAC,McMaster University,35007001,McMaster University,L8S4L8,1,1
+MAC,McMaster University,35007003,McMaster Nursing at Conestoga,N2G1C5,1,0
+MAC,McMaster University,35007004,McMaster Nursing at Mohawk,L8S1C7,1,0
+NIPS,Nipissing University,35008002,Nipissing University - Brantford Campus,N3T2L6,1,0
+NIPS,Nipissing University,35008003,Nipissing University - Bracebridge Campus,P1L1E2,1,0
+NIPS,Nipissing University,35008001,Nipissing University,P1B8L7,1,1
+OCAD,OCAD University,35022001,Ontario College of Art & Design,M5T1W1,1,1
+UOIT,University of Ontario Institute of Technology,35023001,University of Ontario Institute of Technology,L1H7K4,1,1
+OTTW,University of Ottawa,35010001,Université d'Ottawa,K1N6N5,1,1
+OTTW,University of Ottawa,35010002,Université Saint-Paul,K1S1C4,1,0
+QUEN,Queen's University,35011001,Queen's University,K7L3N6,1,1
+,Royal Military College ,,Royal Military College ,K7K7B4,1,0
+RYER,Ryerson University,35014001,Ryerson University,M5B2K3,1,1
+UOFT,University of Toronto,35015001,University of Toronto  (includes federated Arts Colleges),M5S1A1,1,1
+UOFT,University of Toronto,35015003,University of Toronto Mississauga (formerly Erindale College),L5L1C6,1,0
+UOFT,University of Toronto,35015002,University of Toronto Scarborough (formerly Scarborough College),M1C1A4,1,0
+TRNT,Trent University,35016002,Trent University at Durham College/UOIT,L1J5Y1,1,0
+TRNT,Trent University,35016001,Trent University,K9J7B8,1,1
+WATR,University of Waterloo,35017001,University of Waterloo,N2L3G1,1,1
+WATR,University of Waterloo,35017006,Cambridge - School of Architecture,N1S2H4,1,0
+WEST,University of Western Ontario,35018001,University of Western Ontario,N6A3K7,1,1
+WEST,University of Western Ontario,35018002,Brescia University College,N6G1H2,1,0
+WEST,University of Western Ontario,35018003,Huron University College,N6G1H3,1,0
+WEST,University of Western Ontario,35018004,King's University College,N6A2M3,1,0
+WLU,Wilfrid Laurier University,35019003,Wilfrid Laurier University - Brantford Campus,N3T2Y3,1,0
+WLU,Wilfrid Laurier University,,Kitchener,N2H3W8,1,0
+WLU,Wilfrid Laurier University,35019001,Wilfrid Laurier University,M5X1C9,1,1
+WLU,Wilfrid Laurier University,,Waterloo,N2L3C5,1,0
+WIND,University of Windsor,35020001,University of Windsor,N9B3P4,1,1
+YORK,York University,35021001,York University,M3J1P3,1,1
+YORK,York University,35021003,Glendon College,M4N3M6,1,0

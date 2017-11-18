@@ -1,0 +1,129 @@
+ouac_top_code|ouac_cat_code|description_en
+1|1|Forestry & Arboriculture
+1|2|Others in Veterinary Sciences, Agriculture & Related Subjects
+1|3|Food & Beverage Studies
+1|4|Animal Science
+1|5|Agriculture Sciences
+1|6|Agriculture
+2|7|Planning (Urban, Rural & Regional)
+2|8|Others in Architecture, Building & Planning
+2|9|Landscape & Garden Design
+2|10|Architecture
+3|11|Psychology
+3|12|Sport & Exercise Science
+3|13|Zoology
+3|14|Others in Biological Sciences
+3|15|Molecular Biology, Biophysics & Biochemistry
+3|16|Botany
+3|17|Genetics
+3|18|Microbiology
+3|19|Biology
+4|20|Management Studies
+4|21|Marketing
+4|22|Others in Business & Administrative Studies
+4|23|Human Resource Management
+4|24|Hospitality, Leisure, Sport, Tourism & Transport
+4|25|Business Studies
+4|26|Finance
+4|27|Accounting
+5|28|Information Systems
+5|29|Others in Computer Sciences
+5|30|Software Engineering
+5|31|Health Informatics
+5|32|Games
+5|33|Computer Generated Visual & Audio Effects
+5|34|Computer Science
+5|35|Artificial Intelligence
+6|36|Imaginative Writing
+6|37|Music
+6|38|Others in Creative Arts & Design
+6|39|Paper Crafts
+6|40|Fine Art
+6|41|Drama
+6|42|Crafts
+6|43|Dance
+6|44|Design Studies
+6|45|Cinematics & Photography
+7|46| Others in Education
+7|47|Academic Studies in Education
+8|48|Others in Engineering
+8|49|Production & Manufacturing Engineering
+8|50|Mechanical Engineering
+8|51|Electronic & Electrical Engineering
+8|52|Chemical, Process & Energy Engineering
+8|53|Civil Engineering
+8|54|Aerospace Engineering
+9|55|Philosophy
+9|56|Theology & Religious Studies
+9|57|Others in Historical & Philosophical Studies
+9|58|History
+9|59|Heritage Studies
+9|60|Archaeology
+10|61|Languages, Linguistics, Literatures, Cultures & Societies
+11|62|Other Asian Studies
+11|63|Others in Eastern, Asiatic, African, American, Australasian, Languages, Literature & Related Subjects
+11|64|Modern Middle Eastern Studies
+11|65|Linguistics
+11|66|Latin Studies
+11|67|Others in European Languages, Literature & Related Subjects
+11|68|Others in Linguistics, Classics & Related Subjects
+11|69|Spanish Studies
+11|70|South Asian Studies
+11|71|Russian & East European Studies
+11|72|Portuguese Studies
+11|73|Japanese Studies
+11|74|Italian Studies
+11|75|Chinese Studies
+11|76|Classical Greek Studies
+11|77|Celtic Studies
+11|78|Ancient Language Studies
+11|79|North and South American Studies
+11|80|Classical Studies
+11|81|Comparative Literary Studies
+11|82|German Studies
+11|83|French Studies
+11|84|European Studies
+11|85|English Studies
+11|86|African Studies
+12|87|Publicity Studies
+12|88|Publishing
+12|89|Others in Mass Communications & Documentation
+12|90|Media Studies
+12|91|Journalism
+12|92|Information Services
+13|93|Statistics
+13|94|Others in Mathematical Sciences
+13|95|Operational Research
+13|96|Mathematics
+14|97|Ophthalmics
+14|98|Others in Subjects Related to Medicine
+14|99|Pharmacology, Toxicology & Pharmacy
+14|100|Nutrition
+14|101|Nursing
+14|102|Complementary Medicines, Therapies & Well-Being
+14|103|Medical Technology
+14|104|Anatomy, Physiology & Pathology
+15|105|Physical Geographical Sciences
+15|106|Physics
+15|107|Science of Aquatic & Terrestrial Environments
+15|108|Others in Physical Sciences
+15|109|Materials Science
+15|110|Chemistry
+15|111|Forensic & Archaeological Sciences
+15|112|Geology
+15|113|Astronomy
+16|114|Politics
+16|115|Social Policy
+16|116|Social Work
+16|117|Sociology
+16|118|Others in Social Studies
+16|119|Law & Criminology
+16|120|Development Studies
+16|121|Economics
+16|122|Environmental Studies
+16|123|Human & Social Geography
+16|124|Anthropology
+17|125|Polymers & Textiles
+17|126|Others in Materials Technology
+17|127|Minerals Technology
+17|128|Ceramics & Glass

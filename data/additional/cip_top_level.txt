@@ -1,0 +1,50 @@
+Code|Description_en
+01|Agriculture, agriculture operations and related sciences
+03|Natural resources and conservation
+04|Architecture and related services
+05|Area, ethnic, cultural, gender, and group studies
+09|Communication, journalism and related programs
+10|Communications technologies/technicians and support services
+11|Computer and information sciences and support services
+12|Personal and culinary services
+13|Education
+14|Engineering
+15|Engineering technologies and engineering-related fields
+16|Aboriginal and foreign languages, literatures and linguistics
+19|Family and consumer sciences/human sciences
+21|Pre-technology education/pre-industrial arts programs
+22|Legal professions and studies
+23|English language and literature/letters
+24|Liberal arts and sciences, general studies and humanities
+25|Library science
+26|Biological and biomedical sciences
+27|Mathematics and statistics
+28|Military science, leadership and operational art
+29|Military technologies and applied sciences
+30|Multidisciplinary/interdisciplinary studies
+31|Parks, recreation, leisure and fitness studies
+32|Basic skills (not for credit)
+33|Citizenship activities (not for credit)
+34|Health-related knowledge and skills (not for credit)
+35|Interpersonal and social skills (not for credit)
+36|Leisure and recreational activities (not for credit)
+37|Personal awareness and self-improvement (not for credit)
+38|Philosophy and religious studies
+39|Theology and religious vocations
+40|Physical sciences
+41|Science technologies/technicians
+42|Psychology
+43|Security and protective services
+44|Public administration and social service professions
+45|Social sciences
+46|Construction trades
+47|Mechanic and repair technologies/technicians
+48|Precision production
+49|Transportation and materials moving
+50|Visual and performing arts
+51|Health professions and related programs
+52|Business, management, marketing and related support services
+53|High school/secondary diploma and certificate programs
+54|History
+55|French language and literature/letters
+60|Dental, medical and veterinary residency programs
