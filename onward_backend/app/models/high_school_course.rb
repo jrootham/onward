@@ -13,4 +13,9 @@ class HighSchoolCourse < ApplicationRecord
   def grade
     course_grade.grade
   end
+
+  def prereq_for
+    course_ids = CoursePrerequisite.where(prereq_code: course_code).pluck(:course_code)
+    self.class.find(course_ids)
+  end
 end
