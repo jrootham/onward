@@ -36,40 +36,46 @@ class Pathway
 
   def initialize(hs_course_codes: [], current_level: 'grade_9')
     @result = Hash[LEVELS.map{ |level| [level[:name], []] }]
-    binding.pry
-    courses = hs_course_codes.each { |cc| HighSchoolCourse.includes(:course_prerequisite, :course_grade).find(cc) }
-    populate_high_school_courses(courses)
-    generate_pathway(current_level)
+
+    populate_high_school_courses(hs_course_codes)
+    generate_pathway(level_from_name(current_level))
   end
 
-  def populate_high_school_courses(courses)
+  def level_from_name(level_name)
+    LEVELS.find { |level| level[:name] == level_name } || LEVELS[0]
+  end
+
+  def populate_high_school_courses(hs_course_codes)
+    courses = HighSchoolCourse.includes(:course_prerequisite, :course_grade).find(hs_course_codes)
+
     courses.each do |course|
       hash_key = "grade_#{course.grade}"
       @result[hash_key].push course
     end
   end
 
-  # def detect_current_grade(courses)
-  #   course_grades = courses.map { |c| c.grade }
-  #   freq = course_grades.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-  #   freq.max_by { |_, v| v }.first
-  # end
+  def generate_pathway(current_level)
+    return unless current_level
 
-  def generate_pathway(current_level_name)
-    current_level = LEVELS.select { |level| level[:name] = current_level_name }
-    next_level = LEVELS[LEVELS.index_of(current_level_item) + 1]
-    method_name = next_level[options_next_level]
+    next_level = LEVELS[LEVELS.index(current_level) + 1]
+    method_name = current_level[:options_next_level]
+
     send(method_name, current_level, next_level)
     generate_pathway(next_level)
-  end
 
-  def next_year_courses(current_level, next_level)
-    current_courses = @result[current_level[:name]]
-    @result[next_level[:name]] = current_courses.map { |course| course.prereq }
+  rescue NoMethodError => e
+    puts "------------------------------"
+    puts e
+    puts "------------------------------"
   end
 
   def previous_year_courses(current_level, previous_level)
     current_courses = @result[current_level[:name]]
-    @result[previous_level[:name]] = courses.map { |course| course.prereq_for }.flatten
+    @result[previous_level[:name]] = current_courses.map { |course| course.prereq }
+  end
+
+  def next_year_courses(current_level, next_level)
+    current_courses = @result[current_level[:name]]
+    @result[next_level[:name]] = current_courses.map { |course| course.prereq_for }.flatten
   end
 end

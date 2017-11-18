@@ -7,6 +7,8 @@ class HighSchoolCourse < ApplicationRecord
   def prereq
     return if has_prereq === 0
 
+    return unless course_prerequisite
+
     self.class.find_by(course_code: course_prerequisite.prereq_code)
   end
 
