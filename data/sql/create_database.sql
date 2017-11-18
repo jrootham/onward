@@ -109,9 +109,10 @@ CREATE TABLE IF NOT EXISTS credentials (
 
 -- Table 21 has details on specific programs (very detailed).
 -- These ARE NOT currently linked to univ_programs (though they should be)
-CREATE TABLE IF NOT EXISTS univ_programs_specific(
-  specific_program_code CHAR(5) PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS univ_program_code_links(
+  specific_program_code CHAR(5),
   program_code CHAR(3),
+  ouad_code CHAR(3),
   description_en VARCHAR(750),
   description_fr VARCHAR(750),
   FOREIGN KEY (program_code)
@@ -229,6 +230,28 @@ CREATE TABLE IF NOT EXISTS college_programs (
   description_en VARCHAR(1000),
   description_fr VARCHAR(1000)
 );
+
+
+-- College grad rates (calculated)
+CREATE TABLE IF NOT EXISTS college_grad_rates (
+  institution_code CHAR(5),
+  college_program_code CHAR(5),
+  grad_rate DECIMAL(4,3),
+  PRIMARY KEY (institution_code, college_program_code),
+  FOREIGN KEY (institution_code)
+    REFERENCES institutions (institution_code)
+    ON DELETE CASCADE,
+  FOREIGN KEY (college_program_code)
+    REFERENCES college_programs (college_program_code)
+);
+
+
+-- ---------------------
+-- University data
+-- ---------------------
+CREATE TABLE IF NOT EXISTS university_programs
+
+
 
 -- Trades have different classification codes from NOC; need to detail & link
 -- table needs to be created from OCTAA data subset

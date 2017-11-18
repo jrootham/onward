@@ -88,3 +88,7 @@ def process_college_program_list(file_name=COLLEGE_PROGRAMS, encoding='utf-8'):
 
 def process_college_grad_rates(file_name=COLLEGE_GRAD_RATES, encoding='utf-8'):
     file_path = os.path.join(BASE_PATH, file_name)
+    sql = 'INSERT INTO college_grad_rates ' \
+            '(institution_code, college_program_code, grad_rate) ' \
+            'VALUES (%s, %s, %s)'
+    # TODO: COMPLETE THIS IF HAVE TIME

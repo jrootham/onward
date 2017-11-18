@@ -1,0 +1,18 @@
+ouac_top_code|description_en
+1|Agriculture, Food, Forestry, Resource Management, Vet Sciences
+2|Architecture, Building & Planning
+3|Biological Sciences
+4|Business & Administrative Studies
+5|Computer Science
+6|Creative Arts & Design
+7|Education
+8|Engineering
+9|Historical, Philosophical & Religious Studies
+10|Interdisciplinary Studies
+11|Languages, Linguistics, Literatures, Cultures & Societies
+12|Mass Communications & Documentation
+13|Mathematics
+14|Medicine and Related Subjects
+15|Physical Sciences
+16|Social Sciences
+17|Technologies & Materials

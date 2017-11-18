@@ -2,6 +2,7 @@ from import_data import noc_data_17, university_program_noc_18, noc_wages
 from import_data import automation_22, apprentice_wages_23
 from import_data import high_school_courses
 from import_data.colleges import college_main
+from import_data.univ import univ_main
 from export_to_mysql import export_all_noc_data, export_univ_data, export_hs
 from pprint import pprint  # for printing pretty result while testing
 
@@ -117,7 +118,12 @@ def process_colleges():
     """ Sharon does not have this """
     # college_main.process_college_univ_list(encoding='mac_roman')
     # college_main.process_campus_list(encoding='windows-1252')
-    college_main.process_college_program_list()
+    # college_main.process_college_program_list()
+
+
+def process_university_data():
+    """ Sharon does not have this """
+    univ_main.load_program_codes()
 
 
 def main():
@@ -126,7 +132,8 @@ def main():
     # process_university_noc_data()
     # process_misc_noc_data()
     # process_hs_path()
-    process_colleges()
+    # process_colleges()
+    process_university_data()
 
 
 if __name__ == '__main__':
