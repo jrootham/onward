@@ -59,3 +59,7 @@ __pycache__
 db_secrets.py
 ignore_folder
 env
+
+# generated files
+client/gen/*
+client/public_html/*.js
