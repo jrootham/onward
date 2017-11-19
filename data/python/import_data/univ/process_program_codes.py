@@ -29,7 +29,7 @@ OUAC_CATS = 'additional/ouac_categories.txt'
 OUAC_PROGRAMS = 'Student-Pathways-Challenge-All-Data-v2-utf8/4 - Admission/14-University-Prerequisites-utf8/unv_programs.txt'
 
 def load_codes_from_file(file_id, encoding='utf-8'):
-    list_of_codes = []
+    list_of_codes = set()
     file_path = os.path.join(BASE_PATH, 'additional/univ_program_codes', str(file_id) + '.txt')
     with open(file_path, encoding=encoding) as f:
         for line in f:
@@ -38,7 +38,7 @@ def load_codes_from_file(file_id, encoding='utf-8'):
             )
             if code_match:
                 match_str = code_match.group(0)
-                list_of_codes.append(match_str[2:len(match_str)-2])
+                list_of_codes.add(match_str[2:len(match_str)-2])
     return list_of_codes
 
 
@@ -105,14 +105,33 @@ def process_ouac_programs():
 
 
 def process_all_web_pages():
-    # process_ouac_top()
-    # process_ouac_subs()
+    process_ouac_top()
+    process_ouac_subs()
     process_ouac_programs()
     ouac_programs = {}
+    sql = 'INSERT INTO ouac_program_cat_map ' \
+            '(ouac_program_code, ouac_cat_code) ' \
+            'VALUES (%s, %s)'
     file_list_path = os.path.join(BASE_PATH, 'additional/univ_program_codes')
     file_list = os.listdir(file_list_path)
     for file_name in file_list:
         if file_name[-3:] == 'txt':
             ouac_programs[file_name[:-4]] = load_codes_from_file(file_name[:-4])
-    # pprint(ouac_programs)
-    print('need to process web pages')
+    for cat_code in ouac_programs:
+        for program_code in ouac_programs[cat_code]:
+            try:
+                with connection.cursor() as cursor:
+                    cursor.execute(sql, (program_code, cat_code))
+            except mysql.err.IntegrityError as e:
+                pass
+    connection.commit()
+
+def map_ouac_to_maesd():
+    pass
+
+def map_cip_to_maesd():
+    pass
+
+def process_map_tables():
+    map_ouac_to_maesd()
+    map_cip_to_maesd()

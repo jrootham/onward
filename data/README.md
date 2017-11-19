@@ -19,6 +19,7 @@ python master_data_process.py
   dependencies shown in python/requirements.txt
 
 ## Workflow
+### SETUP (First time)
 
 1) setup venv & dependencies
 
@@ -36,21 +37,53 @@ touch /path_to_data/python/export_to_mysql/db_secrets.py
 
 ```python
 # Contents of db_secrets.py
-
+# Replace with appropriate values
 HOST = '000.000.000.000'
 PASSWORD = 'password'
 PORT = 3306
 USER = 'username'
 DB = 'db_name'
+# select appropriate value based on db engine
+ENGINE = 'MySQL'
+# ENGINE = 'MariaDB'  
 ```
 
+## How to run updates
 
-2) connect to database through shell
+1) connect to database through shell
 
-3) Source SQL file to setup database
+```shell
+# Replace values as appropriate
+
+# to connect to localhost
+mysql -u username -p
+
+# to connect to remote host
+mysql -u username -p -h 123.123.123.123
+```
+
+2) Delete existing database and create new tables
 
 ```sql
-source /path_to_data/sql/create_database.sql;
+-- if localhost
+DROP DATABASE IF EXISTS rootham;
+
+-- if on server
+-- you'll have to manually go through and drop each table
+SHOW TABLES;
+SET FOREIGN_KEY_CHECKS = 0;
+-- drop each table
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- in either case
+SOURCE /path/to/onward/data/sql/create_database.sql;
 ```
 
-4)
+3) run python setup from shell
+
+```shell
+cd /path/to/with/virtualenv
+source env/bin/activate
+cd /path/to/onward/data/python
+python master_data_process.py
+```

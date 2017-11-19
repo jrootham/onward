@@ -118,15 +118,23 @@ CREATE TABLE IF NOT EXISTS ouac_program_cat_map(
     REFERENCES ouac_sub_categories (ouac_cat_code)
     ON DELETE CASCADE,
   FOREIGN KEY (ouac_program_code)
-    REFERENCES ouac_programs (ouac_program_code),
+    REFERENCES ouac_programs (ouac_program_code)
+    ON DELETE CASCADE,
   PRIMARY KEY (ouac_program_code, ouac_cat_code)
 );
 
--- NEED TO DO THIS
-CREATE TABLE IF NOT EXISTS program_cip_link(
+-- maps ouac to maesd codes
+CREATE TABLE IF NOT EXISTS program_ouac_map(
   program_code CHAR(3),
-  cip_code CHAR(5)
-);
+  ouac_program_code CHAR(3),
+  PRIMARY KEY (program_code, ouac_program_code),
+  FOREIGN KEY (program_code)
+    REFERENCES univ_programs (program_code)
+    ON DELETE CASCADE,
+  FOREIGN KEY (ouac_program_code)
+    REFERENCES ouac_programs (ouac_program_code)
+    ON DELETE CASCADE
+)
 
 
 -- Table linking program areas, NOC and employment levels per year
@@ -164,6 +172,19 @@ CREATE TABLE IF NOT EXISTS cip_codes(
   FOREIGN KEY (cip_top_code)
     REFERENCES cip_top_level (cip_top_code)
     ON DELETE CASCADE
+);
+
+-- Maps cip to MAESD code
+CREATE TABLE IF NOT EXISTS program_cip_map(
+  program_code CHAR(3),
+  cip_program_code CHAR(5),
+  PRIMARY KEY (program_code, cip_code),
+  FOREIGN KEY (program_code)
+    REFERENCES univ_programs (program_code)
+    ON DELETE CASCADE,
+  FOREIGN KEY (cip_code)
+    REFERENCES cip_codes (cip_program_code)
+    ON DELETE CASCADE 
 );
 
 -- Table with details on area of study, credential level, job category & # of job
