@@ -47,6 +47,7 @@ class Pathway
 
   def populate_high_school_courses(hs_course_codes)
     courses = HighSchoolCourse.includes(:course_prerequisite, :course_grade).find(hs_course_codes)
+    p "COURSES => #{courses}"
 
     courses.each do |course|
       hash_key = "grade_#{course.grade}"
@@ -55,7 +56,10 @@ class Pathway
   end
 
   def generate_pathway(current_level)
-    return unless current_level
+    p "CURRENT_LEVEL => #{current_level}"
+    p "@result => #{@result}"
+
+    return @result unless current_level
 
     next_level = LEVELS[LEVELS.index(current_level) + 1]
     method_name = current_level[:options_next_level]
@@ -66,16 +70,23 @@ class Pathway
   rescue NoMethodError => e
     puts "------------------------------"
     puts e
+    return @result
     puts "------------------------------"
   end
 
   def previous_year_courses(current_level, previous_level)
     current_courses = @result[current_level[:name]]
-    @result[previous_level[:name]] = current_courses.map { |course| course.prereq }
+    @result[previous_level[:name]] = @result[previous_level[:name]].tap do |courses|
+      courses << current_courses.map { |course| course.prereq }
+      courses.flatten!
+    end
   end
 
   def next_year_courses(current_level, next_level)
     current_courses = @result[current_level[:name]]
-    @result[next_level[:name]] = current_courses.map { |course| course.prereq_for }.flatten
+    @result[next_level[:name]] = @result[next_level[:name]].tap do |courses|
+      current_courses.map { |course| courses << course.prereq_for }
+      courses.flatten!
+    end
   end
 end

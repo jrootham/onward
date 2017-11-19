@@ -1,12 +1,13 @@
 class PathwaysController < ApplicationController
   def index
-    service = Services::GeneratePathways.new pathways_params
+    service = GeneratePathways.new pathways_params
     result = service.call
-    return result[:error].to_json if result[:error]
-    return result[:pathways]
+
+    render json: result[:error].to_json if result[:error]
+    render json: result[:result]
   end
 
   def pathways_params
-    params.permit(:hs_courses, :hs_year, :univ_programs)
+    params.permit(:hs_courses, :current_level)
   end
 end
