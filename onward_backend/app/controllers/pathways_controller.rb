@@ -8,6 +8,6 @@ class PathwaysController < ApplicationController
   end
 
   def pathways_params
-    params.permit(:hs_courses, :current_level)
+    params.permit(:hs_courses, :current_level, :noc_codes, :cip_codes)
   end
 end
