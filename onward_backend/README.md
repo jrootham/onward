@@ -4,6 +4,16 @@
 
 This is the backend for the ONward app, a submission for the Student Pathways Challege.
 
+## Getting Started
+
+These instructions assume that you have Ruby installed and the database set up with data.
+
+- pull the branch
+- move to the `onward_backend` repo
+- run `bundle install` to install dependencies
+- run `rails s` to start the server
+- server runs on localhost:3000 as a json-only API
+
 ## API
 
 
@@ -17,6 +27,8 @@ For the pathway search, there's only one endpoint:
 It accepts the following query params:
 - `hs_courses`: a comma-separated list of high school course codes of the courses the student has taken
 - `current_level`: the stage of the career pathway that the student is currently on. The options are `grade_9`, `grade_10`, `grade_11`, `grade_12`, `university`, and `occupation`.
+- `cip_codes`: a comma-separated list of the decimal-point CIP codes that represent an instructional program
+- `noc_codes`: a comma-separated list of NOC codes that represent occupations.
 
 ### Response
 
