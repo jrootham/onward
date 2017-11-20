@@ -11,6 +11,46 @@ from pprint import pprint  # Used for testing -> printing results prettily - can
 from data_manipulation_basics import *
 from export_to_mysql.db_secrets import *
 
+UNIV_CODES = {
+    'ALGM': ['ALG',],
+    'BRCK': ['BRO',],
+    'CARL': ['CAR',],
+    'GUEL': {'N1G2W1': 'GUE',
+             'K0G1J0': 'GUE',
+             'N0P2C0': 'GUE',
+             'M9W5L7': 'GHU'},
+    'HRST': ['UDH',],
+    'LAKE': {'L3V7X5': 'LTB',
+             'P7B5E1': 'LTB',
+             'L3V0B9': 'LOR'},
+    'LAUR': ['LAU',],
+    'MAC': ['MCM',],
+    'NIPS': ['NIP',],
+    'NOSM': ['LTB',],
+    'OCAD': ['OCA',],
+    'OTTW': {'K1N6N5': 'OTT',
+             'K1S1C4': 'OSP'},
+    'QUEN': ['QUE',],
+    'RYER': ['RYE',],
+    'TRNT': {'L1J5Y1': 'TDG',
+             'K9J7B8': 'TRE'},
+    'UOFT': {'M5S1A1': 'TSG',
+             'L5L1C6': 'TMI',
+             'M1C1A4': 'TSC'},
+    'UOIT': ['OIT',],
+    'WATR': ['WAT',],
+    'WEST': {'N6A3K7': 'WES',
+             'N6G1H2': 'WBC',
+             'N6G1H3': 'WHC',
+             'N6A2M3': 'WKC'},
+    'WIND': ['WIN',],
+    'WLU': {'N3T2Y3': 'WLB',
+            'N2H3W8': 'WLW',
+            'M5X1C9': 'WLW',
+            'N2L3C5': 'WLW'},
+    'YORK': {'M3J1P3': 'YOR',
+             'M4N3M6': 'YGC'},
+}
 
 if ENGINE == 'MySQL':
     VARCHAR_LIMIT = 255
@@ -51,12 +91,23 @@ def process_college_univ_list(file_name=COLLEGE_LIST_FILE, encoding='utf-8'):
     connection.commit()
 
 
+def get_univ_code(line):
+    inst_code = line['INSTITUTION']
+    post_code = line['POSTAL_CODE']
+    if inst_code in UNIV_CODES:
+        short_codes = UNIV_CODES[inst_code]
+        if len(short_codes) == 1:
+            return short_codes[0]
+        if post_code in short_codes:
+            return short_codes[post_code]
+
+
 def process_campus_list(file_name=COLLEGE_CAMPUSES, encoding='utf-8'):
     file_path = os.path.join(BASE_PATH, file_name)
     sql = 'INSERT INTO campuses ' \
             '(institution_code, institution_type_code, campus_name, ' \
-            'campus_postal_code, main_campus) ' \
-            'VALUES (%s, %s, %s, %s, %s)'
+            'campus_postal_code, main_campus, univ_code_3_char) ' \
+            'VALUES (%s, %s, %s, %s, %s, %s)'
     with open(file_path, encoding=encoding) as f:
         reader = csv.DictReader(f)
         for line in reader:
@@ -66,7 +117,8 @@ def process_campus_list(file_name=COLLEGE_CAMPUSES, encoding='utf-8'):
                                          line['INSTITUTION_TYPE_CODE'],
                                          line['INSTITUTION_TYPE_EN_DESC'],
                                          line['POSTAL_CODE'],
-                                         line['MAIN']))
+                                         line['MAIN'],
+                                         get_univ_code(line)))
     connection.commit()
 
 

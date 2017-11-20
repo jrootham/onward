@@ -27,6 +27,8 @@ connection = mysql.connect(host=HOST,
 OUAC_TOP = 'additional/ouac_top_level.txt'
 OUAC_CATS = 'additional/ouac_categories.txt'
 OUAC_PROGRAMS = 'Student-Pathways-Challenge-All-Data-v2-utf8/4 - Admission/14-University-Prerequisites-utf8/unv_programs.txt'
+OUAC_MAESD_MAP = 'additional/ouac_maesd.txt'
+CIP_MAESD_MAP = 'additional/cip_maesd.txt'
 
 def load_codes_from_file(file_id, encoding='utf-8'):
     list_of_codes = set()
@@ -126,11 +128,33 @@ def process_all_web_pages():
                 pass
     connection.commit()
 
-def map_ouac_to_maesd():
-    pass
+def map_ouac_to_maesd(file_name=OUAC_MAESD_MAP, encoding='utf-8'):
+    file_path = os.path.join(BASE_PATH, file_name)
+    sql = 'INSERT INTO program_ouac_map ' \
+            '(program_code, ouac_top_code) ' \
+            'VALUES (%s, %s)'
+    with open(file_path, encoding=encoding) as f:
+        reader = csv.DictReader(f, delimiter='|')
+        for line in reader:
+            with connection.cursor() as cursor:
+                cursor.execute(sql, (line['maesd'],
+                                     line['ouac_top_code']))
+    connection.commit()
 
-def map_cip_to_maesd():
-    pass
+
+def map_cip_to_maesd(file_name=CIP_MAESD_MAP, encoding='utf-8'):
+    file_path = os.path.join(BASE_PATH, file_name)
+    sql = 'INSERT INTO program_cip_map ' \
+            '(program_code, cip_top_code) ' \
+            'VALUES (%s, %s)'
+    with open(file_path, encoding=encoding) as f:
+        reader=csv.DictReader(f, delimiter='|')
+        for line in reader:
+            with connection.cursor() as cursor:
+                cursor.execute(sql, (line['maesd_code'],
+                                     line['cip_codes']))
+    connection.commit()
+
 
 def process_map_tables():
     map_ouac_to_maesd()

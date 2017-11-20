@@ -1,7 +1,11 @@
 ouac_top_code|maesd
 1|ABS
 1|VME
+1|FOR
+1|FSN
 2|ALA
+2|ENG
+3|ABS
 3|FOR
 3|VME
 3|HPR
@@ -18,7 +22,9 @@ ouac_top_code|maesd
 10|OAS
 11|HUM
 12|JOU
+12|SSC
 13|MAT
+14|ABS
 14|DEN
 14|HPR
 14|KRP
@@ -27,9 +33,10 @@ ouac_top_code|maesd
 14|OPT
 14|PHA
 14|TRE
-14|VME
 15|PSC
+15|PHA
 16|LAW
 16|SSC
+17|CSC
 17|PSC
 17|ENG

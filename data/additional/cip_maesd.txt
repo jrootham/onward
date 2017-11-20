@@ -50,7 +50,6 @@ cip_codes|maesd_code
 39|THE
 40|PSC
 41|ENG
-44|SSC
 43|OAS
 44|SSC
 44|LAW
@@ -62,7 +61,7 @@ cip_codes|maesd_code
 50|FAA
 51|DEN
 51|HPR
-51|KPR
+51|KRP
 51|MED
 51|NUR
 51|OPT

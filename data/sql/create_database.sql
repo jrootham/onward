@@ -107,8 +107,8 @@ CREATE TABLE IF NOT EXISTS ouac_sub_categories(
 
 CREATE TABLE IF NOT EXISTS ouac_programs (
   ouac_program_code CHAR(3) PRIMARY KEY,
-  description_en VARCHAR(750),
-  description_fr VARCHAR(750)
+  description_en VARCHAR(255),
+  description_fr VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS ouac_program_cat_map(
@@ -126,15 +126,15 @@ CREATE TABLE IF NOT EXISTS ouac_program_cat_map(
 -- maps ouac to maesd codes
 CREATE TABLE IF NOT EXISTS program_ouac_map(
   program_code CHAR(3),
-  ouac_program_code CHAR(3),
-  PRIMARY KEY (program_code, ouac_program_code),
+  ouac_top_code INT,
+  PRIMARY KEY (program_code, ouac_top_code),
   FOREIGN KEY (program_code)
     REFERENCES univ_programs (program_code)
     ON DELETE CASCADE,
-  FOREIGN KEY (ouac_program_code)
-    REFERENCES ouac_programs (ouac_program_code)
+  FOREIGN KEY (ouac_top_code)
+    REFERENCES ouac_top_category (ouac_top_code)
     ON DELETE CASCADE
-)
+);
 
 
 -- Table linking program areas, NOC and employment levels per year
@@ -177,14 +177,14 @@ CREATE TABLE IF NOT EXISTS cip_codes(
 -- Maps cip to MAESD code
 CREATE TABLE IF NOT EXISTS program_cip_map(
   program_code CHAR(3),
-  cip_program_code CHAR(5),
-  PRIMARY KEY (program_code, cip_code),
+  cip_top_code CHAR(2),
+  PRIMARY KEY (program_code, cip_top_code),
   FOREIGN KEY (program_code)
     REFERENCES univ_programs (program_code)
     ON DELETE CASCADE,
-  FOREIGN KEY (cip_code)
-    REFERENCES cip_codes (cip_program_code)
-    ON DELETE CASCADE 
+  FOREIGN KEY (cip_top_code)
+    REFERENCES cip_top_level (cip_top_code)
+    ON DELETE CASCADE
 );
 
 -- Table with details on area of study, credential level, job category & # of job
@@ -283,6 +283,7 @@ CREATE TABLE IF NOT EXISTS campuses (
   id INT PRIMARY KEY AUTO_INCREMENT,
   institution_code CHAR(5),
   institution_type_code CHAR(8),  -- NOT AVAILABLE FOR ALL RECORDS
+  univ_code_3_char CHAR(3),  -- Needed to reference some other tables
   campus_name VARCHAR(255),
   campus_postal_code CHAR(7),
   main_campus TINYINT,

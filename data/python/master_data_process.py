@@ -102,7 +102,7 @@ def process_misc_noc_data():
     export_all_noc_data.write_noc_wages(noc_wage_list)
     export_all_noc_data.write_apprentice_wages(apprentice_wages_data)
 
-    print('\nMisc NOC data processed)
+    print('\nMisc NOC data processed')
 
 
 def process_hs_path():
@@ -119,7 +119,6 @@ def process_hs_path():
 ####################
 
 def process_colleges():
-    """ Sharon does not have this """
     college_main.process_college_univ_list(encoding='mac_roman')
     college_main.process_campus_list(encoding='windows-1252')
     college_main.process_college_program_list()
@@ -127,22 +126,19 @@ def process_colleges():
 
 
 def process_university_data():
-    """ Sharon does not have this """
-    # THIS IS NOT DONE YET!!
-    univ_main.load_program_codes()
-
     process_program_codes.process_all_web_pages()
-
+    process_program_codes.process_map_tables()
+    # univ_main.load_univ_prereqs()
     print('\nUniversity data complete')
 
 
 def main():
-    # process_noc_codes()
-    # process_noc_skills_tasks()
-    # process_university_noc_data()
-    # process_misc_noc_data()
-    # process_hs_path()
-    # process_colleges()
+    process_noc_codes()
+    process_noc_skills_tasks()
+    process_university_noc_data()
+    process_misc_noc_data()
+    process_hs_path()
+    process_colleges()
     process_university_data()
 
     print('終')
