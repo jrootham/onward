@@ -15,6 +15,26 @@ type alias Config =
     , reader: Bool 
     }
 
+type alias Text =
+    { english: String
+    , french: String
+    }
+
+getText: Text -> Model -> String
+getText text model =
+    case getLanguage model of
+        T.En ->
+            text.english
+
+        T.Fr ->
+            text.french
+
+type alias Course =
+    { code: String
+    , name: Text
+    , prerequisites: List String
+    }
+
 type alias Model = 
     { config: Config
     , debounce : Bool
@@ -46,5 +66,6 @@ type Msg
     | SetReader Bool
     | SetLanguage T.Lang
     | SetPage Page
+    | Back
     | SecondaryLeft 
     | SecondaryRight

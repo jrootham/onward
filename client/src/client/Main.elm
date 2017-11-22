@@ -7,6 +7,9 @@ import Html.Events exposing (onClick)
 import Translations as T
 import Ports exposing (getScreenSize, setScreenSize)
 import Types exposing (..)
+import Common exposing (sizeClass, contrastClass, header, footer, menuLink, rightArrow, leftArrow
+    , innerTextButton, shadowed, image)
+import Menu exposing (menuPage)
     
 main =
     Html.program { init = init, view = view, update = update, subscriptions = subscriptions }
@@ -47,7 +50,10 @@ update msg model =
             ({model | config = setLanguage model.config language}, Cmd.none)
 
         SetPage page ->
-            ({model | page = page}, Cmd.none)
+            ({model | previous = Just model.page, page = page}, Cmd.none)
+
+        Back ->
+            (back model, Cmd.none)
 
         SecondaryLeft ->
             Debug.crash "TODO"
@@ -67,6 +73,15 @@ setReader config reader =
 setLanguage config language =
     {config | language = language}
 
+back: Model -> Model
+back model =
+    case model.previous of
+        Just previous ->
+            {model | page = previous, previous = Nothing}
+        
+        Nothing ->
+            Debug.crash "No previousm, should not happen"            
+    
 ----------------- view ----------------
 
 view: Model -> Html Msg
@@ -109,33 +124,6 @@ outerAttributes model =
     [class "outer", sizeClass model "outer" , contrastClass model "contrast"]
 
 
-sizeClass: Model -> String -> Html.Attribute Msg
-sizeClass model name =
-    class (sizeName model name)
-
-sizeName: Model -> String -> String
-sizeName model name =
-    case getSize model of
-        Normal ->
-            name ++ "-normal"
-
-        Large ->
-            name ++ "-large"
-
-        Larger ->
-            name ++ "-larger"
-
-contrastClass: Model -> String -> Html.Attribute Msg
-contrastClass model name =
-    class (contrastName model name)
-
-contrastName: Model -> String -> String
-contrastName model name =
-    if getContrast model then
-        name ++ "-dark"
-    else
-        name ++ "-light"
-
 ---------------------------------------  Splash --------------------------------------------
 
 splashPage: Model -> List (Html Msg)
@@ -148,32 +136,6 @@ splashPage model =
         ]
     , footer model []
     ]
-
-translate: Model -> (T.Lang -> String) -> List (Html Msg)
-translate model function =
-    [text (function (getLanguage model))]
-
-innerTextButton: Model -> Msg -> (T.Lang -> String) -> List (Html Msg)
-innerTextButton model msg contents =
-    [a [onClick msg] (translate model contents)]
-
-textButton: Model -> Msg -> (T.Lang -> String) -> Html Msg
-textButton model msg contents =
-    div [contrastClass model "text-button", sizeClass model "text-button"] 
-        (innerTextButton model msg contents)
-
-textButtonSelect: Model -> Msg -> (T.Lang -> String) -> Bool -> Html Msg
-textButtonSelect model msg contents selected =
-    let
-        colour = if selected then
-            "text-button-selected"
-        else
-            "text-button"            
-    in
-            
-    div [class "text-button", contrastClass model colour, sizeClass model "text-button"] 
-        (innerTextButton model msg contents)
-        
 
 ---------------------------------------  Query   ----------------------------------------------
 queryPage: Model -> List (Html Msg)
@@ -224,44 +186,6 @@ reportPage model=
     
 ---------------------------------------  Menu  ----------------------------------------
 
-menuPage: Model -> List (Html Msg)
-menuPage model =
-    [ header model []
-    , pickLanguage model
-    , pickSize model
-    , pickContrast model
-    , pickReader model
-    , footer model []
-    ]
-
-pickLanguage: Model -> Html Msg
-pickLanguage model =
-    div [class "button-box"] 
-        [ textButtonSelect model (SetLanguage T.En) T.english (T.En == getLanguage model)
-        , textButtonSelect model (SetLanguage T.Fr) T.francais (T.Fr == getLanguage model)
-        ]
-
-pickSize: Model -> Html Msg
-pickSize model =
-    div [class "button-box"] 
-        [ textButtonSelect model (SetSize Normal) T.normal (Normal == getSize model)
-        , textButtonSelect model (SetSize Large) T.large (Large == getSize model)
-        , textButtonSelect model (SetSize Larger) T.larger (Larger == getSize model)
-        ]
-
-pickContrast: Model -> Html Msg
-pickContrast model =
-    div [class "button-box"] 
-        [ textButtonSelect model (SetContrast False) T.low (not (getContrast model))
-        , textButtonSelect model (SetContrast True) T.high (getContrast model)
-        ]
-
-pickReader: Model -> Html Msg
-pickReader model =
-    div [class "button-box"] 
-        [ textButtonSelect model (SetReader False) T.pretty (not (getReader model))
-        , textButtonSelect model (SetReader True) T.reader (getReader model)
-        ]
 
 -------------------------------------  Secondary  ----------------------------------------
 
@@ -289,45 +213,3 @@ loginPage model =
 
 ---------------------------------------- Header ---------------------------------------
 
-header: Model -> List (Html Msg) -> Html Msg
-header model menuList  =
-    div [class "header", sizeClass model "header", contrastClass model "header"] menuList
-
-menuLink: Model -> Html Msg
-menuLink model =
-    a [onClick (SetPage Menu)] [image model "button" T.menu "image/menu.svg"] 
-
-
-imageSelect : Model -> Msg -> String -> (T.Lang -> String) -> String -> Bool -> Html Msg
-imageSelect model msg cssBase altText source selected =
-    div [contrastClass model "selected"] [imageLink model msg cssBase altText source]
-
-imageLink: Model -> Msg -> String -> (T.Lang -> String) -> String -> Html Msg
-imageLink model msg cssBase altText source = 
-    a [onClick msg] [image model "button" T.menu "image/menu.svg"] 
-
-image: Model -> String -> (T.Lang -> String) -> String -> Html Msg
-image model cssBase altText source =
-    img [sizeClass model cssBase, alt (altText (getLanguage model)), src source] []
-
----------------------------------------- Footer ---------------------------------------
-
-footer: Model -> List (Html Msg) -> Html Msg
-footer model buttonList =
-    div [class "footer", class "header", sizeClass model "header", contrastClass model "header"] buttonList
-
----------------------------------------- Shadowed ----------------------------------------
-
-shadowed: List (Html.Attribute Msg) -> Html Msg -> Html Msg
-shadowed classes foreground  =
-    div classes [div [class "shadow"] [text "&nbsp;"], div [class "container"] [foreground]]
-
----------------------------------------- Arrows -------------------------------------------
-
-leftArrow: Msg -> Html Msg
-leftArrow msg =
-    div [] [a [onClick msg] [text "<"]]
-
-rightArrow: Msg -> Html Msg
-rightArrow msg = 
-    div [] [a [onClick msg] [text ">"]]

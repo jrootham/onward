@@ -69,10 +69,23 @@ a
 
 .outer-large
 {
+	font-size: 	125%;
 }
 
 .outer-larger
 {
+	font-size: 	150%;
+}
+
+.contrast-light
+{
+
+}
+
+.contrast-dark
+{
+	background-color: 		black;
+	color: 					white;
 }
 
 .header-light
@@ -156,12 +169,12 @@ a
 .text-button
 {
 	display: 			inline-block;
-	margin: 			1em;
+	margin: 			.5em;
 	border-radius: 		1em;
 	padding-top: 		.25em;
 	padding-bottom: 	.25em;
-	padding-left: 		1em;
-	padding-right: 		1em;
+	padding-left: 		.5em;
+	padding-right: 		.5em;
 }
 
 .text-button-light
@@ -170,11 +183,33 @@ a
     background-color: #404040;
 }
 
+.text-button-dark
+{
+    color: 				white;
+    background-color:	black;
+    border-style: 		solid;
+    border-width: 		1px;
+    border-color: 		white;
+}
+
 .text-button-selected-light
 {
-    color: 			white;
-    background-color: #404040;
+    color: 				white;
+    background-color:	#404040;
+    border-style: 		solid;
+    border-width: 		5px;
+    border-color: 		green;
 }
+
+.text-button-selected-dark
+{
+    color: 				white;
+    background-color:	black;
+    border-style: 		solid;
+    border-width: 		10px;
+    border-color: 		white;
+}
+
 
 .text-button-normal
 {
