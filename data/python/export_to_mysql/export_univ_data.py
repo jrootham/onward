@@ -30,7 +30,7 @@ def write_cip_top_level(cip_data):
 
 
 def write_univ_programs(univ_programs):
-    sql = 'INSERT INTO univ_programs ' \
+    sql = 'INSERT INTO univ_programs_maesd ' \
             '(program_code, description_en, description_fr) ' \
             'VALUES (%s, %s, %s)'
     with connection.cursor() as cursor:

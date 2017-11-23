@@ -35,7 +35,7 @@ def process_noc_codes():
     export_all_noc_data.write_noc_codes(noc_codes)
     export_all_noc_data.write_noc_jobs(noc_jobs)
 
-    print('\n\nNOC codes processed\n\n')
+    print('\nNOC codes processed')
 
 
 def process_noc_skills_tasks():
@@ -58,7 +58,7 @@ def process_noc_skills_tasks():
     export_all_noc_data.write_skills_education(noc_skills_education)
     export_all_noc_data.write_skills_tasks_education_map(noc_skills_tasks_list)
 
-    print('NOC Skills Tasks Processed\n\n')
+    print('\nNOC Skills Tasks Processed')
 
 
 def process_university_noc_data():
@@ -84,7 +84,7 @@ def process_university_noc_data():
     export_univ_data.write_univ_programs_specific(univ_programs_specific)
     export_univ_data.write_noc_specific_program(noc_specific_program)
 
-    print('University NOC Data processed \n\n')
+    print('\nUniversity NOC Data processed')
 
 
 def process_misc_noc_data():
@@ -102,7 +102,7 @@ def process_misc_noc_data():
     export_all_noc_data.write_noc_wages(noc_wage_list)
     export_all_noc_data.write_apprentice_wages(apprentice_wages_data)
 
-    print('Misc NOC data processed\n\n')
+    print('\nMisc NOC data processed')
 
 
 def process_hs_path():
@@ -112,28 +112,25 @@ def process_hs_path():
     export_hs.write_hs_grade_map(course_grade_map)
     export_hs.write_hs_course_prereqs(course_prereq_list)
 
-    print('HS path processesed\n\n')
+    print('\nHS path processesed')
 
 ####################
 # From this point forward, files will be processed and saved to db in same fn
 ####################
 
 def process_colleges():
-    """ Sharon does not have this """
     college_main.process_college_univ_list(encoding='mac_roman')
+    college_main.process_ouac_university_list()
     college_main.process_campus_list(encoding='windows-1252')
     college_main.process_college_program_list()
-    print('\nCollege data complete')
+    print('\nCollege data processed')
 
 
 def process_university_data():
-    """ Sharon does not have this """
-    # THIS IS NOT DONE YET!!
-    # univ_main.load_program_codes()
-
     process_program_codes.process_all_web_pages()
-
-    print('\nUniversity data complete')
+    process_program_codes.process_map_tables()
+    univ_main.load_univ_prereqs()
+    print('\nUniversity data processed')
 
 
 def main():
@@ -145,7 +142,7 @@ def main():
     process_colleges()
     process_university_data()
 
-    print('終')
+    print('\n-- 終 --')
 
 
 if __name__ == '__main__':
