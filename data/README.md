@@ -58,24 +58,13 @@ ENGINE = 'MySQL'
 # to connect to localhost
 mysql -u username -p
 
-# to connect to remote host
-mysql -u username -p -h 123.123.123.123
 ```
 
 2) Delete existing database and create new tables
 
 ```sql
--- if localhost
+-- on localhost
 DROP DATABASE IF EXISTS rootham;
-
--- if on server
--- you'll have to manually go through and drop each table
-SHOW TABLES;
-SET FOREIGN_KEY_CHECKS = 0;
--- drop each table
-SET FOREIGN_KEY_CHECKS = 1;
-
--- in either case
 SOURCE /path/to/onward/data/sql/create_database.sql;
 ```
 
