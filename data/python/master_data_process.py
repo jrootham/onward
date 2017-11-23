@@ -120,16 +120,17 @@ def process_hs_path():
 
 def process_colleges():
     college_main.process_college_univ_list(encoding='mac_roman')
+    college_main.process_ouac_university_list()
     college_main.process_campus_list(encoding='windows-1252')
     college_main.process_college_program_list()
-    print('\nCollege data complete')
+    print('\nCollege data processed')
 
 
 def process_university_data():
     process_program_codes.process_all_web_pages()
     process_program_codes.process_map_tables()
-    # univ_main.load_univ_prereqs()
-    print('\nUniversity data complete')
+    univ_main.load_univ_prereqs()
+    print('\nUniversity data processed')
 
 
 def main():
@@ -141,7 +142,7 @@ def main():
     process_colleges()
     process_university_data()
 
-    print('終')
+    print('\n-- 終 --')
 
 
 if __name__ == '__main__':
