@@ -1,4 +1,5 @@
 import pymysql as mysql
+from warnings import filterwarnings, resetwarnings
 
 from pprint import pprint
 
@@ -135,6 +136,7 @@ def write_automation_risk(input_list):
 
 
 def write_noc_wages(input_list):
+    filterwarnings('ignore', category=mysql.Warning)
     sql = 'INSERT INTO noc_wages ' \
             '(noc_code, hourly_wage, yearly_wage) ' \
             'VALUES (%s, %s, %s)'
@@ -144,9 +146,11 @@ def write_noc_wages(input_list):
                                  item['hourly_wage'],
                                  item['yearly_wage']))
     connection.commit()
+    resetwarnings()
 
 
 def write_apprentice_wages(input_list):
+    filterwarnings('ignore', category=mysql.Warning)
     sql = 'INSERT INTO apprentice_noc_wages_openings ' \
             '(noc_code, year, avg_hourly_wage, vacancies) ' \
             'VALUES (%s, %s, %s, %s)'
@@ -157,3 +161,4 @@ def write_apprentice_wages(input_list):
                                  item['AvgHourlyWage'],
                                  item['Vacancies']))
     connection.commit()
+    resetwarnings()

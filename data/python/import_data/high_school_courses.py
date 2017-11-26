@@ -73,7 +73,9 @@ def process_hs_course_tree(file_name=COURSE_FILE, encoding='utf-8'):
                     'course_code': line['CourseCode'],
                     'course_name_en': line['Course'],
                     'course_name_fr': 'nom du cours non disponible',
-                    'has_prereq': line['Prerequisite'] not in ('', None)
+                    'has_prereq': line['Prerequisite'] not in (
+                        '', None, 'Prin. Recommendation'
+                    )
                 })
                 course_codes.add(line['CourseCode'])
             for grade in GRADE_DICT[line['Grade']]:
