@@ -1,5 +1,5 @@
 module Common exposing (sizeClass, contrastClass, translate, textButton, textButtonSelect, header, footer
-                        , menuLink, rightArrow, leftArrow, innerTextButton, shadowed, image, imageLink
+                        , menuButton, rightArrow, leftArrow, shadowed, image, imageButton, smallImageButton
                         , imageSelect)
 
 import Html exposing (Html, a, button, div, embed, h1, hr, img, text)
@@ -36,50 +36,58 @@ contrastName model name =
     else
         name ++ "-light"
 
-translate: Model -> (T.Lang -> String) -> List (Html Msg)
+selectedName: Bool -> String -> String
+selectedName  selected name =
+    if selected then
+        name ++ "-selected"
+    else
+        name
+
+translate: Model -> (T.Lang -> String) -> Html Msg
 translate model function =
-    [text (function (getLanguage model))]
+    text (function (getLanguage model))
 
-innerTextButton: Model -> Msg -> (T.Lang -> String) -> List (Html Msg)
-innerTextButton model msg contents =
-    [a [onClick msg] (translate model contents)]
+textButton: String -> String -> Model -> Msg -> (T.Lang -> String) -> Html Msg
+textButton sizeCSS colourCSS model msg contents =
+    if getReader model then
+        button [onClick msg] [translate model contents]
+    else
+        div [class sizeCSS, contrastClass model colourCSS, onClick msg] 
+            [translate model contents]            
 
-textButton: Model -> Msg -> (T.Lang -> String) -> Html Msg
-textButton model msg contents =
-    div [class "text-button", contrastClass model "text-button", sizeClass model "text-button"] 
-        (innerTextButton model msg contents)
-
-textButtonSelect: Model -> Msg -> (T.Lang -> String) -> Bool -> Html Msg
-textButtonSelect model msg contents selected =
-    let
-        colour = if selected then
-            "text-button-selected"
-        else
-            "text-button"            
-    in
-            
-    div [class "text-button", contrastClass model colour, sizeClass model "text-button"] 
-        (innerTextButton model msg contents)
+textButtonSelect: String -> String -> Model -> Msg -> (T.Lang -> String) -> Bool -> Html Msg
+textButtonSelect sizeCSS colourCSS model msg contents selected =
+    textButton sizeCSS (selectedName selected colourCSS) model msg contents 
 
 header: Model -> List (Html Msg) -> Html Msg
 header model menuList  =
     div [class "header", sizeClass model "header", contrastClass model "header"] menuList
 
-menuLink: Model -> Html Msg
-menuLink model =
-    imageLink model (SetPage Menu) "button" T.menu "image/menu.svg"
+menuButton: Model -> Html Msg
+menuButton model =
+    imageButton (SetPage Menu) T.menu "menu" model
 
 imageSelect : Model -> Msg -> String -> (T.Lang -> String) -> String -> Bool -> Html Msg
 imageSelect model msg cssBase altText source selected =
-    div [contrastClass model "selected"] [imageLink model msg cssBase altText source]
+    imageButton msg altText (selectedName selected source) model
 
-imageLink: Model -> Msg -> String -> (T.Lang -> String) -> String -> Html Msg
-imageLink model msg cssBase altText source = 
-    a [onClick msg] [image model cssBase altText source] 
+decoratedImageButton: String -> Msg -> (T.Lang -> String) -> String -> Model -> Html Msg
+decoratedImageButton css msg altText source model =
+    if getReader model then
+        button [onClick msg] [translate model altText]
+    else 
+        a [onClick msg] [image css altText source model] 
 
-image: Model -> String -> (T.Lang -> String) -> String -> Html Msg
-image model cssBase altText source =
-    img [sizeClass model cssBase, alt (altText (getLanguage model)), src source] []
+imageButton = decoratedImageButton "image-button"
+smallImageButton = decoratedImageButton "small-image-button"
+
+image: String -> (T.Lang -> String) -> String -> Model -> Html Msg
+image css altText source model =
+    let
+        file = "image/" ++ (contrastName model source) ++ ".svg"
+    in
+            
+    img [class css, alt (altText (getLanguage model)), src file] []
 
 ---------------------------------------- Footer ---------------------------------------
 

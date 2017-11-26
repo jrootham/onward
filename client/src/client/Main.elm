@@ -7,9 +7,10 @@ import Html.Events exposing (onClick)
 import Translations as T
 import Ports exposing (getScreenSize, setScreenSize)
 import Types exposing (..)
-import Common exposing (sizeClass, contrastClass, header, footer, menuLink, rightArrow, leftArrow
-    , innerTextButton, shadowed, image)
+import Common exposing (sizeClass, contrastClass, header, footer, menuButton, rightArrow, leftArrow
+    , textButton, shadowed, image)
 import Menu exposing (menuPage)
+import Query exposing (queryPage)
     
 main =
     Html.program { init = init, view = view, update = update, subscriptions = subscriptions }
@@ -18,9 +19,10 @@ init : ( Model, Cmd Msg )
 init = 
     let
         config = Config T.En Normal False False
+        data = Data 9 "M" ""
     in
             
-    (Model config True (ScreenSize 0 0) Splash Nothing, getScreenSize "")
+    (Model config True (ScreenSize 0 0) Splash Nothing data, getScreenSize "")
 
 -- Subscriptions
 
@@ -55,12 +57,25 @@ update msg model =
         Back ->
             (back model, Cmd.none)
 
+        SetGrade grade ->
+            ({model | data = setGrade model.data grade}, Cmd.none)
+
+        LocationDropdown locationList ->
+            Debug.crash "TODO"
+
+        SetLocation location ->
+            ({model | data = setLocation model.data location}, Cmd.none)
+
+        SetCareer career ->
+            ({model | data = setCareer model.data career}, Cmd.none)
+
         SecondaryLeft ->
             Debug.crash "TODO"
 
         SecondaryRight ->
             Debug.crash "TODO"
 
+----------------------------------------------------- Config setters
 setSize config size =
     {config | size = size}
 
@@ -72,6 +87,17 @@ setReader config reader =
 
 setLanguage config language =
     {config | language = language}
+
+----------------------------------------------------- Data setters
+setGrade data grade =
+    {data | grade = grade}
+
+setLocation data location =
+    {data | location = location}
+
+setCareer data career =
+    {data | career = career}
+
 
 back: Model -> Model
 back model =
@@ -128,25 +154,18 @@ outerAttributes model =
 
 splashPage: Model -> List (Html Msg)
 splashPage model = 
-    [header model [menuLink model]
-    , div [] [image model "splash" T.splash "image/splash.svg"]
-    , div [class "centre"] 
-        [div [contrastClass model "forward", sizeClass model "forward"] 
-            (innerTextButton model (SetPage Explore) T.forward)
-        ]
+    [header model [menuButton model]
+    , div [] [image "splash" T.splash "splash" model]
+    , div [class "centre"] [splashButton model (SetPage Query) T.forward]
     , footer model []
     ]
 
----------------------------------------  Query   ----------------------------------------------
-queryPage: Model -> List (Html Msg)
-queryPage model =
-    [text "&nbsp;"]
-
+splashButton = textButton "splash-button" "splash-button" 
 ---------------------------------------  Explore  ----------------------------------------
 
 explorePage: Model -> List (Html Msg)
 explorePage  model =
-    [header model [menuLink model]
+    [header model [menuButton model]
     , secondarySummary model
     , separator
     , postSummary model
@@ -191,25 +210,25 @@ reportPage model=
 
 secondaryPage: Model -> List (Html Msg)
 secondaryPage model =
-    [header model [menuLink model]]
+    [header model [menuButton model]]
 
 ---------------------------------------  PostSecondary  ----------------------------------------
 
 postSecondaryPage: Model -> List (Html Msg)
 postSecondaryPage model =
-    [header  model [menuLink model]]
+    [header  model [menuButton model]]
 
 ---------------------------------------  Career  ----------------------------------------
 
 careerPage: Model -> List (Html Msg)
 careerPage model =
-    [header model [menuLink model]]
+    [header model [menuButton model]]
 
 ---------------------------------------  Login  ----------------------------------------
 
 loginPage: Model -> List (Html Msg)
 loginPage model =
-    [header model [menuLink model]]
+    [header model [menuButton model]]
 
 ---------------------------------------- Header ---------------------------------------
 
