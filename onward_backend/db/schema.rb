@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112230304) do
+ActiveRecord::Schema.define(version: 20171127055041) do
 
   create_table "apprentice_noc_wages_openings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "noc_code",        limit: 4
@@ -29,10 +29,12 @@ ActiveRecord::Schema.define(version: 20171112230304) do
   create_table "campuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "institution_code",      limit: 5
     t.string  "institution_type_code", limit: 8
+    t.string  "ouac_univ_code",        limit: 3
     t.string  "campus_name"
     t.string  "campus_postal_code",    limit: 7
     t.integer "main_campus",           limit: 1
     t.index ["institution_code"], name: "institution_code", using: :btree
+    t.index ["ouac_univ_code"], name: "ouac_univ_code", using: :btree
   end
 
   create_table "cip_codes", primary_key: "cip_program_code", id: :string, limit: 5, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -62,6 +64,11 @@ ActiveRecord::Schema.define(version: 20171112230304) do
   create_table "credentials", primary_key: "credential_code", id: :string, limit: 3, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "description_en", limit: 750
     t.string "description_fr", limit: 750
+  end
+
+  create_table "hs_course_area", primary_key: "course_area_code", id: :string, limit: 2, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "description_en"
+    t.string "description_fr"
   end
 
   create_table "hs_course_grade_link", primary_key: ["course_code", "grade"], force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -168,8 +175,8 @@ ActiveRecord::Schema.define(version: 20171112230304) do
   end
 
   create_table "ouac_programs", primary_key: "ouac_program_code", id: :string, limit: 3, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "description_en", limit: 750
-    t.string "description_fr", limit: 750
+    t.string "description_en"
+    t.string "description_fr"
   end
 
   create_table "ouac_sub_categories", primary_key: "ouac_cat_code", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -184,9 +191,21 @@ ActiveRecord::Schema.define(version: 20171112230304) do
     t.string "description_fr", limit: 750
   end
 
-  create_table "program_cip_link", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "program_code", limit: 3
-    t.string "cip_code",     limit: 5
+  create_table "ouac_univ_codes", primary_key: "ouac_univ_code", id: :string, limit: 3, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "ouac_univ_description_en"
+    t.string "ouac_univ_description_fr"
+  end
+
+  create_table "program_cip_map", primary_key: ["program_code", "cip_top_code"], force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "program_code", limit: 3, null: false
+    t.string "cip_top_code", limit: 2, null: false
+    t.index ["cip_top_code"], name: "cip_top_code", using: :btree
+  end
+
+  create_table "program_ouac_map", primary_key: ["program_code", "ouac_top_code"], force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "program_code",  limit: 3, null: false
+    t.integer "ouac_top_code",           null: false
+    t.index ["ouac_top_code"], name: "ouac_top_code", using: :btree
   end
 
   create_table "univ_noc_employment", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -199,14 +218,46 @@ ActiveRecord::Schema.define(version: 20171112230304) do
     t.index ["program_code"], name: "program_code", using: :btree
   end
 
-  create_table "univ_programs", primary_key: "program_code", id: :string, limit: 3, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "univ_prereq_course", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "ouac_univ_code",    limit: 3
+    t.string  "ouac_program_code", limit: 3
+    t.string  "program_type",      limit: 50
+    t.string  "specialization",    limit: 300
+    t.integer "prereq_group_num"
+    t.string  "hs_course_code",    limit: 13
+    t.index ["hs_course_code"], name: "hs_course_code", using: :btree
+    t.index ["ouac_univ_code", "ouac_program_code", "program_type", "specialization", "prereq_group_num"], name: "ouac_univ_code", using: :btree
+  end
+
+  create_table "univ_prereq_group", primary_key: ["ouac_univ_code", "ouac_program_code", "program_type", "specialization", "prereq_group_num"], force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "ouac_univ_code",     limit: 3,   null: false
+    t.string  "ouac_program_code",  limit: 3,   null: false
+    t.string  "program_type",       limit: 50,  null: false
+    t.string  "specialization",     limit: 300, null: false
+    t.integer "prereq_group_num",               null: false
+    t.integer "num_picks_required"
+    t.integer "recommended_group",  limit: 1
+  end
+
+  create_table "univ_programs_maesd", primary_key: "program_code", id: :string, limit: 3, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "description_en", limit: 750
     t.string "description_fr", limit: 750
+  end
+
+  create_table "university_programs_ouac_code", primary_key: ["ouac_univ_code", "ouac_program_code", "program_type", "specialization"], force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "ouac_univ_code",    limit: 3,   null: false
+    t.string  "ouac_program_code", limit: 3,   null: false
+    t.string  "program_type",      limit: 50,  null: false
+    t.string  "specialization",    limit: 300, null: false
+    t.integer "max_enroll"
+    t.string  "min_gpa",           limit: 10
+    t.index ["ouac_program_code"], name: "ouac_program_code", using: :btree
   end
 
   add_foreign_key "apprentice_noc_wages_openings", "noc_uniques", column: "noc_code", primary_key: "noc_code", name: "apprentice_noc_wages_openings_ibfk_1", on_delete: :cascade
   add_foreign_key "automation_risk", "noc_uniques", column: "noc_code", primary_key: "noc_code", name: "automation_risk_ibfk_1", on_delete: :cascade
   add_foreign_key "campuses", "institutions", column: "institution_code", primary_key: "institution_code", name: "campuses_ibfk_1", on_delete: :cascade
+  add_foreign_key "campuses", "ouac_univ_codes", column: "ouac_univ_code", primary_key: "ouac_univ_code", name: "campuses_ibfk_2", on_delete: :nullify
   add_foreign_key "cip_codes", "cip_top_level", column: "cip_top_code", primary_key: "cip_top_code", name: "cip_codes_ibfk_1", on_delete: :cascade
   add_foreign_key "college_grad_rates", "college_programs", column: "college_program_code", primary_key: "college_program_code", name: "college_grad_rates_ibfk_2"
   add_foreign_key "college_grad_rates", "institutions", column: "institution_code", primary_key: "institution_code", name: "college_grad_rates_ibfk_1", on_delete: :cascade
@@ -223,9 +274,25 @@ ActiveRecord::Schema.define(version: 20171112230304) do
   add_foreign_key "noc_specific_program", "credentials", column: "credential_code", primary_key: "credential_code", name: "noc_specific_program_ibfk_2", on_delete: :cascade
   add_foreign_key "noc_specific_program", "noc_uniques", column: "noc_code", primary_key: "noc_code", name: "noc_specific_program_ibfk_1", on_delete: :cascade
   add_foreign_key "noc_wages", "noc_uniques", column: "noc_code", primary_key: "noc_code", name: "noc_wages_ibfk_1", on_delete: :cascade
-  add_foreign_key "ouac_program_cat_map", "ouac_programs", column: "ouac_program_code", primary_key: "ouac_program_code", name: "ouac_program_cat_map_ibfk_2"
+  add_foreign_key "ouac_program_cat_map", "ouac_programs", column: "ouac_program_code", primary_key: "ouac_program_code", name: "ouac_program_cat_map_ibfk_2", on_delete: :cascade
   add_foreign_key "ouac_program_cat_map", "ouac_sub_categories", column: "ouac_cat_code", primary_key: "ouac_cat_code", name: "ouac_program_cat_map_ibfk_1", on_delete: :cascade
   add_foreign_key "ouac_sub_categories", "ouac_top_category", column: "ouac_top_code", primary_key: "ouac_top_code", name: "ouac_sub_categories_ibfk_1", on_delete: :cascade
+  add_foreign_key "program_cip_map", "cip_top_level", column: "cip_top_code", primary_key: "cip_top_code", name: "program_cip_map_ibfk_2", on_delete: :cascade
+  add_foreign_key "program_cip_map", "univ_programs_maesd", column: "program_code", primary_key: "program_code", name: "program_cip_map_ibfk_1", on_delete: :cascade
+  add_foreign_key "program_ouac_map", "ouac_top_category", column: "ouac_top_code", primary_key: "ouac_top_code", name: "program_ouac_map_ibfk_2", on_delete: :cascade
+  add_foreign_key "program_ouac_map", "univ_programs_maesd", column: "program_code", primary_key: "program_code", name: "program_ouac_map_ibfk_1", on_delete: :cascade
   add_foreign_key "univ_noc_employment", "noc_uniques", column: "noc_code", primary_key: "noc_code", name: "univ_noc_employment_ibfk_2"
-  add_foreign_key "univ_noc_employment", "univ_programs", column: "program_code", primary_key: "program_code", name: "univ_noc_employment_ibfk_1"
+  add_foreign_key "univ_noc_employment", "univ_programs_maesd", column: "program_code", primary_key: "program_code", name: "univ_noc_employment_ibfk_1"
+  add_foreign_key "univ_prereq_course", "hs_courses", column: "hs_course_code", primary_key: "course_code", name: "univ_prereq_course_ibfk_2", on_delete: :cascade
+  add_foreign_key "univ_prereq_course", "univ_prereq_group", column: "ouac_program_code", primary_key: "ouac_program_code", name: "univ_prereq_course_ibfk_1", on_delete: :cascade
+  add_foreign_key "univ_prereq_course", "univ_prereq_group", column: "ouac_univ_code", primary_key: "ouac_univ_code", name: "univ_prereq_course_ibfk_1", on_delete: :cascade
+  add_foreign_key "univ_prereq_course", "univ_prereq_group", column: "prereq_group_num", primary_key: "prereq_group_num", name: "univ_prereq_course_ibfk_1", on_delete: :cascade
+  add_foreign_key "univ_prereq_course", "univ_prereq_group", column: "program_type", primary_key: "program_type", name: "univ_prereq_course_ibfk_1", on_delete: :cascade
+  add_foreign_key "univ_prereq_course", "univ_prereq_group", column: "specialization", primary_key: "specialization", name: "univ_prereq_course_ibfk_1", on_delete: :cascade
+  add_foreign_key "univ_prereq_group", "university_programs_ouac_code", column: "ouac_program_code", primary_key: "ouac_program_code", name: "univ_prereq_group_ibfk_1", on_delete: :cascade
+  add_foreign_key "univ_prereq_group", "university_programs_ouac_code", column: "ouac_univ_code", primary_key: "ouac_univ_code", name: "univ_prereq_group_ibfk_1", on_delete: :cascade
+  add_foreign_key "univ_prereq_group", "university_programs_ouac_code", column: "program_type", primary_key: "program_type", name: "univ_prereq_group_ibfk_1", on_delete: :cascade
+  add_foreign_key "univ_prereq_group", "university_programs_ouac_code", column: "specialization", primary_key: "specialization", name: "univ_prereq_group_ibfk_1", on_delete: :cascade
+  add_foreign_key "university_programs_ouac_code", "ouac_programs", column: "ouac_program_code", primary_key: "ouac_program_code", name: "university_programs_ouac_code_ibfk_2", on_delete: :cascade
+  add_foreign_key "university_programs_ouac_code", "ouac_univ_codes", column: "ouac_univ_code", primary_key: "ouac_univ_code", name: "university_programs_ouac_code_ibfk_1", on_delete: :cascade
 end

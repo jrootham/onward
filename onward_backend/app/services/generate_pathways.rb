@@ -9,7 +9,7 @@ class GeneratePathways
     { result: initial_pathway.to_json }
   end
 
-  def parse_query_params(query) # TODO can't pass in an object??
+  def parse_query_params(query)
     {}.tap do |parsed_query|
       Pathway::PERMITTED_QUERY_PARAMS.each do |pp|
         parsed_query[pp.to_sym] = send("parse_#{pp}", query[pp]) if query[pp].present?
