@@ -1,9 +1,12 @@
 class Pathway
   attr_accessor :result
 
-  PERMITTED_QUERY_PARAMS = %w(hs_courses current_level cip_codes noc_codes)
+  PERMITTED_QUERY_PARAMS = %w(hs_courses current_level cip_codes noc_codes salary ouac_codes)
 
   LEVELS = [
+    {
+      name: 'pre_hs'
+    },
     {
       name: 'grade_9',
       options_next_level: 'next_year_courses',
@@ -37,15 +40,22 @@ class Pathway
   ]
 
   def initialize(query_params)
-    @query_params = query_params.with_indifferent_access
-    @result = Hash[LEVELS.map{ |level| [level[:name], []] }].with_indifferent_access
+    pathway = Hash[LEVELS.map{ |level| [level[:name], []] }].with_indifferent_access
+    context = GeneratePathway.call(query_params: query_params.with_indifferent_access, pathway: pathway)
 
-    populate_high_school_courses(@query_params[:hs_courses])
-    populate_post_secondary_programs(@query_params[:cip_codes])
-    populate_occupations(@query_params[:noc_codes])
+    if context.success?
+      binding.pry
+      @result[:pathway] = context.pathway
+    else
+      @result[:error] = context.message
+    end
+
+    # populate_high_school_courses(@query_params[:hs_courses]) if @query_params[:hs_courses]
+    # populate_post_secondary_programs(@query_params[:cip_codes]) if @query_params[:cip_codes]
+    # populate_occupations(@query_params[:noc_codes]) if @query_params[:noc_codes]
 
     # limit_pathway(LEVELS.last)
-    generate_pathway(level_from_name(@query_params[:current_level]))
+    # generate_pathway(level_from_name(@query_params[:current_level]))
   end
 
   def level_from_name(level_name)
