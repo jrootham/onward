@@ -355,7 +355,7 @@ CREATE TABLE IF NOT EXISTS univ_prereq_group(
   specialization VARCHAR(300),
   prereq_group_num INT,
   num_picks_required INT,
-  required_group TINYINT,
+  recommended_group TINYINT,
   FOREIGN KEY (ouac_univ_code, ouac_program_code, program_type, specialization)
     REFERENCES university_programs_ouac_code
       (ouac_univ_code, ouac_program_code, program_type, specialization)
