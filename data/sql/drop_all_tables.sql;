@@ -1,0 +1,38 @@
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS apprentice_noc_wages_openings;
+DROP TABLE IF EXISTS automation_risk;
+DROP TABLE IF EXISTS campuses;
+DROP TABLE IF EXISTS cip_codes;
+DROP TABLE IF EXISTS cip_top_level;
+DROP TABLE IF EXISTS college_grad_rates;
+DROP TABLE IF EXISTS college_programs;
+DROP TABLE IF EXISTS credentials;
+DROP TABLE IF EXISTS hs_course_area;
+DROP TABLE IF EXISTS hs_course_grade_link;
+DROP TABLE IF EXISTS hs_course_prereq;
+DROP TABLE IF EXISTS hs_courses;
+DROP TABLE IF EXISTS institutions;
+DROP TABLE IF EXISTS noc_codes;
+DROP TABLE IF EXISTS noc_skills;
+DROP TABLE IF EXISTS noc_skills_education;
+DROP TABLE IF EXISTS noc_skills_levels;
+DROP TABLE IF EXISTS noc_skills_tasks;
+DROP TABLE IF EXISTS noc_specific_program;
+DROP TABLE IF EXISTS noc_tasks;
+DROP TABLE IF EXISTS noc_uniques;
+DROP TABLE IF EXISTS noc_wages;
+DROP TABLE IF EXISTS ouac_program_cat_map;
+DROP TABLE IF EXISTS ouac_programs;
+DROP TABLE IF EXISTS ouac_sub_categories;
+DROP TABLE IF EXISTS ouac_top_category;
+DROP TABLE IF EXISTS ouac_univ_codes;
+DROP TABLE IF EXISTS program_cip_map;
+DROP TABLE IF EXISTS program_ouac_map;
+DROP TABLE IF EXISTS univ_noc_employment;
+DROP TABLE IF EXISTS univ_prereq_course;
+DROP TABLE IF EXISTS univ_prereq_group;
+DROP TABLE IF EXISTS univ_programs_maesd;
+DROP TABLE IF EXISTS university_programs_ouac_code;
+
+SET FOREIGN_KEY_CHECKS = 1;
