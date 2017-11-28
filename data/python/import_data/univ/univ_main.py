@@ -167,7 +167,7 @@ def process_prereq_group(prereq_group_dict, univ_code, prog_code, type_code,
     sql1 = 'INSERT INTO univ_prereq_group ' \
             '(ouac_univ_code, ouac_program_code, program_type, ' \
             'specialization, prereq_group_num, num_picks_required, '\
-            'required_group) ' \
+            'recommended_group) ' \
             'VALUES (%s, %s, %s, %s, %s, %s, %s)'
     sql2 = 'INSERT INTO univ_prereq_course ' \
             '(ouac_univ_code, ouac_program_code, program_type, ' \
