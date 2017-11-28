@@ -1,10 +1,12 @@
 module Common exposing (sizeClass, contrastClass, translate, textButton, textButtonSelect, header, footer
-                        , menuButton, rightArrow, leftArrow, shadowed, image, imageButton, smallImageButton
-                        , imageSelect)
+                        , shadowed, image, imageButton, smallImageButton
+                        , imageSelect, popup, simplePopup, notImplemented)
 
 import Html exposing (Html, a, button, div, embed, h1, hr, img, text)
 import Html.Attributes exposing (class, href, id, src, alt)
 import Html.Events exposing (onClick)
+
+import Dialog
 
 import Translations as T
 import Types exposing (..)
@@ -63,10 +65,6 @@ header: Model -> List (Html Msg) -> Html Msg
 header model menuList  =
     div [class "header", sizeClass model "header", contrastClass model "header"] menuList
 
-menuButton: Model -> Html Msg
-menuButton model =
-    imageButton (SetPage Menu) T.menu "menu" model
-
 imageSelect : Model -> Msg -> String -> (T.Lang -> String) -> String -> Bool -> Html Msg
 imageSelect model msg cssBase altText source selected =
     imageButton msg altText (selectedName selected source) model
@@ -99,16 +97,18 @@ footer model buttonList =
 
 shadowed: List (Html.Attribute Msg) -> Html Msg -> Html Msg
 shadowed classes foreground  =
-    div classes [div [class "shadow"] [text "&nbsp;"], div [class "container"] [foreground]]
+    div classes [div [class "shadow"] [], div [class "container"] [foreground]]
 
 ---------------------------------------- Arrows -------------------------------------------
 
-leftArrow: Msg -> Html Msg
-leftArrow msg =
-    div [] [a [onClick msg] [text "<"]]
+makePopup: Msg -> (Html Msg) -> Dialog.Config Msg
+makePopup cancel body = 
+    Dialog.Config (Just cancel) Nothing Nothing (Just body) Nothing
 
-rightArrow: Msg -> Html Msg
-rightArrow msg = 
-    div [] [a [onClick msg] [text ">"]]
-        
+popup: Msg -> (Html Msg) -> Msg
+popup cancel body =
+    Popup (makePopup cancel body)
 
+simplePopup = popup Close
+
+notImplemented = makePopup Close (div [class "not-implemented"] [text "Not implemented."])

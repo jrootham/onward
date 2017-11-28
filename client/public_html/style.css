@@ -124,40 +124,25 @@ a
 	bottom: 	0;
 }
 
-.forward-normal
+.splash-button
 {
-    margin: 		auto;
+    margin-left: 	auto;
+    margin-right: 	auto;
+    margin-top: 	1em;
+    margin-bottom: 	1em;
     border-radius:	1em;
     width: 			15em;
     height:			2em;
     line-height: 	2em;
 }
 
-.forward-large
-{
-    margin: 		auto;
-    border-radius:	1em;
-    width: 			15em;
-    height:			2em;
-    line-height: 	2em;
-}
-
-.forward-larger
-{
-    margin: 		auto;
-    border-radius:	1em;
-    width: 			15em;
-    height:			2em;
-    line-height: 	2em;
-}
-
-.forward-light
+.splash-button-light
 {
     color: 			white;
     background-color: #404040;
 }
 
-.forward-dark
+.splash-button-dark
 {
     color: 				white;
     background-color: 	black;

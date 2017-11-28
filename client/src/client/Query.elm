@@ -6,8 +6,9 @@ import Dict
 
 import Translations as T
 import Types exposing (..)
-import Common exposing (translate, header, footer, menuButton, imageSelect, imageButton, textButton
+import Common exposing (translate, header, footer, imageSelect, imageButton, textButton
                         , smallImageButton)
+import Menu exposing (menuButton)
 
 queryPage: Model -> List (Html Msg)
 queryPage model =

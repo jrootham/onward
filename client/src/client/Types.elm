@@ -1,30 +1,33 @@
 module Types exposing (..)
 
+import Dialog
 import Translations as T
 
 type alias Model = 
-    { config: Config
+    { config: Access
     , debounce : Bool
     , screenSize: ScreenSize
     , page: Page
-    , previous: Maybe Page
+    , popup: Maybe (Dialog.Config Msg)
     , data: Data
     }
 
 type Msg 
     = SetScreenSize ScreenSize
     | SetSize Size
-    | SetContrast Bool
-    | SetReader Bool
+    | ToggleContrast
+    | ToggleReader
     | SetLanguage T.Lang
     | SetPage Page
-    | Back
+    | Popup (Dialog.Config Msg)
+    | Close
     | SetGrade Int
     | SetLocation String
     | LocationDropdown (List (String, String))
     | SetCareer String
     | SecondaryLeft 
     | SecondaryRight
+    | NotImplemented
 
 type alias Data =
     { grade: Int
@@ -48,9 +51,9 @@ type alias ScreenSize = {width: Int, height: Int}
 
 type Size = Normal | Large | Larger
 
-type Page = Splash | Query | Explore | Secondary | PostSecondary | Career | Report | Menu | Login
+type Page = Splash | Query | Explore | Secondary | PostSecondary | Career | Report | Login
 
-type alias Config =
+type alias Access =
     { language : T.Lang
     , size: Size
     , contrast: Bool
@@ -92,4 +95,5 @@ type alias Course =
     , name: Text
     , prerequisites: List String
     }
+
 

@@ -3,13 +3,14 @@ module Main exposing (main)
 import Html exposing (Html, a, button, div, embed, h1, hr, img, text)
 import Html.Attributes exposing (class, href, id, src, alt)
 import Html.Events exposing (onClick)
+import Dialog
 
 import Translations as T
 import Ports exposing (getScreenSize, setScreenSize)
 import Types exposing (..)
-import Common exposing (sizeClass, contrastClass, header, footer, menuButton, rightArrow, leftArrow
-    , textButton, shadowed, image)
-import Menu exposing (menuPage)
+import Common exposing (sizeClass, contrastClass, header, footer, textButton, imageButton, shadowed
+                        , image, simplePopup, notImplemented)
+import Menu exposing (menuButton)
 import Query exposing (queryPage)
     
 main =
@@ -18,7 +19,7 @@ main =
 init : ( Model, Cmd Msg )
 init = 
     let
-        config = Config T.En Normal False False
+        config = Access T.En Normal False False
         data = Data 9 "M" ""
     in
             
@@ -42,20 +43,17 @@ update msg model =
         SetSize size ->
             ({model | config = setSize model.config size}, Cmd.none)
 
-        SetContrast contrast ->
-            ({model | config = setContrast model.config contrast}, Cmd.none)
+        ToggleContrast ->
+            ({model | config = toggleContrast model.config}, Cmd.none)
 
-        SetReader reader ->
-            ({model | config = setReader model.config reader}, Cmd.none)
+        ToggleReader ->
+            ({model | config = toggleReader model.config}, Cmd.none)
 
         SetLanguage language ->
             ({model | config = setLanguage model.config language}, Cmd.none)
 
         SetPage page ->
-            ({model | previous = Just model.page, page = page}, Cmd.none)
-
-        Back ->
-            (back model, Cmd.none)
+            ({model | page = page}, Cmd.none)
 
         SetGrade grade ->
             ({model | data = setGrade model.data grade}, Cmd.none)
@@ -75,15 +73,24 @@ update msg model =
         SecondaryRight ->
             Debug.crash "TODO"
 
------------------------------------------------------ Config setters
+        Popup popup ->
+            ({model | popup = Just popup}, Cmd.none)
+
+        Close ->
+            ({model | popup = Nothing}, Cmd.none)
+
+        NotImplemented ->
+            ({model | popup = Just notImplemented}, Cmd.none)
+
+----------------------------------------------------- Access setters
 setSize config size =
     {config | size = size}
 
-setContrast config contrast =
-    {config | contrast = contrast}
+toggleContrast config =
+    {config | contrast = Debug.log "Contrast" (not config.contrast)}
 
-setReader config reader =
-    {config | reader = reader}
+toggleReader config  =
+    {config | reader = Debug.log "Reader" (not config.reader)}
 
 setLanguage config language =
     {config | language = language}
@@ -98,50 +105,12 @@ setLocation data location =
 setCareer data career =
     {data | career = career}
 
-
-back: Model -> Model
-back model =
-    case model.previous of
-        Just previous ->
-            {model | page = previous, previous = Nothing}
-        
-        Nothing ->
-            Debug.crash "No previousm, should not happen"            
-    
 ----------------- view ----------------
 
 view: Model -> Html Msg
 view model = 
     if (model.screenSize.width /= 0) then
-        div (outerAttributes model) 
-            (case model.page of
-                Splash ->
-                    splashPage model
-
-                Query ->
-                    queryPage model
-
-                Explore ->
-                    explorePage model
-
-                Secondary ->
-                    secondaryPage model
-
-                PostSecondary ->
-                    postSecondaryPage model
-
-                Career ->
-                    careerPage model
-
-                Report ->
-                    reportPage model
-
-                Login ->
-                     loginPage model
-
-                Menu ->
-                    menuPage model
-            )
+        div (outerAttributes model) [page model, Dialog.view model.popup]
     else
         div [] []
 
@@ -150,14 +119,44 @@ outerAttributes model =
     [class "outer", sizeClass model "outer" , contrastClass model "contrast"]
 
 
+page: Model -> Html Msg
+page model =
+    div [] 
+        (case model.page of
+            Splash ->
+                splashPage model
+
+            Query ->
+                queryPage model
+
+            Explore ->
+                explorePage model
+
+            Secondary ->
+                secondaryPage model
+
+            PostSecondary ->
+                postSecondaryPage model
+
+            Career ->
+                careerPage model
+
+            Report ->
+                reportPage model
+
+            Login ->
+                 loginPage model
+        )
+
 ---------------------------------------  Splash --------------------------------------------
 
 splashPage: Model -> List (Html Msg)
 splashPage model = 
-    [header model [menuButton model]
+    [menuButton model
     , div [] [image "splash" T.splash "splash" model]
+    , div [class "centre"] [splashButton model (NotImplemented) T.login]
+    , div [class "centre"] [splashButton model (NotImplemented) T.tutorial]
     , div [class "centre"] [splashButton model (SetPage Query) T.forward]
-    , footer model []
     ]
 
 splashButton = textButton "splash-button" "splash-button" 
@@ -180,9 +179,9 @@ separator = div [class "separator"] [hr [] []]
 secondarySummary: Model -> Html Msg
 secondarySummary model =
     div [] 
-        [ leftArrow SecondaryLeft
+        [ imageButton SecondaryLeft T.secondaryLeft "left-arrow" model
         , shadowed [] (secondaryBody model)
-        , rightArrow SecondaryRight
+        , imageButton SecondaryRight T.secondaryRight "right-arrow" model
         ]
 
 secondaryBody: Model -> Html Msg
@@ -229,6 +228,4 @@ careerPage model =
 loginPage: Model -> List (Html Msg)
 loginPage model =
     [header model [menuButton model]]
-
----------------------------------------- Header ---------------------------------------
 
