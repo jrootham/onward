@@ -1,6 +1,8 @@
 class NarrowOccupation
   include Interactor
 
+  VALID_PARAMS = [:noc_codes, :salary]
+
   def call
     context.pathway[:occupation] = select_occupations
   end
@@ -8,7 +10,9 @@ class NarrowOccupation
   private
 
   def select_occupations
-    return unless context.query_params[:noc_codes].present? || context.query_params[:salary].present?
+    valid_params = VALID_PARAMS.any? { |param| context.query_params[param].present? }
+    return unless valid_params
+
     collection = Occupation.all
 
     if context.query_params[:noc_codes]

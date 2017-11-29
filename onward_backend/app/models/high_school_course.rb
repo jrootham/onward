@@ -1,6 +1,8 @@
 class HighSchoolCourse < ApplicationRecord
   self.table_name = 'hs_courses'
 
+  scope :no_prereq, -> { where(has_prereq: false) }
+
   has_one :course_prerequisite, foreign_key: 'course_code'
   has_one :course_grade, foreign_key: 'course_code'
 

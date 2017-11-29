@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127055041) do
+ActiveRecord::Schema.define(version: 20171129065036) do
 
   create_table "apprentice_noc_wages_openings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "noc_code",        limit: 4
@@ -196,6 +196,12 @@ ActiveRecord::Schema.define(version: 20171127055041) do
     t.string "ouac_univ_description_fr"
   end
 
+  create_table "ouac_university_programs_maesd_programs", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "program_code"
+    t.integer "ouac_university_program_id"
+    t.index ["program_code"], name: "index_ouac_university_programs_maesd_programs_on_program_code", using: :btree
+  end
+
   create_table "program_cip_map", primary_key: ["program_code", "cip_top_code"], force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "program_code", limit: 3, null: false
     t.string "cip_top_code", limit: 2, null: false
@@ -251,6 +257,9 @@ ActiveRecord::Schema.define(version: 20171127055041) do
     t.string  "specialization",    limit: 300, null: false
     t.integer "max_enroll"
     t.string  "min_gpa",           limit: 10
+    t.string  "program_title"
+    t.string  "program_code"
+    t.string  "university"
     t.index ["ouac_program_code"], name: "ouac_program_code", using: :btree
   end
 

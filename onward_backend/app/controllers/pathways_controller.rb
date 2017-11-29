@@ -1,16 +1,14 @@
 class PathwaysController < ApplicationController
   def index
-    empty_pathway = Hash[Pathway::LEVELS.map{ |level| [level[:name], []] }].with_indifferent_access
+    empty_pathway = Hash[Pathway::LEVELS.map{ |level| [level, []] }].with_indifferent_access
     context = GeneratePathway.call(query_params: parsed_query_params.with_indifferent_access,
                                    pathway: empty_pathway)
-
     if context.success?
       render json: context.pathway
     else
       render json: context.message
     end
   end
-
 
   def pathways_params
     params.permit(:hs_courses, :current_level, :noc_codes, :ouac_codes, :salary)

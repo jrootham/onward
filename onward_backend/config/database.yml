@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
-  database: onward_backend_production
-  username: onward_backend
+  host: 45.77.156.27
+  port: 3306
+  database: rootham
+  username: rootham
   password: <%= ENV['ONWARD_BACKEND_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
