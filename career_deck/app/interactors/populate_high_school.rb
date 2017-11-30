@@ -54,6 +54,6 @@ class PopulateHighSchool
 
   def courses_by_grade(level, prereq=false)
     grade = level.split('grade_')[1]
-    HighSchoolCourse.no_prereq.joins(:course_grade).includes(:course_prerequisite).where('hs_course_grade_link.grade = ?', grade)
+    HighSchoolCourse.no_prereq.joins(:course_grade).where('hs_course_grade_link.grade = ?', grade)
   end
 end

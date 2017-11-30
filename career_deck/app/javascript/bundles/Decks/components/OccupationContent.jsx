@@ -9,7 +9,10 @@ const OccupationContent = ({ option }) => {
       </div>
       <div className='details'>
         <div className='pill'>{ `Risk of automation: ${option.risk_of_automation}` }</div>
-        <div className='pill'>{ `Salary: ${(option.salary).toLocaleString("en-US", {style: "currency", currency: "CAD", minimumFractionDigits: 2})}` }</div>
+        {
+          option.salary &&
+          <div className='pill'>{ `Salary: ${(option.salary).toLocaleString("en-US", {style: "currency", currency: "CAD", minimumFractionDigits: 2})}` }</div>
+        }
       </div>
     </div>
   )

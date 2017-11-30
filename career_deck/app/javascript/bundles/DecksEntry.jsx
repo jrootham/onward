@@ -11,10 +11,27 @@ export default class DecksEntry extends React.Component {
     super(props);
     this.state = {};
     this.updateParams = (param, value) => this._updateParams(param, value)
+    this.fetchPathway = () => this._fetchPathway()
   }
 
   _updateParams (param, value) {
-    this.setState({ [param]: value }, console.log(this.state))
+    this.setState({ [param]: value }, () => this.fetchPathway())
+  }
+
+  _fetchPathway () {
+    const baseUrl = '/search?current_level=grade_11&';
+    const validParams = ['noc_codes', 'ouac_codes']
+
+    const query = Object.keys(this.state)
+      .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(this.state[k]))
+      .join('&');
+
+    fetch(`${baseUrl}${query}`)
+      .then( res  => res.json())
+      .then( pathway =>  {
+        this.setState({ ...pathway });
+      })
+      .catch( err => console.log(err) )
   }
 
   render() {

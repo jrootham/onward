@@ -17,8 +17,8 @@ export default class DecksContainer extends React.Component {
     return (
       <div className="decks-container">
         <CardContainer options={ hs_options } content={'highSchool'} { ...this.props } />
-        <CardContainer options={ this.props.post_secondary } content={'postSecondary'} />
-        <CardContainer options={ this.props.occupation } content={'occupation'} />
+        <CardContainer options={ this.props.post_secondary } content={'postSecondary'} { ...this.props }/>
+        <CardContainer options={ this.props.occupation } content={'occupation'} { ...this.props } />
       </div>
     );
   }
