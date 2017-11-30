@@ -10,8 +10,12 @@ class SearchController < ActionController::API
     end
   end
 
+  def maesd_programs
+    render json: MaesdProgram.all.to_a
+  end
+
   def search_params
-    params.permit(:hs_courses, :current_level, :noc_codes, :ouac_codes, :salary)
+    params.permit(:hs_courses, :current_level, :noc_codes, :ouac_codes, :salary, :maesd_codes)
   end
 
   def parsed_query_params
@@ -43,6 +47,10 @@ class SearchController < ActionController::API
   end
 
   def parse_ouac_codes(value)
+    value.split(',')
+  end
+
+  def parse_maesd_codes(value)
     value.split(',')
   end
 end
