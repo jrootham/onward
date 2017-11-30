@@ -6,7 +6,6 @@ const PostSecondaryCard = (props) => {
   if (!props.program) {
     return <div></div>
   } else {
-    console.log(props.program)
     return(
       <div className='post-secondary'>
         <Paper className='card'>

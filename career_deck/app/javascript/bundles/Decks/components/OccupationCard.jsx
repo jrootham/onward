@@ -6,7 +6,6 @@ const OccupationCard = (props) => {
   if (!props.occupation) {
     return <div></div>
   } else {
-    console.log(props.occupation)
     return(
       <div className='occupation'>
         <Paper className='card'>

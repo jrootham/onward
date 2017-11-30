@@ -7,7 +7,6 @@ import HighSchoolContent from './HighSchoolContent'
 import RaisedButton from 'material-ui/RaisedButton';
 
 const Card = (props) => {
-  console.log(props)
 
   const getContent = () => {
     if (props.content === 'occupation') {

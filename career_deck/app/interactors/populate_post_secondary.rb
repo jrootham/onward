@@ -17,7 +17,9 @@ class PopulatePostSecondary
     prereqs = UniversityPrereq.includes(:ouac_university_program).where(hs_course_code: hs_course_codes)
     potential_programs = prereqs.map(&:ouac_university_program).uniq
 
-    potential_programs.keep_if { |program| prereqs_met?(program, prereqs) }
+    batch_of_programs = potential_programs.sample(10)
+
+    batch_of_programs.keep_if { |program| prereqs_met?(program, prereqs) }
   end
 end
 

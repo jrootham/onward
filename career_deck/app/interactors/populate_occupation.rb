@@ -12,7 +12,6 @@ class PopulateOccupation
   private
 
   def related_occupations(post_secondary_programs)
-    maesd_programs = post_secondary_programs.map(&:maesd_programs).flatten
-    maesd_programs.map(&:occupations).flatten
+    post_secondary_programs.map(&:occupations).flatten
   end
 end

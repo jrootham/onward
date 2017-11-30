@@ -21,21 +21,36 @@ export default class DecksEntry extends React.Component {
   _fetchPathway () {
     const baseUrl = '/search?current_level=grade_11&';
     const validParams = ['noc_codes', 'ouac_codes']
-
     const query = Object.keys(this.state)
       .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(this.state[k]))
       .join('&');
 
+    console.log('QUERY URL', `${baseUrl}${query}`)
+    this.setState({
+      grade_9: null,
+      grade_10: null,
+      grade_11: null,
+      grade_12: null,
+      post_secondary: null,
+      occupation: null
+    })
+
     fetch(`${baseUrl}${query}`)
       .then( res  => res.json())
       .then( pathway =>  {
-        this.setState({ ...pathway });
+        this.setState({
+          grade_9: pathway.grade_9,
+          grade_10: pathway.grade_10,
+          grade_11: pathway.grade_11,
+          grade_12: pathway.grade_12,
+          post_secondary: pathway.post_secondary,
+          occupation: pathway.occupation
+        });
       })
       .catch( err => console.log(err) )
   }
 
   render() {
-    console.log('state', this.state)
     return (
       <MuiThemeProvider>
         <BrowserRouter>
