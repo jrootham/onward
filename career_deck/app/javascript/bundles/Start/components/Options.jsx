@@ -51,7 +51,7 @@ export default class Options extends React.Component {
       <div className="page">
         <div className="form-container">
           <div className="block">
-            <p>Answer some <strong>optional</strong> questions to help us narrow down the decks</p>
+            <p>Answer some <strong>optional</strong> questions to help us narrow down the decks:</p>
           </div>
           <Paper className="block">
               <p>What grade are you in?</p>

@@ -11,21 +11,38 @@ export default class DecksEntry extends React.Component {
     super(props);
     this.state = {};
     this.updateParams = (param, value) => this._updateParams(param, value)
-    this.fetchPathway = () => this._fetchPathway()
+    this.getParamsFromUrl = () => this._getParamsFromUrl();
+    this.fetchPathway = () => this._fetchPathway();
+  }
+
+  componentDidMount() {
+    this.getParamsFromUrl();
   }
 
   _updateParams (param, value) {
     this.setState({ [param]: value }, () => this.fetchPathway())
   }
 
-  _fetchPathway () {
-    const baseUrl = '/search?current_level=grade_11&';
-    const validParams = ['noc_codes', 'ouac_codes']
-    const query = Object.keys(this.state)
-      .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(this.state[k]))
-      .join('&');
+  _getParamsFromUrl() {
+    const url_string = window.location.href
+    const url = new URL(url_string);
+    const current_level = url.searchParams.get("current_level");
+    const maesd_codes = url.searchParams.get("maesd_codes")
 
-    console.log('QUERY URL', `${baseUrl}${query}`)
+    this.setState({ current_level, maesd_codes })
+  }
+
+  _fetchPathway () {
+    let baseUrl = '/search?';
+    const validParams = ['noc_codes', 'ouac_codes', 'maesd_codes', 'current_level']
+    validParams.map((k) => {
+      if (!!this.state[k]) {
+        const v = this.state[k]
+        baseUrl = baseUrl + `${encodeURIComponent(k)}=${encodeURIComponent(v)}&`;
+      }
+    })
+
+    console.log('NEW QUERY URL', baseUrl)
     this.setState({
       grade_9: null,
       grade_10: null,
@@ -35,7 +52,7 @@ export default class DecksEntry extends React.Component {
       occupation: null
     })
 
-    fetch(`${baseUrl}${query}`)
+    fetch(baseUrl)
       .then( res  => res.json())
       .then( pathway =>  {
         this.setState({

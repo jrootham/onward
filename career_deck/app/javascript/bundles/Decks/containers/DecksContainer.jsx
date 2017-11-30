@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import HighSchoolDeckContainer from './HighSchoolDeckContainer'
 import CardContainer from './CardContainer'
 
 export default class DecksContainer extends React.Component {

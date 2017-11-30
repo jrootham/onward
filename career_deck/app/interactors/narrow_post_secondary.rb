@@ -1,7 +1,7 @@
 class NarrowPostSecondary
   include Interactor
 
-   VALID_PARAMS = [:ouac_codes, :uni_codes]
+   VALID_PARAMS = [:ouac_codes, :uni_codes, :maesd_codes]
 
   def call
     context.pathway[:post_secondary] = select_post_secondary
@@ -13,25 +13,20 @@ class NarrowPostSecondary
     valid_params = valid_params = VALID_PARAMS.any? { |param| context.query_params[param].present? }
     return unless context.pathway[:occupation].present? || valid_params
 
-    collection = OuacUniversityProgram.includes(:occupations).all
+    collection = OuacUniversityProgram.includes(:maesd_programs).all
+
 
     if context.query_params[:ouac_codes].present?
-      collection.where(ouac_program_code: context.query_params[:ouac_codes])
-    end
-
-    if context.query_params[:uni_codes].present?
-      collection.where(ouac_univ_code: context.query_params[:uni_codes])
+      return collection.where(ouac_program_code: context.query_params[:ouac_codes])
     end
 
     if context.pathway[:occupation].present?
-      ouac_codes = ouac_codes_from_occupation
-      collection.where(ouac_program_code: ouac_codes)
+      ouac_ids = context.pathway[:occupation].map(&:ouac_university_programs).flatten.uniq.take(50).pluck(:id)
+      return collection.where(id: ouac_ids)
     end
 
-    collection
-  end
-
-  def ouac_codes_from_occupation
-    context.pathway[:occupation].map(&:ouac_university_programs).flatten.take(10).pluck(:id)
+    if context.query_params[:maesd_codes].present?
+      return collection.where(maesd_programs_ouac_university_programs: { maesd_program_id: context.pathway[:maesd_codes] })
+    end
   end
 end

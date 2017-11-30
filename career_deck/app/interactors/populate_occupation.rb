@@ -2,7 +2,7 @@ class PopulateOccupation
   include Interactor
 
   def call
-    return if context.pathway[:occupation].present? && context.pathway[:occupation].length > 0
+    return if context.pathway[:occupation].present? && context.pathway[:occupation].count > 0
 
     post_secondary_programs = context.pathway[:post_secondary]
 

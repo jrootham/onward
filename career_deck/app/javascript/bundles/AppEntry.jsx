@@ -22,7 +22,9 @@ export default class AppEntry extends React.Component {
     return (
       <MuiThemeProvider>
         <BrowserRouter>
-          <OptionsContainer updateParams={ this.updateParams } {...this.state} />
+          <div className='app-container'>
+            <OptionsContainer updateParams={ this.updateParams } {...this.state} />
+          </div>
         </BrowserRouter>
       </MuiThemeProvider>
     );

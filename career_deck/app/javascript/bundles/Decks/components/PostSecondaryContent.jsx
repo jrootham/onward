@@ -8,8 +8,8 @@ const PostSecondaryContent = ({ option }) => {
         <div className='pill'>{ option.program_title }</div>
       </div>
       <div className='details'>
-        <div className='pill'>{ option.program_type }</div>
         <div className='pill'>{ option.university }</div>
+        <div className='pill'>{ option.program_type }</div>
         <div className='pill'>{ `Specialization: ${option.specialization}` }</div>
         <div className='pill'>{ `Min GPA: ${option.min_gpa}` }</div>
       </div>
