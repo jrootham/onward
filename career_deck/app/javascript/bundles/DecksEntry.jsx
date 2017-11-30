@@ -1,16 +1,15 @@
 import React from 'react';
-import StartContainer from './Start/containers/StartContainer';
-import OptionsContainer from './Start/containers/OptionsContainer';
+import DecksContainer from './Decks/containers/DecksContainer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { BrowserRouter } from 'react-router-dom';
 
 
-export default class AppEntry extends React.Component {
+export default class DecksEntry extends React.Component {
   static propTypes = {};
 
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {};
     this.updateParams = (param, value) => this._updateParams(param, value)
   }
 
@@ -19,10 +18,11 @@ export default class AppEntry extends React.Component {
   }
 
   render() {
+    console.log('state', this.state)
     return (
       <MuiThemeProvider>
         <BrowserRouter>
-          <OptionsContainer updateParams={ this.updateParams } {...this.state} />
+          <DecksContainer updateParams={ this.updateParams } { ...this.state } { ...this.props.data } />
         </BrowserRouter>
       </MuiThemeProvider>
     );

@@ -15,7 +15,7 @@ class SearchController < ActionController::API
   end
 
   def search_params
-    params.permit(:hs_courses, :current_level, :noc_codes, :ouac_codes, :salary, :maesd_codes)
+    params.permit(:hs_courses, :noc_codes, :ouac_codes, :salary)
   end
 
   def parsed_query_params
@@ -34,10 +34,6 @@ class SearchController < ActionController::API
     value.split(',')
   end
 
-  def parse_current_level(value)
-    value
-  end
-
   def parse_cip_codes(value)
     value.split(',')
   end
@@ -47,10 +43,6 @@ class SearchController < ActionController::API
   end
 
   def parse_ouac_codes(value)
-    value.split(',')
-  end
-
-  def parse_maesd_codes(value)
     value.split(',')
   end
 end

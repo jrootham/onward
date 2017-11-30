@@ -17,6 +17,7 @@ export default class Options extends React.Component {
     this.loadCareerOptions = () => this._loadCareerOptions();
     this.updateGrade = (v) => this._updateGrade(v);
     this.updateMaesdProgram = (event, index, value) => this._updateMaesdProgram(event, index, value);
+    this.submitAndContinue = () => this._submitAndContinue();
     this.loadCareerOptions()
   }
 
@@ -36,6 +37,10 @@ export default class Options extends React.Component {
 
   _updateMaesdProgram(event, index, value) {
     this.props.updateParams('maesd_codes', value);
+  }
+
+  _submitAndContinue() {
+    window.location.href = `/pathways?current_level=${this.props.current_level}&maesd_codes=${this.props.maesd_codes}`
   }
 
   render() {
@@ -73,7 +78,7 @@ export default class Options extends React.Component {
           </Paper>
         </div>
         <div className="btn-container">
-          <RaisedButton label='Explore' className='btn primary' onClick={this.showDeck} />
+          <RaisedButton label='Explore' className='btn primary' onClick={this.submitAndContinue} />
         </div>
       </div>
     );
