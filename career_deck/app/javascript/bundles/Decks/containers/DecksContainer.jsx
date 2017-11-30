@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import BrowseDecksContainer from './BrowseDecksContainer'
 import HighSchoolDeckContainer from './HighSchoolDeckContainer'
-import PostSecondaryDeckContainer from './PostSecondaryDeckContainer'
-import OccupationDeckContainer from './OccupationDeckContainer'
-
+import CardContainer from './CardContainer'
 
 export default class DecksContainer extends React.Component {
   static propTypes = {};
@@ -15,18 +12,13 @@ export default class DecksContainer extends React.Component {
   }
 
   render() {
+    console.log('DECKS CONTAINER', this.props)
+    const hs_options = ['grade_9', 'grade_10', 'grade_11', 'grade_12']
     return (
       <div className="decks-container">
-        <BrowseDecksContainer>
-          <HighSchoolDeckContainer
-            grade_9={ this.props.grade_9 }
-            grade_10={ this.props.grade_10 }
-            grade_11={ this.props.grade_11 }
-            grade_12={ this.props.grade_12 }
-          />
-          <PostSecondaryDeckContainer post_secondary={ this.props.post_secondary } />
-          <OccupationDeckContainer occupations={ this.props.occupation } />
-        </BrowseDecksContainer>
+        <CardContainer options={ hs_options } content={'highSchool'} { ...this.props } />
+        <CardContainer options={ this.props.post_secondary } content={'postSecondary'} />
+        <CardContainer options={ this.props.occupation } content={'occupation'} />
       </div>
     );
   }

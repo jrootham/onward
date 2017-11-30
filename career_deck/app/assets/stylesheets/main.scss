@@ -6,7 +6,7 @@ $red: #f05a5a;
 $blue: #5c7fbc;
 $dark-grey: #333333;
 
-$bg-color: $yellow;
+$bg-color: $dark-grey;
 $hs-color: $yellow;
 $ps-color: $red;
 $occupation-color: $blue;
@@ -14,6 +14,18 @@ $occupation-color: $blue;
 body {
   background: $bg-color;
   font-family: 'Roboto', sans-serif;
+}
+
+.app-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .decks-container {
+    width: 500px;
+  }
 }
 
 .page-container {
@@ -40,5 +52,49 @@ body {
     }
   }
 }
+
+.deck-container {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+
+  .card {
+    padding: 10px;
+    width: 100%;
+
+    .header, .details {
+      display: flex;
+
+      .pill {
+        border: 1px solid grey;
+        padding: 3px 8px;
+        border-radius: 2em;
+        margin: 3px;
+      }
+    }
+
+    .header {
+      font-weight: 700;
+    }
+
+    .details {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &:nth-of-type(1) {
+    background-color: $yellow;
+  }
+
+  &:nth-of-type(2) {
+    background-color: $red;
+  }
+
+  &:nth-of-type(3) {
+    background-color: $blue;
+  }
+}
+
 
 

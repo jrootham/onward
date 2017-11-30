@@ -25,7 +25,7 @@ export default class OccupationDeckContainer extends React.Component {
   render() {
     const occupation = this.state.occupations[this.state.showing];
     return (
-      <div className="occupation-deck-container">
+      <div className="deck-container">
         <FontIcon className="material-icons" onClick={ this.nextOccupation }>navigate_before</FontIcon>
         <OccupationCard occupation={ occupation } />
         <FontIcon className="material-icons" onClick={ this.prevOccupation }>navigate_next</FontIcon>

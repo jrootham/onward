@@ -22,7 +22,9 @@ export default class DecksEntry extends React.Component {
     return (
       <MuiThemeProvider>
         <BrowserRouter>
-          <DecksContainer updateParams={ this.updateParams } { ...this.state } { ...this.props.data } />
+          <div className='app-container'>
+            <DecksContainer updateParams={ this.updateParams } { ...this.state } { ...this.props.data } />
+          </div>
         </BrowserRouter>
       </MuiThemeProvider>
     );
