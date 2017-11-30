@@ -5,7 +5,7 @@ import Paper from 'material-ui/Paper';
 import SelectField from 'material-ui/SelectField';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
-import Button from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 
 
 export default class Options extends React.Component {
@@ -40,6 +40,7 @@ export default class Options extends React.Component {
 
   render() {
     const options = this.state.maesdPrograms;
+    const grades = [9, 10, 11, 12]
 
     return (
       <div className="page">
@@ -49,16 +50,16 @@ export default class Options extends React.Component {
           </div>
           <Paper className="block">
               <p>What grade are you in?</p>
-              <Button label='9' onClick={this.updateGrade('9')} />
-              <Button label='10' onClick={this.updateGrade('10')} />
-              <Button label='11' onClick={this.updateGrade('11')} />
-              <Button label='12' onClick={this.updateGrade('12')} />
-          </Paper>
-          <Paper className="block">Where is your high school?
+              {
+                grades.map((grade, index) => {
+                  const active = this.props.current_level == `grade_${grade}` ? 'active' : ''
+                  return <FlatButton key={index} label={grade} onClick={this.updateGrade(grade)} className={active} />
+                })
+              }
           </Paper>
           <Paper className="block">
             <p>What career field(s) are you interested in?</p>
-            <SelectField onChange={ this.updateMaesdProgram }>
+            <SelectField onChange={ this.updateMaesdProgram } value={ this.props.maesd_codes }>
               {
                 options && options.map((program, index) => (
                   <MenuItem
@@ -72,7 +73,7 @@ export default class Options extends React.Component {
           </Paper>
         </div>
         <div className="btn-container">
-          <RaisedButton label='Explore' className='btn primary'/>
+          <RaisedButton label='Explore' className='btn primary' onClick={this.showDeck} />
         </div>
       </div>
     );

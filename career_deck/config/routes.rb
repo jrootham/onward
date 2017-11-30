@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'pathways#index'
   resources :pathways, only: [:index, :show]
   get 'search', to: 'search#index'
+  get 'maesd_programs', to: 'search#maesd_programs'
 end

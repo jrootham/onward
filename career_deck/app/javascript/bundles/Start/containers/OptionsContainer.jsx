@@ -13,7 +13,7 @@ export default class OptionsContainer extends React.Component {
   render() {
     return (
       <div className="page-container">
-        <Options updateParams={ this.props.updateParams } { ...this.state } />
+        <Options updateParams={ this.props.updateParams } { ...this.props } />
       </div>
     );
   }
