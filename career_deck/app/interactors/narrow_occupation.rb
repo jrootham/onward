@@ -27,6 +27,6 @@ class NarrowOccupation
       collection = collection.where('salary >= ?', context.query_params[:salary])
     end
 
-    collection.limit(50)
+    collection.limit(10)
   end
 end
