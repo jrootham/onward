@@ -14,7 +14,7 @@ class PopulatePostSecondary
 
   def eligible_university_programs(grade_12_courses)
     hs_course_codes = grade_12_courses.map(&:course_code)
-    prereqs = UniversityPrereq.includes(:ouac_university_program).where(hs_course_code: hs_course_codes).to_a
+    prereqs = UniversityPrereq.includes(:ouac_university_program).where(hs_course_code: hs_course_codes).limit(10).to_a
 
     generate_eligible_programs(0, prereqs, [])
   end
