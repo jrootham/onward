@@ -17,7 +17,7 @@ class NarrowHighSchool
 
   def narrow_by_post_secondary_program
     ouac_program_codes = context.pathway[:post_secondary].pluck(:ouac_program_code)
-    prereq_ids = UniversityPrereq.where(ouac_program_code: ouac_program_codes).pluck(:hs_course_code).uniq
+    prereq_ids = UniversityPrereq.where(ouac_program_code: ouac_program_codes).limit(50).pluck(:hs_course_code).uniq
     context.pathway[:grade_12].concat HighSchoolCourse.includes(:course_prerequisite).where(course_code: prereq_ids)
   end
 

@@ -32,6 +32,6 @@ class NarrowPostSecondary
       return collection.where(maesd_programs_ouac_university_programs: { maesd_program_id: context.pathway[:maesd_codes] })
     end
 
-    collection
+    collection.limit(50)
   end
 end
