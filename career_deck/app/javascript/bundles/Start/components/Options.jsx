@@ -40,6 +40,7 @@ export default class Options extends React.Component {
   }
 
   _submitAndContinue() {
+    this.setState({ loading: true })
     window.location.href = `/pathways?current_level=${this.props.current_level}&maesd_codes=${this.props.maesd_codes}`
   }
 
@@ -49,18 +50,21 @@ export default class Options extends React.Component {
 
     return (
       <div className="page">
+        { this.state.loading && <div className="overlay"><div className="loader"></div></div> }
         <div className="form-container">
           <div className="block">
             <p>Answer some <strong>optional</strong> questions to help us narrow down the decks:</p>
           </div>
           <Paper className="block">
               <p>What grade are you in?</p>
+              <div className='grade-buttons'>
               {
                 grades.map((grade, index) => {
                   const active = this.props.current_level == `grade_${grade}` ? 'active' : ''
-                  return <FlatButton key={index} label={grade} onClick={this.updateGrade(grade)} className={active} />
+                  return <FlatButton key={index} label={grade} onClick={this.updateGrade(grade)} className={`grade-button ${active}`} style={{ backgroundColor: '#E3E3E3'}} />
                 })
               }
+              </div>
           </Paper>
           <Paper className="block">
             <p>What career field(s) are you interested in?</p>

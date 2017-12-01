@@ -15,16 +15,16 @@ class NarrowOccupation
 
     collection = Occupation.includes(:maesd_programs, :ouac_university_programs).all
 
+    if context.query_params[:maesd_codes]
+      collection = collection.where(univ_programs_maesd: { program_code: context.query_params[:maesd_codes] })
+    end
+
     if context.query_params[:noc_codes]
       return collection.where(noc_code: context.query_params[:noc_codes])
     end
 
     if context.query_params[:salary]
       collection = collection.where('salary >= ?', context.query_params[:salary])
-    end
-
-    if context.query_params[:maesd_codes]
-      collection = collection.where(univ_programs_maesd: { program_code: context.query_params[:maesd_codes] })
     end
 
     collection

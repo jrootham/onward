@@ -14,19 +14,19 @@ class PopulatePostSecondary
 
   def eligible_university_programs(grade_12_courses)
     hs_course_codes = grade_12_courses.map(&:course_code)
-    prereqs = UniversityPrereq.includes(:ouac_university_program).where(hs_course_code: hs_course_codes)
-    potential_programs = prereqs.map(&:ouac_university_program).uniq
+    prereqs = UniversityPrereq.includes(:ouac_university_program).where(hs_course_code: hs_course_codes).to_a
 
-    eligible_programs = []
-
-    potential_programs.each do |program|
-      if prereqs_met?(program, prereqs)
-        eligible_programs << program
-      end
-    end
-
-    eligible_programs
+    generate_eligible_programs(0, prereqs, [])
   end
+end
+
+def generate_eligible_programs(current_index, prereqs, eligible_programs)
+  return eligible_programs if eligible_programs.count >= 10
+  return eligible_programs if current_index === prereqs.count - 1
+
+  program = prereqs[current_index].ouac_university_program
+  eligible_programs << program if prereqs_met?(program, prereqs)
+  generate_eligible_programs(current_index + 1, prereqs, eligible_programs)
 end
 
 def prereqs_met?(program, prereqs)
