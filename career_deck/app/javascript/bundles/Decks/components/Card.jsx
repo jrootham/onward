@@ -18,34 +18,19 @@ const Card = (props) => {
     }
   }
 
-  const handleSelectCard = () => {
-    let param;
-    let value;
-
-    if (props.content === 'occupation') {
-      param = 'noc_codes';
-      value = props.option.noc_code;
-    } else if (props.content === 'postSecondary') {
-      param = 'ouac_codes';
-      value = props.option.ouac_program_code;
-    } else if (props.content === 'highSchool') {
-      param = 'hs_courses';
-      value = 'ENG4U';
-    }
-
-    props.updateParams(param, value);
-  }
-
   if (!props.option) {
-    return <div></div>
+    return(
+      <Paper className='card' style={{ borderRadius: '8px' }} >
+        <div>No results available</div>
+      </Paper>
+      )
   } else {
 
     const Content = getContent();
 
     return(
       <Paper className='card' style={{ borderRadius: '8px' }} >
-        <Content option={ props.option } />
-        <RaisedButton label='Select' onClick={handleSelectCard} />
+        <Content option={ props.option } { ...props } />
       </Paper>
     )
   }

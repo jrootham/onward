@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import LockablePill from './LockablePill'
 
-const PostSecondaryContent = ({ option }) => {
+const PostSecondaryContent = ({ option, updateParams }) => {
+  const lockPostSecondary = () => {
+    updateParams('ouac_codes', option.ouac_program_code)
+  }
+
   return(
     <div>
       <div className='header'>
-        <div className='pill'>{ option.program_title }</div>
+        <LockablePill onClick={lockPostSecondary} >{ option.program_title }</LockablePill>
       </div>
       <div className='details'>
         <div className='pill'>{ option.university }</div>

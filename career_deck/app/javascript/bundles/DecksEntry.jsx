@@ -1,6 +1,7 @@
 import React from 'react';
 import DecksContainer from './Decks/containers/DecksContainer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import update from 'immutability-helper';
 import { BrowserRouter } from 'react-router-dom';
 
 
@@ -9,7 +10,7 @@ export default class DecksEntry extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = this.props.data;
     this.updateParams = (param, value) => this._updateParams(param, value)
     this.getParamsFromUrl = () => this._getParamsFromUrl();
     this.fetchPathway = () => this._fetchPathway();
@@ -28,7 +29,6 @@ export default class DecksEntry extends React.Component {
     const url = new URL(url_string);
     const current_level = url.searchParams.get("current_level");
     const maesd_codes = url.searchParams.get("maesd_codes")
-
     this.setState({ current_level, maesd_codes })
   }
 
@@ -40,16 +40,6 @@ export default class DecksEntry extends React.Component {
         const v = this.state[k]
         baseUrl = baseUrl + `${encodeURIComponent(k)}=${encodeURIComponent(v)}&`;
       }
-    })
-
-    console.log('NEW QUERY URL', baseUrl)
-    this.setState({
-      grade_9: null,
-      grade_10: null,
-      grade_11: null,
-      grade_12: null,
-      post_secondary: null,
-      occupation: null
     })
 
     fetch(baseUrl)
@@ -72,7 +62,11 @@ export default class DecksEntry extends React.Component {
       <MuiThemeProvider>
         <BrowserRouter>
           <div className='app-container'>
-            <DecksContainer updateParams={ this.updateParams } { ...this.state } { ...this.props.data } />
+            <DecksContainer
+              updateParams={ this.updateParams }
+              getParamsFromUrl={ this.getParamsFromUrl }
+              { ...this.state }
+            />
           </div>
         </BrowserRouter>
       </MuiThemeProvider>

@@ -12,6 +12,19 @@ export default class CardContainer extends React.Component {
     this.prevOccupation = () => this._prevOccupation();
   }
 
+  componentWillMount() {
+    const url_string = window.location.href
+    const url = new URL(url_string);
+    const current_level = url.searchParams.get("current_level");
+    const grades = ['grade_9', 'grade_10', 'grade_11', 'grade_12'];
+    const showing = this.props.content === 'highSchool' ? grades.indexOf(current_level) : 0
+    this.setState({ showing })
+  }
+
+  _highSchoolData() {
+    this.props[this.props.current_level]
+  }
+
   _nextOccupation() {
     let showing;
     if (this.state.showing === this.props.options.length - 1) {
