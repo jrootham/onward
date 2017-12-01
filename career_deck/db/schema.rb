@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130193703) do
+ActiveRecord::Schema.define(version: 20171201035505) do
 
   create_table "apprentice_noc_wages_openings", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "noc_code", limit: 4
@@ -179,6 +179,7 @@ ActiveRecord::Schema.define(version: 20171130193703) do
     t.float "hourly_wage", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "risk_of_automation", limit: 24
     t.index ["noc_code"], name: "index_occupations_on_noc_code"
   end
 

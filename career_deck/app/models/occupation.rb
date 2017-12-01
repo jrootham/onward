@@ -13,7 +13,7 @@ class Occupation < ApplicationRecord
     risk = AutomationRisk.find_by(noc_code: noc_code)
     return nil unless risk
 
-    risk.to_f * 100
+    risk.automation_risk.to_f * 100
   end
 
   def illustrative_job_titles
