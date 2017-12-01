@@ -3,7 +3,6 @@ class SearchController < ActionController::API
     empty_pathway = Hash[Pathway::LEVELS.map{ |level| [level, []] }].with_indifferent_access
     context = GeneratePathway.call(query_params: parsed_query_params.with_indifferent_access,
                                    pathway: empty_pathway)
-
     if context.success?
       render json: context.pathway
     else
@@ -16,7 +15,7 @@ class SearchController < ActionController::API
   end
 
   def search_params
-    params.permit(:hs_courses, :noc_codes, :ouac_codes, :salary, :current_level, :maesd_codes)
+    params.permit(:hs_courses, :noc_codes, :ouac_codes, :salary, :current_level, :maesd_codes, :uni_codes)
   end
 
   def parsed_query_params
@@ -52,6 +51,10 @@ class SearchController < ActionController::API
   end
 
   def parse_maesd_codes(value)
+    value.split(',')
+  end
+
+  def parse_uni_codes(value)
     value.split(',')
   end
 end

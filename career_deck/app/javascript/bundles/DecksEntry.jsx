@@ -10,7 +10,7 @@ export default class DecksEntry extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = this.props.data;
+    this.state = { loading: false, ...this.props.data };
     this.updateParams = (param, value) => this._updateParams(param, value)
     this.getParamsFromUrl = () => this._getParamsFromUrl();
     this.fetchPathway = () => this._fetchPathway();
@@ -33,8 +33,16 @@ export default class DecksEntry extends React.Component {
   }
 
   _fetchPathway () {
+    this.setState({ loading: true })
     let baseUrl = '/search?';
-    const validParams = ['noc_codes', 'ouac_codes', 'maesd_codes', 'current_level']
+    const validParams = [
+      'noc_codes',
+      'ouac_codes',
+      'maesd_codes',
+      'current_level',
+      'uni_codes',
+      'salary'
+    ]
     validParams.map((k) => {
       if (!!this.state[k]) {
         const v = this.state[k]
@@ -51,7 +59,8 @@ export default class DecksEntry extends React.Component {
           grade_11: pathway.grade_11,
           grade_12: pathway.grade_12,
           post_secondary: pathway.post_secondary,
-          occupation: pathway.occupation
+          occupation: pathway.occupation,
+          loading: false
         });
       })
       .catch( err => console.log(err) )

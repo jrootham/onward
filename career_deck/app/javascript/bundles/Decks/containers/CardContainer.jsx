@@ -10,9 +10,18 @@ export default class CardContainer extends React.Component {
     this.state = { showing: 0 };
     this.nextOccupation = () => this._nextOccupation();
     this.prevOccupation = () => this._prevOccupation();
+    this.setInitialCard = () => this._setInitialCard();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setInitialCard();
   }
 
   componentWillMount() {
+    this.setInitialCard();
+  }
+
+  _setInitialCard() {
     const url_string = window.location.href
     const url = new URL(url_string);
     const current_level = url.searchParams.get("current_level");

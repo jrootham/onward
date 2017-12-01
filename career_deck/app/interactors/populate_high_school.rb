@@ -32,12 +32,12 @@ class PopulateHighSchool
 
     current_courses = context.pathway[current_level]
     nx_level = next_level(current_level)
-    # open_courses = courses_by_grade(nx_level)
+    open_courses = courses_by_grade(nx_level)
     return if context.pathway[nx_level].present? && context.pathway[nx_level].length > 1
 
     context.pathway[nx_level] = context.pathway[nx_level].tap do |courses|
       current_courses.map { |course| courses << course.prereq_for }
-      # courses << open_courses if open_courses.present?
+      courses << open_courses if open_courses.present?
       courses.flatten!
     end
 
@@ -54,6 +54,6 @@ class PopulateHighSchool
 
   def courses_by_grade(level, prereq=false)
     grade = level.split('grade_')[1]
-    HighSchoolCourse.no_prereq.joins(:course_grade).where('hs_course_grade_link.grade = ?', grade)
+    HighSchoolCourse.no_prereq.joins(:course_grade).where('hs_course_grade_link.grade = ?', grade).limit(10)
   end
 end

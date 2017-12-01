@@ -15,18 +15,23 @@ class NarrowPostSecondary
 
     collection = OuacUniversityProgram.includes(:maesd_programs).all
 
-
     if context.query_params[:ouac_codes].present?
       return collection.where(ouac_program_code: context.query_params[:ouac_codes])
     end
 
-    if context.pathway[:occupation].present?
-      ouac_ids = context.pathway[:occupation].map(&:ouac_university_programs).flatten.uniq.take(50).pluck(:id)
-      return collection.where(id: ouac_ids)
+    if context.query_params[:maesd_codes].present?
+      collection = collection.where(maesd_programs_ouac_university_programs: { maesd_program_id: context.pathway[:maesd_codes] })
     end
 
-    if context.query_params[:maesd_codes].present?
-      return collection.where(maesd_programs_ouac_university_programs: { maesd_program_id: context.pathway[:maesd_codes] })
+    if context.pathway[:occupation].present?
+      ouac_ids = context.pathway[:occupation].map(&:ouac_university_programs).flatten.uniq.take(50).pluck(:id)
+      collection = collection.where(id: ouac_ids)
     end
+
+    if context.pathway[:uni_codes].present?
+      collection = collection.where(ouac_univ_code: context.pathway[:uni_codes])
+    end
+
+    collection
   end
 end
