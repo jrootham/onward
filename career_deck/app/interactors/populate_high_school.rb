@@ -2,6 +2,12 @@ class PopulateHighSchool
   include Interactor
 
   HIGH_SCHOOL_LEVELS = %w(grade_9 grade_10 grade_11 grade_12)
+  DEFAULT_COURSES = {
+    grade_9: ['ENG4U'],
+    grade_10: ['ENG4U'],
+    grade_11: ['ENG4U'],
+    grade_12: ['ENG4U'],
+  }
 
   def call
     context.current_level = context.query_params[:current_level]
@@ -22,8 +28,8 @@ class PopulateHighSchool
         context.pathway[hash_key].push course
       end
     else
-      courses = courses_by_grade(context.current_level)
-      context.pathway[context.current_level] = courses.to_a
+      # courses = courses_by_grade(context.current_level)
+      context.pathway[context.current_level] = DEFAULT_COURSES[context.current_level]
     end
   end
 

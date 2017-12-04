@@ -1,4 +1,4 @@
-class NarrowOccupation
+class SelectOccupation
   include Interactor
 
   VALID_PARAMS = [:noc_codes, :salary, :maesd_codes]
@@ -13,7 +13,7 @@ class NarrowOccupation
     valid_params = VALID_PARAMS.any? { |param| context.query_params[param].present? }
     return unless valid_params
 
-    collection = Occupation.includes(:maesd_programs, :ouac_university_programs).limit(5)
+    collection = Occupation.includes(:maesd_programs)
 
     if context.query_params[:noc_codes]
       return collection.where(noc_code: context.query_params[:noc_codes])

@@ -10,10 +10,6 @@ class SearchController < ActionController::API
     end
   end
 
-  def maesd_programs
-    render json: MaesdProgram.all.to_a
-  end
-
   def search_params
     params.permit(:hs_courses, :noc_codes, :ouac_codes, :salary, :current_level, :maesd_codes, :uni_codes)
   end

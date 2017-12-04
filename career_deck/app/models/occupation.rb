@@ -19,4 +19,8 @@ class Occupation < ApplicationRecord
   def illustrative_job_titles
     JobTitle.where(noc_code: noc_code).pluck(:description_en)
   end
+
+  def ouac_university_program_random
+    ouac_university_programs.order("RAND()").first
+  end
 end

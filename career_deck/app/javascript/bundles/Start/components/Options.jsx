@@ -6,6 +6,7 @@ import SelectField from 'material-ui/SelectField';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
+import SuperSelectField from 'material-ui-superselectfield'
 
 
 export default class Options extends React.Component {
@@ -13,11 +14,13 @@ export default class Options extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { courseSelection: [], selectedCourses: [] };
     this.loadCareerOptions = () => this._loadCareerOptions();
-    this.updateGrade = (v) => this._updateGrade(v);
     this.updateMaesdProgram = (event, index, value) => this._updateMaesdProgram(event, index, value);
     this.submitAndContinue = () => this._submitAndContinue();
+    this.fetchCourseOptions = (v) => this._fetchCourseOptions(v);
+    this.handleSelectGrade = (v) => this._handleSelectGrade(v);
+    this.handleSelectCourse = (course) => this._handleSelectCourse(course);
     this.loadCareerOptions()
   }
 
@@ -30,9 +33,27 @@ export default class Options extends React.Component {
       .catch( err => console.log(err) )
   }
 
-  _updateGrade (value) {
+  _handleSelectCourse(selected) {
+    this.setState({ selectedCourses: selected })
+    const hsCourseCodes = selected.map(option => option.value).join(',')
+    this.props.updateParams('hs_courses', hsCourseCodes)
+  }
+
+  _fetchCourseOptions (grade) {
+    fetch(`/hs_courses?grade=${grade}`)
+      .then(res => res.json())
+      .then(json => {
+        this.setState({ courseSelection: json })
+      })
+      .catch(err => console.log(err))
+  }
+
+  _handleSelectGrade (value) {
     const level = `grade_${value}`
-    return () => { this.props.updateParams('current_level', level) }
+    return () => {
+      this.fetchCourseOptions(value)
+      this.props.updateParams('current_level', level)
+    }
   }
 
   _updateMaesdProgram(event, index, value) {
@@ -41,11 +62,16 @@ export default class Options extends React.Component {
 
   _submitAndContinue() {
     this.setState({ loading: true })
-    window.location.href = `/pathways?current_level=${this.props.current_level}&maesd_codes=${this.props.maesd_codes}`
+
+    const url = `/pathways?current_level=${this.state.current_level}&hs_courses=${this.state.hs_courses}&maesd_codes=${this.state.maesd_codes}`
+
+    window.location.href = url;
   }
+
 
   render() {
     const options = this.state.maesdPrograms;
+    const courseSelection = this.state.courseSelection
     const grades = [9, 10, 11, 12]
 
     return (
@@ -61,11 +87,30 @@ export default class Options extends React.Component {
               {
                 grades.map((grade, index) => {
                   const active = this.props.current_level == `grade_${grade}` ? 'active' : ''
-                  return <FlatButton key={index} label={grade} onClick={this.updateGrade(grade)} className={`grade-button ${active}`} style={{ backgroundColor: '#E3E3E3'}} />
+                  return <FlatButton key={index} label={grade} onClick={this.handleSelectGrade(grade)} className={`grade-button ${active}`} style={{ backgroundColor: '#E3E3E3'}} />
                 })
               }
               </div>
           </Paper>
+
+          <Paper className="block">
+              <p>What courses are you taking?</p>
+              <SuperSelectField
+                multiple
+                onChange={this.handleSelectCourse}
+                value={this.state.selectedCourses}
+                hintText={'Select your courses for this year'}
+              >
+                {
+                  courseSelection.map((course, index) => (
+                    <div key={index} value={course.course_code} label={course.course_name_en}>
+                      {`${course.course_code}: ${course.course_name_en}`}
+                    </div>
+                  ))
+                }
+              </SuperSelectField>
+          </Paper>
+
           <Paper className="block">
             <p>What career field(s) are you interested in?</p>
             <SelectField onChange={ this.updateMaesdProgram } value={ this.props.maesd_codes }>

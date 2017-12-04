@@ -6,6 +6,8 @@ class HighSchoolCourse < ApplicationRecord
   has_one :course_prerequisite, foreign_key: 'course_code'
   has_one :course_grade, foreign_key: 'course_code'
 
+  PRIORITY_SUBJECTS = ['ENG', 'M', 'S'] # English, Math, Science
+
   def prereq
     return if has_prereq === 0
 
