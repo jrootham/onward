@@ -1,7 +1,7 @@
 class NarrowPostSecondary
   include Interactor
 
-   VALID_PARAMS = [:occupation, :ouac_codes, :uni_codes, :eligiblity]
+   VALID_PARAMS = [:ouac_codes, :uni_codes, :occupation]
 
   def call
     select_post_secondary
@@ -14,12 +14,14 @@ class NarrowPostSecondary
 
   def select_post_secondary
     VALID_PARAMS.each do |param|
-      next unless context.query_params[param].present?
-      next if context.pathway[:post_secondary].count =< 1
+      return unless context.query_params[param].present?
+      return if context.pathway[:post_secondary].count == 1
 
-      programs = context.pathway[:post_secondary] || OuacUniversityProgram.includes(:university_prereq_groups)
+      programs = context.pathway[:post_secondary].empty? ? OuacUniversityProgram.includes(:university_prereq_groups) : context.pathway[:post_secondary]
       send("select_by_#{param}", programs)
     end
+
+    select_by_eligibility
   end
 
   def select_by_occupation(programs)
@@ -39,7 +41,10 @@ class NarrowPostSecondary
     context.pathway[:post_secondary] = programs.where(ouac_univ_code: context.pathway[:uni_codes])
   end
 
-  def select_by_eligibility(programs)
+  def select_by_eligibility
+    programs = context.pathway[:post_secondary]
+    return if programs.empty?
+
     prereqs = UniversityPrereq.includes(:ouac_university_program).where(hs_course_code: context.query_params[:hs_courses])
 
     context.pathway[:post_secondary] = programs.keep_if do |program|
@@ -49,6 +54,7 @@ class NarrowPostSecondary
 
   def prereqs_met?(program, prereqs)
     program.university_prereq_groups.required.each do |prereq_group|
+      byebug
       selection_group = prereq_group.university_prereqs
       matches = selection_group.where(id: prereqs).count
       return false unless matches >= prereq_group.num_picks_required

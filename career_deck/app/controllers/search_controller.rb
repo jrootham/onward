@@ -6,7 +6,7 @@ class SearchController < ActionController::API
     if context.success?
       render json: context.pathway
     else
-      render json: context.message
+      render json: { error: context.message }, status: 500
     end
   end
 

@@ -4,7 +4,7 @@ class NarrowOccupation
   VALID_PARAMS = [:noc_codes, :salary, :maesd_codes]
 
   def call
-    context.pathway[:occupation] = select_occupations
+    select_occupations
 
   rescue => e
     context.fail! message: "Error selecting occupations: #{e}"
@@ -15,13 +15,13 @@ class NarrowOccupation
   def select_occupations
     VALID_PARAMS.each do |param|
       if context.query_params[param].present?
-        occupations = context.pathway[:occupation] || Occupation.includes(:maesd_programs)
+        occupations = context.pathway[:occupation].empty? ? Occupation.includes(:maesd_programs) : context.pathway[:occupation]
         send("select_by_#{param}", occupations)
       end
     end
   end
 
-  def select_by_noc_code(occupations)
+  def select_by_noc_codes(occupations)
     context.pathway[:occupation] = occupations.where(noc_code: context.query_params[:noc_codes])
   end
 

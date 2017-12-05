@@ -53,8 +53,9 @@ export default class DecksEntry extends React.Component {
     })
 
     fetch(baseUrl)
-      .then( res  => res.json())
+      .then( res => res.json())
       .then( pathway =>  {
+        console.log('NEW PATHWAY', pathway)
         this.setState({
           grade_9: pathway.grade_9,
           grade_10: pathway.grade_10,
