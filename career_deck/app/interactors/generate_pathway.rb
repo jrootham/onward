@@ -3,6 +3,7 @@ class GeneratePathway
 
   # organize NarrowOccupation, NarrowPostSecondary, NarrowHighSchool, PopulateHighSchool, PopulatePostSecondary, PopulateOccupation
 
-  organize SelectOccupation, SelectPostSecondary, NarrowHighSchool
+  # organize PopulateHighSchoolCourses, SelectOccupation, SelectPostSecondary, SelectHighSchool
 
+  organize PopulateHighSchoolCourses, NarrowOccupation, NarrowPostSecondary, PopulatePostSecondary, PopulateOccupation
 end

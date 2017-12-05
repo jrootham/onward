@@ -1,17 +1,20 @@
 class PopulateOccupation
   include Interactor
 
+  OCC_PARAMS = [:noc_codes, :salary, :maesd_codes]
+
   def call
-    return if context.pathway[:occupation].present? && context.pathway[:occupation].count > 0
+    return if OCC_PARAMS.any? { |param| context.query_params[param].present? }
 
-    post_secondary_programs = context.pathway[:post_secondary]
+    context.pathway[:occupation] = populate_related_occupations
 
-    context.pathway[:occupation] = related_occupations(post_secondary_programs)
+  rescue => e
+    context.fail! message: "Error populating occupations: #{e}"
   end
 
   private
 
-  def related_occupations(post_secondary_programs)
-    post_secondary_programs.map(&:occupations).limit(2).flatten
+  def populate_related_occupations
+    context.pathway[:post_secondary].map(&:occupations).limit(2).flatten
   end
 end

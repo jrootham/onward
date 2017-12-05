@@ -18,7 +18,7 @@ const OccupationContent = ({ option, updateParams }) => {
         </LockablePill>
       </div>
       <div className='details'>
-        <div className='pill'>{ `Risk of automation: ${option.risk_of_automation}` }</div>
+        <div className='pill'>{ `Risk of automation: ${option.risk_of_automation}%` }</div>
         {
           option.salary &&
           <LockablePill handleClick={lockSalary} >

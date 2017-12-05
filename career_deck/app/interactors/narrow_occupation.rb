@@ -5,28 +5,31 @@ class NarrowOccupation
 
   def call
     context.pathway[:occupation] = select_occupations
+
+  rescue => e
+    context.fail! message: "Error selecting occupations: #{e}"
   end
 
   private
 
   def select_occupations
-    valid_params = VALID_PARAMS.any? { |param| context.query_params[param].present? }
-    return unless valid_params
-
-    collection = Occupation.includes(:maesd_programs, :ouac_university_programs).limit(5)
-
-    if context.query_params[:noc_codes]
-      return collection.where(noc_code: context.query_params[:noc_codes])
+    VALID_PARAMS.each do |param|
+      if context.query_params[param].present?
+        occupations = context.pathway[:occupation] || Occupation.includes(:maesd_programs)
+        send("select_by_#{param}", occupations)
+      end
     end
+  end
 
-    if context.query_params[:maesd_codes]
-      collection = collection.where(univ_programs_maesd: { program_code: context.query_params[:maesd_codes] })
-    end
+  def select_by_noc_code(occupations)
+    context.pathway[:occupation] = occupations.where(noc_code: context.query_params[:noc_codes])
+  end
 
-    if context.query_params[:salary]
-      collection = collection.where('salary >= ?', context.query_params[:salary])
-    end
+  def select_by_salary(occupations)
+    context.pathway[:occupation] = occupations.where('salary >= ?', context.query_params[:salary])
+  end
 
-    collection
+  def select_by_maesd_codes(occupations)
+    context.pathway[:occupation] = occupations.where(univ_programs_maesd: { program_code: context.query_params[:maesd_codes] })
   end
 end

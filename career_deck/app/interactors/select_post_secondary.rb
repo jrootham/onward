@@ -1,7 +1,7 @@
 class SelectPostSecondary
   include Interactor
 
-  VALID_PARAMS = [:ouac_codes, :uni_codes, :maesd_codes]
+  VALID_PARAMS = [:ouac_codes, :uni_codes]
   BATCH_SIZE = 10
   TARGET = 10
   DEFAULT_HS_COURSES = ['ENG4U']
@@ -10,6 +10,7 @@ class SelectPostSecondary
     hs_course_codes = context.query_params[:hs_courses] || DEFAULT_HS_COURSES
     prereqs = UniversityPrereq.includes(:ouac_university_program).where(hs_course_code: hs_course_codes)
     context.pathway[:post_secondary] = find_eligible_programs(hs_course_codes, prereqs, [], 0)
+    p "PARAMS: #{context.query_params}"
   end
 
   private
@@ -30,10 +31,6 @@ class SelectPostSecondary
 
     if context.pathway[:occupation].present?
       return context.pathway[:occupation].limit(limit).offset(offset).map(&:ouac_university_program_random)
-    end
-
-    if context.query_params[:maesd_codes].present?
-      return collection.where(maesd_programs_ouac_university_programs: { maesd_program_id: context.pathway[:maesd_codes] }).limit(limit).offset(offset)
     end
   end
 

@@ -5,7 +5,8 @@ class PathwaysController < ApplicationController
     empty_pathway = Hash[Pathway::LEVELS.map{ |level| [level, []] }].with_indifferent_access
     query_params = {
       current_level: pathway_params[:current_level],
-      maesd_codes: pathway_params[:maesd_codes]
+      maesd_codes: pathway_params[:maesd_codes],
+      hs_courses: parse_hs_courses
     }.with_indifferent_access
 
     context = GeneratePathway.call(query_params: query_params,
@@ -17,10 +18,12 @@ class PathwaysController < ApplicationController
     end
   end
 
-  def new
+  def parse_hs_courses
+    pathway_params[:hs_courses].split(',')
   end
 
+
   def pathway_params
-    params.permit(:current_level, :maesd_codes, :search_params)
+    params.permit(:current_level, :maesd_codes, :search_params, :hs_courses)
   end
 end

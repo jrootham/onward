@@ -63,7 +63,7 @@ export default class Options extends React.Component {
   _submitAndContinue() {
     this.setState({ loading: true })
 
-    const url = `/pathways?current_level=${this.state.current_level}&hs_courses=${this.state.hs_courses}&maesd_codes=${this.state.maesd_codes}`
+    const url = `/pathways?current_level=${this.props.current_level}&hs_courses=${this.props.hs_courses}&maesd_codes=${this.props.maesd_codes}`
 
     window.location.href = url;
   }

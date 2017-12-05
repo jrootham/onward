@@ -23,4 +23,11 @@ class Occupation < ApplicationRecord
   def ouac_university_program_random
     ouac_university_programs.order("RAND()").first
   end
+
+  def maesd_codes
+    cip_codes = SpecificProgram.where(noc_code: noc_code).order(job_count: :desc).pluck(:cip_program_code)
+
+    cip_cat_codes = cip_codes.map { |code| code.split('.')[0] }.uniq
+    CipMaesdMap.where(cip_top_code: cip_cat_codes).pluck(:program_code).uniq
+  end
 end

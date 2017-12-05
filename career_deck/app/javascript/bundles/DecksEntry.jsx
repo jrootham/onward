@@ -29,24 +29,26 @@ export default class DecksEntry extends React.Component {
     const url = new URL(url_string);
     const current_level = url.searchParams.get("current_level");
     const maesd_codes = url.searchParams.get("maesd_codes")
-    this.setState({ current_level, maesd_codes })
+    const hs_courses = url.searchParams.get("hs_courses")
+    this.setState({ current_level, maesd_codes, hs_courses })
   }
 
   _fetchPathway () {
     this.setState({ loading: true })
     let baseUrl = '/search?';
     const validParams = [
+      'current_level',
+      'hs_courses',
       'noc_codes',
       'ouac_codes',
       'maesd_codes',
-      'current_level',
-      'uni_codes',
-      'salary'
+      'salary',
+      'uni_codes'
     ]
     validParams.map((k) => {
       if (!!this.state[k]) {
         const v = this.state[k]
-        baseUrl = baseUrl + `${encodeURIComponent(k)}=${encodeURIComponent(v)}&`;
+        baseUrl = baseUrl + `&${encodeURIComponent(k)}=${encodeURIComponent(v)}`;
       }
     })
 
